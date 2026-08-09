@@ -5,12 +5,12 @@
         <span class="name">{{ item.originalName }}</span>
         <span class="sub">
           {{ item.sizeBytes | bytes }}
-          @if (items.length > 1) { · {{ index() + 1 }} of {{ items.length }} }
+          @if (items.length > 1) { · <span i18n="@@preview.position">{{ index() + 1 }} of {{ items.length }}</span> }
         </span>
       </div>
       <div class="bar-actions">
-        <cove-button variant="ghost" size="sm" icon="download" (click)="download()">Download</cove-button>
-        <cove-icon-button icon="x" label="Close preview" (click)="closed.emit()" />
+        <cove-button variant="ghost" size="sm" icon="download" (click)="download()" i18n="@@files.menu.download">Download</cove-button>
+        <cove-icon-button icon="x" label="Close preview" i18n-label="@@preview.close" (click)="closed.emit()" />
       </div>
     </header>
 
@@ -20,6 +20,7 @@
         class="nav nav--prev"
         [disabled]="!hasPrev()"
         aria-label="Previous file"
+        i18n-aria-label="@@preview.prev"
         (click)="$event.stopPropagation(); go(-1)">
         <cove-icon name="chevron-left" [size]="26" />
       </button>
@@ -28,6 +29,7 @@
         class="nav nav--next"
         [disabled]="!hasNext()"
         aria-label="Next file"
+        i18n-aria-label="@@preview.next"
         (click)="$event.stopPropagation(); go(1)">
         <cove-icon name="chevron-right" [size]="26" />
       </button>
@@ -36,14 +38,14 @@
     <!-- stopPropagation so clicking the file itself doesn't close the overlay -->
     <div class="stage" (click)="$event.stopPropagation()">
       @if (loading()) {
-        <p class="muted">Loading preview…</p>
+        <p class="muted" i18n="@@preview.loading">Loading preview…</p>
       } @else if (error(); as e) {
         <div class="fail">
           <cove-icon name="alert-circle" [size]="30" color="var(--danger)" />
           <p>{{ e }}</p>
           <div class="fail-actions">
-            <cove-button variant="ghost" size="sm" (click)="retry()">Try again</cove-button>
-            <cove-button variant="primary" size="sm" icon="download" (click)="download()">Download</cove-button>
+            <cove-button variant="ghost" size="sm" (click)="retry()" i18n="@@preview.try_again">Try again</cove-button>
+            <cove-button variant="primary" size="sm" icon="download" (click)="download()" i18n="@@files.menu.download">Download</cove-button>
           </div>
         </div>
       } @else if (url(); as src) {

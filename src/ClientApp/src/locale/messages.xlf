@@ -61,6 +61,22 @@
           <context context-type="sourcefile">src/app/app.ts</context>
           <context context-type="linenumber">69</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">25,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">213</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="nav.trash" datatype="html">
         <source>Trash</source>
@@ -276,6 +292,747 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/email-change/confirm-email.ts</context>
           <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.search.results" datatype="html">
+        <source>Results for “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.result_count" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 result} other {<x id="INTERPOLATION"/> results}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">10,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.new_folder" datatype="html">
+        <source>New folder</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">217</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.upload" datatype="html">
+        <source>Upload</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.dismiss" datatype="html">
+        <source>Dismiss</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.drop_to_upload" datatype="html">
+        <source>Drop to upload to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ contents()?.folder?.name ?? myFilesLabel }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">75,77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.selected_count" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 item selected} other {<x id="INTERPOLATION"/> items selected}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">83,85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.download_count" datatype="html">
+        <source> Download <x id="ICU" equiv-text="{selectedFiles().length, plural, =1 {1 file} other {{{selectedFiles().length}} files}}" xid="2159106180826349718"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">88,90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8407137440564843816" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 file} other {<x id="INTERPOLATION"/> files}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.move_to" datatype="html">
+        <source> Move to… </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">92,94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">596</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">617</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.delete" datatype="html">
+        <source> Delete </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">95,96</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">598</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">619</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.select_all" datatype="html">
+        <source>Select all</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">99,101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.clear" datatype="html">
+        <source>Clear</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">101,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.searching" datatype="html">
+        <source>Searching…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">110,111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.loading" datatype="html">
+        <source>Loading…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">139,141</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.no_match" datatype="html">
+        <source>No files or folders match “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">145,146</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.empty_folder" datatype="html">
+        <source>This folder is empty — drop files anywhere here, or create a subfolder.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">148,151</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.section.folders" datatype="html">
+        <source>Folders</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">155,157</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.section.files" datatype="html">
+        <source>Files</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">182,184</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.folder_name_placeholder" datatype="html">
+        <source>Folder name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">219,220</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">225,226</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">243,244</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">266,267</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">60,61</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">91,92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.create" datatype="html">
+        <source>Create</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">226,228</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.new_name_placeholder" datatype="html">
+        <source>New name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">237,238</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.rename" datatype="html">
+        <source>Rename</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">244,246</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">595</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">616</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_folder" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and everything inside it will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">257,258</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_file" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">259,260</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_many" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="ICU" equiv-text="{confirmTargets().length, plural, other {{{confirmTargets().length}} items}}" xid="8823056860313630858"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be moved to the Trash. You can restore them for 10 days; they keep using storage until then.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">262,263</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8906145221320610391" datatype="html">
+        <source>{VAR_PLURAL, plural, other {<x id="INTERPOLATION"/> items}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">262</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.move_to_trash" datatype="html">
+        <source>Move to Trash</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.html</context>
+          <context context-type="linenumber">267,269</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.new_folder_default" datatype="html">
+        <source>New folder</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">150</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.confirm.title_one" datatype="html">
+        <source>Delete <x id="name" equiv-text="targets[0].name"/>?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">204</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.confirm.title_many" datatype="html">
+        <source>Delete <x id="count" equiv-text="targets.length"/> items?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">205</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.rename_title" datatype="html">
+        <source>Rename <x id="name" equiv-text="this.renameTarget()?.name ?? &apos;&apos;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.flash.folder_exists" datatype="html">
+        <source>A folder named &quot;<x id="name" equiv-text="name"/>&quot; already existed — created &quot;<x id="created" equiv-text="created.name"/>&quot;.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">363</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.flash.name_taken" datatype="html">
+        <source>&quot;<x id="name" equiv-text="name"/>&quot; was taken — saved as &quot;<x id="stored" equiv-text="stored"/>&quot;.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">386</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.download.some_failed" datatype="html">
+        <source>Could not get a download link for <x id="failed" equiv-text="failed"/> of <x id="total" equiv-text="files.length"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, files.length)"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">454</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.fail.move_all" datatype="html">
+        <source>Could not move <x id="names" equiv-text="names"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">484</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.fail.move_some" datatype="html">
+        <source>Could not move <x id="failed" equiv-text="count"/> of <x id="total" equiv-text="total"/> items: <x id="names" equiv-text="names"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">485</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.fail.delete_all" datatype="html">
+        <source>Could not delete <x id="names" equiv-text="names"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">488</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.fail.delete_some" datatype="html">
+        <source>Could not delete <x id="failed" equiv-text="count"/> of <x id="total" equiv-text="total"/> items: <x id="names" equiv-text="names"/>.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">489</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noun.file.one" datatype="html">
+        <source>file</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">496</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noun.file.other" datatype="html">
+        <source>files</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">496</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noun.item.one" datatype="html">
+        <source>item</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">498</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noun.item.other" datatype="html">
+        <source>items</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">498</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.flash.moved_renamed" datatype="html">
+        <source>Moved — renamed to &quot;<x id="stored" equiv-text="stored"/>&quot; to avoid a clash.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">508</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.menu.open" datatype="html">
+        <source>Open</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">594</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.menu.download" datatype="html">
+        <source>Download</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">614</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.menu.share" datatype="html">
+        <source>Share…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">615</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.menu.download_n" datatype="html">
+        <source>Download <x id="count" equiv-text="fileCount"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, fileCount)"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">639</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.menu.move_n" datatype="html">
+        <source>Move <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/> to…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">645</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="files.menu.delete_n" datatype="html">
+        <source>Delete <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/files.ts</context>
+          <context context-type="linenumber">648</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="move.no_subfolders" datatype="html">
+        <source>No subfolders here.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">36,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="move.moving_to" datatype="html">
+        <source>Moving to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ destinationName() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="move.already_here" datatype="html">
+        <source> — already here</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">55,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="move.move_here" datatype="html">
+        <source>Move here</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">61,62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="move.self_disabled" datatype="html">
+        <source>A folder cannot be moved into itself</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="move.title_one" datatype="html">
+        <source>Move <x id="name" equiv-text="this.items[0].name"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="move.title_many" datatype="html">
+        <source>Move <x id="count" equiv-text="this.items.length"/> items</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
+          <context context-type="linenumber">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.position" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ index() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ items.length }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.close" datatype="html">
+        <source>Close preview</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.prev" datatype="html">
+        <source>Previous file</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.next" datatype="html">
+        <source>Next file</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.loading" datatype="html">
+        <source>Loading preview…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.try_again" datatype="html">
+        <source>Try again</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
+          <context context-type="linenumber">47,48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.err.load" datatype="html">
+        <source>Could not load a preview for this file.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.err.download" datatype="html">
+        <source>Could not start the download.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.ts</context>
+          <context context-type="linenumber">122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="preview.err.expired" datatype="html">
+        <source>That preview link expired. Try again.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/preview-overlay.ts</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.expiry.1day" datatype="html">
+        <source>1 day</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.expiry.7days" datatype="html">
+        <source>7 days</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.expiry.30days" datatype="html">
+        <source>30 days</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.expiry.never" datatype="html">
+        <source>Never</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.expires_in" datatype="html">
+        <source>Link expires in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.create_link" datatype="html">
+        <source> Create link </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.loading_links" datatype="html">
+        <source>Loading links…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">57,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.not_shared" datatype="html">
+        <source>This file isn&apos;t shared yet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">59,61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.expires_on" datatype="html">
+        <source>Expires <x id="INTERPOLATION" equiv-text="{{ formatDate(link.expiresAt) }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.never_expires" datatype="html">
+        <source>Never expires</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">67,68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.change_expiry" datatype="html">
+        <source>Change expiry</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.change_expiry_option" datatype="html">
+        <source>Change expiry…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">72,73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.copied" datatype="html">
+        <source>Copied</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.link_actions" datatype="html">
+        <source>Link actions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.stop_sharing" datatype="html">
+        <source> Stop sharing </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">96,97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.done" datatype="html">
+        <source>Done</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.err.load" datatype="html">
+        <source>Could not load this file’s links.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.err.create" datatype="html">
+        <source>Could not create the link.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">183</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.err.expiry" datatype="html">
+        <source>Could not change the expiry.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">203</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.err.revoke" datatype="html">
+        <source>Could not revoke the link.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">217</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.err.stop" datatype="html">
+        <source>Could not stop sharing this file.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">232</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.menu.copy" datatype="html">
+        <source>Copy link</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">247</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.menu.revoke" datatype="html">
+        <source>Revoke</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.err.copy" datatype="html">
+        <source>Copying isn’t available here — select and copy the link manually.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">265</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.title" datatype="html">
+        <source>Share <x id="name" equiv-text="this.fileName"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">270</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.status.active" datatype="html">
+        <source>Active</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">282</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.status.expired" datatype="html">
+        <source>Expired</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">283</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share.status.revoked" datatype="html">
+        <source>Revoked</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/files/share-dialog.ts</context>
+          <context context-type="linenumber">284</context>
         </context-group>
       </trans-unit>
       <trans-unit id="lang.label" datatype="html">
@@ -645,24 +1402,6 @@
           <context context-type="linenumber">100,102</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="common.dismiss" datatype="html">
-        <source>Dismiss</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
-          <context context-type="linenumber">21</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="common.loading" datatype="html">
-        <source>Loading…</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
-          <context context-type="linenumber">34,35</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="trash.empty_state" datatype="html">
         <source>Trash is empty.</source>
         <context-group purpose="location">
@@ -732,17 +1471,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trash/trash.html</context>
           <context context-type="linenumber">87,88</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="common.cancel" datatype="html">
-        <source>Cancel</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
-          <context context-type="linenumber">91,92</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
-          <context context-type="linenumber">99,100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trash.empty.title" datatype="html">

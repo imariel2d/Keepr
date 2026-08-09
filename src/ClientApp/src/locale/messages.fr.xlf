@@ -149,6 +149,386 @@
         <source>Could not confirm your new email. Try the link again.</source>
         <target state="needs-review-translation">Impossible de confirmer votre nouvel e-mail. Réessayez le lien.</target>
       </trans-unit>
+      <trans-unit id="files.search.results" datatype="html">
+        <source>Results for “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”</source>
+        <target state="needs-review-translation">Résultats pour « <x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/> »</target>
+      </trans-unit>
+      <trans-unit id="files.result_count" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 result} other {<x id="INTERPOLATION"/> results}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 résultat} other {<x id="INTERPOLATION"/> résultats}}</target>
+      </trans-unit>
+      <trans-unit id="files.new_folder" datatype="html">
+        <source>New folder</source>
+        <target state="needs-review-translation">Nouveau dossier</target>
+      </trans-unit>
+      <trans-unit id="files.upload" datatype="html">
+        <source>Upload</source>
+        <target state="needs-review-translation">Téléverser</target>
+      </trans-unit>
+      <trans-unit id="common.dismiss" datatype="html">
+        <source>Dismiss</source>
+        <target state="needs-review-translation">Ignorer</target>
+      </trans-unit>
+      <trans-unit id="files.drop_to_upload" datatype="html">
+        <source>Drop to upload to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ contents()?.folder?.name ?? myFilesLabel }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="needs-review-translation">Déposez pour téléverser vers <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ contents()?.folder?.name ?? myFilesLabel }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="files.selected_count" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 item selected} other {<x id="INTERPOLATION"/> items selected}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 élément sélectionné} other {<x id="INTERPOLATION"/> éléments sélectionnés}}</target>
+      </trans-unit>
+      <trans-unit id="files.download_count" datatype="html">
+        <source> Download <x id="ICU" equiv-text="{selectedFiles().length, plural, =1 {1 file} other {{{selectedFiles().length}} files}}" xid="2159106180826349718"/> </source>
+        <target state="needs-review-translation">Télécharger <x id="ICU" equiv-text="{selectedFiles().length, plural, =1 {1 file} other {{{selectedFiles().length}} files}}" xid="2159106180826349718"/></target>
+      </trans-unit>
+      <trans-unit id="8407137440564843816" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 file} other {<x id="INTERPOLATION"/> files}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 fichier} other {<x id="INTERPOLATION"/> fichiers}}</target>
+      </trans-unit>
+      <trans-unit id="files.move_to" datatype="html">
+        <source> Move to… </source>
+        <target state="needs-review-translation">Déplacer vers…</target>
+      </trans-unit>
+      <trans-unit id="files.delete" datatype="html">
+        <source> Delete </source>
+        <target state="needs-review-translation">Supprimer</target>
+      </trans-unit>
+      <trans-unit id="files.select_all" datatype="html">
+        <source>Select all</source>
+        <target state="needs-review-translation">Tout sélectionner</target>
+      </trans-unit>
+      <trans-unit id="files.clear" datatype="html">
+        <source>Clear</source>
+        <target state="needs-review-translation">Effacer</target>
+      </trans-unit>
+      <trans-unit id="files.searching" datatype="html">
+        <source>Searching…</source>
+        <target state="needs-review-translation">Recherche…</target>
+      </trans-unit>
+      <trans-unit id="common.loading" datatype="html">
+        <source>Loading…</source>
+        <target state="needs-review-translation">Chargement…</target>
+      </trans-unit>
+      <trans-unit id="files.no_match" datatype="html">
+        <source>No files or folders match “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”.</source>
+        <target state="needs-review-translation">Aucun fichier ou dossier ne correspond à « <x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/> ».</target>
+      </trans-unit>
+      <trans-unit id="files.empty_folder" datatype="html">
+        <source>This folder is empty — drop files anywhere here, or create a subfolder.</source>
+        <target state="needs-review-translation">Ce dossier est vide — déposez des fichiers ici ou créez un sous-dossier.</target>
+      </trans-unit>
+      <trans-unit id="files.section.folders" datatype="html">
+        <source>Folders</source>
+        <target state="needs-review-translation">Dossiers</target>
+      </trans-unit>
+      <trans-unit id="files.section.files" datatype="html">
+        <source>Files</source>
+        <target state="needs-review-translation">Fichiers</target>
+      </trans-unit>
+      <trans-unit id="files.folder_name_placeholder" datatype="html">
+        <source>Folder name</source>
+        <target state="needs-review-translation">Nom du dossier</target>
+      </trans-unit>
+      <trans-unit id="common.cancel" datatype="html">
+        <source>Cancel</source>
+        <target state="needs-review-translation">Annuler</target>
+      </trans-unit>
+      <trans-unit id="files.create" datatype="html">
+        <source>Create</source>
+        <target state="needs-review-translation">Créer</target>
+      </trans-unit>
+      <trans-unit id="files.new_name_placeholder" datatype="html">
+        <source>New name</source>
+        <target state="needs-review-translation">Nouveau nom</target>
+      </trans-unit>
+      <trans-unit id="files.rename" datatype="html">
+        <source>Rename</source>
+        <target state="needs-review-translation">Renommer</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_folder" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and everything inside it will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</source>
+        <target state="needs-review-translation"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> et tout son contenu seront déplacés vers la corbeille. Vous pouvez le restaurer pendant 10 jours ; il continue d'occuper du stockage jusque-là.</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_file" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</source>
+        <target state="needs-review-translation"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> sera déplacé vers la corbeille. Vous pouvez le restaurer pendant 10 jours ; il continue d'occuper du stockage jusque-là.</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_many" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="ICU" equiv-text="{confirmTargets().length, plural, other {{{confirmTargets().length}} items}}" xid="8823056860313630858"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be moved to the Trash. You can restore them for 10 days; they keep using storage until then.</source>
+        <target state="needs-review-translation"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="ICU" equiv-text="{confirmTargets().length, plural, other {{{confirmTargets().length}} items}}" xid="8823056860313630858"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> seront déplacés vers la corbeille. Vous pouvez les restaurer pendant 10 jours ; ils continuent d'occuper du stockage jusque-là.</target>
+      </trans-unit>
+      <trans-unit id="8906145221320610391" datatype="html">
+        <source>{VAR_PLURAL, plural, other {<x id="INTERPOLATION"/> items}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, other {<x id="INTERPOLATION"/> éléments}}</target>
+      </trans-unit>
+      <trans-unit id="files.move_to_trash" datatype="html">
+        <source>Move to Trash</source>
+        <target state="needs-review-translation">Déplacer vers la corbeille</target>
+      </trans-unit>
+      <trans-unit id="files.new_folder_default" datatype="html">
+        <source>New folder</source>
+        <target state="needs-review-translation">Nouveau dossier</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.title_one" datatype="html">
+        <source>Delete <x id="name" equiv-text="targets[0].name"/>?</source>
+        <target state="needs-review-translation">Supprimer <x id="name" equiv-text="targets[0].name"/> ?</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.title_many" datatype="html">
+        <source>Delete <x id="count" equiv-text="targets.length"/> items?</source>
+        <target state="needs-review-translation">Supprimer <x id="count" equiv-text="targets.length"/> éléments ?</target>
+      </trans-unit>
+      <trans-unit id="files.rename_title" datatype="html">
+        <source>Rename <x id="name" equiv-text="this.renameTarget()?.name ?? &apos;&apos;"/></source>
+        <target state="needs-review-translation">Renommer <x id="name" equiv-text="this.renameTarget()?.name ?? &apos;&apos;"/></target>
+      </trans-unit>
+      <trans-unit id="files.flash.folder_exists" datatype="html">
+        <source>A folder named &quot;<x id="name" equiv-text="name"/>&quot; already existed — created &quot;<x id="created" equiv-text="created.name"/>&quot;.</source>
+        <target state="needs-review-translation">Un dossier nommé "<x id="name" equiv-text="name"/>" existait déjà — "<x id="created" equiv-text="created.name"/>" a été créé.</target>
+      </trans-unit>
+      <trans-unit id="files.flash.name_taken" datatype="html">
+        <source>&quot;<x id="name" equiv-text="name"/>&quot; was taken — saved as &quot;<x id="stored" equiv-text="stored"/>&quot;.</source>
+        <target state="needs-review-translation">"<x id="name" equiv-text="name"/>" était déjà pris — enregistré sous "<x id="stored" equiv-text="stored"/>".</target>
+      </trans-unit>
+      <trans-unit id="files.download.some_failed" datatype="html">
+        <source>Could not get a download link for <x id="failed" equiv-text="failed"/> of <x id="total" equiv-text="files.length"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, files.length)"/>.</source>
+        <target state="needs-review-translation">Impossible d'obtenir un lien de téléchargement pour <x id="failed" equiv-text="failed"/> sur <x id="total" equiv-text="files.length"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, files.length)"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.move_all" datatype="html">
+        <source>Could not move <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">Impossible de déplacer <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.move_some" datatype="html">
+        <source>Could not move <x id="failed" equiv-text="count"/> of <x id="total" equiv-text="total"/> items: <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">Impossible de déplacer <x id="failed" equiv-text="count"/> sur <x id="total" equiv-text="total"/> éléments : <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.delete_all" datatype="html">
+        <source>Could not delete <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">Impossible de supprimer <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.delete_some" datatype="html">
+        <source>Could not delete <x id="failed" equiv-text="count"/> of <x id="total" equiv-text="total"/> items: <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">Impossible de supprimer <x id="failed" equiv-text="count"/> sur <x id="total" equiv-text="total"/> éléments : <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="noun.file.one" datatype="html">
+        <source>file</source>
+        <target state="needs-review-translation">fichier</target>
+      </trans-unit>
+      <trans-unit id="noun.file.other" datatype="html">
+        <source>files</source>
+        <target state="needs-review-translation">fichiers</target>
+      </trans-unit>
+      <trans-unit id="noun.item.one" datatype="html">
+        <source>item</source>
+        <target state="needs-review-translation">élément</target>
+      </trans-unit>
+      <trans-unit id="noun.item.other" datatype="html">
+        <source>items</source>
+        <target state="needs-review-translation">éléments</target>
+      </trans-unit>
+      <trans-unit id="files.flash.moved_renamed" datatype="html">
+        <source>Moved — renamed to &quot;<x id="stored" equiv-text="stored"/>&quot; to avoid a clash.</source>
+        <target state="needs-review-translation">Déplacé — renommé en "<x id="stored" equiv-text="stored"/>" pour éviter un conflit.</target>
+      </trans-unit>
+      <trans-unit id="files.menu.open" datatype="html">
+        <source>Open</source>
+        <target state="needs-review-translation">Ouvrir</target>
+      </trans-unit>
+      <trans-unit id="files.menu.download" datatype="html">
+        <source>Download</source>
+        <target state="needs-review-translation">Télécharger</target>
+      </trans-unit>
+      <trans-unit id="files.menu.share" datatype="html">
+        <source>Share…</source>
+        <target state="needs-review-translation">Partager…</target>
+      </trans-unit>
+      <trans-unit id="files.menu.download_n" datatype="html">
+        <source>Download <x id="count" equiv-text="fileCount"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, fileCount)"/></source>
+        <target state="needs-review-translation">Télécharger <x id="count" equiv-text="fileCount"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, fileCount)"/></target>
+      </trans-unit>
+      <trans-unit id="files.menu.move_n" datatype="html">
+        <source>Move <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/> to…</source>
+        <target state="needs-review-translation">Déplacer <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/> vers…</target>
+      </trans-unit>
+      <trans-unit id="files.menu.delete_n" datatype="html">
+        <source>Delete <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/></source>
+        <target state="needs-review-translation">Supprimer <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/></target>
+      </trans-unit>
+      <trans-unit id="move.no_subfolders" datatype="html">
+        <source>No subfolders here.</source>
+        <target state="needs-review-translation">Aucun sous-dossier ici.</target>
+      </trans-unit>
+      <trans-unit id="move.moving_to" datatype="html">
+        <source>Moving to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ destinationName() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="needs-review-translation">Déplacement vers <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ destinationName() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="move.already_here" datatype="html">
+        <source> — already here</source>
+        <target state="needs-review-translation"> — déjà ici</target>
+      </trans-unit>
+      <trans-unit id="move.move_here" datatype="html">
+        <source>Move here</source>
+        <target state="needs-review-translation">Déplacer ici</target>
+      </trans-unit>
+      <trans-unit id="move.self_disabled" datatype="html">
+        <source>A folder cannot be moved into itself</source>
+        <target state="needs-review-translation">Un dossier ne peut pas être déplacé dans lui-même</target>
+      </trans-unit>
+      <trans-unit id="move.title_one" datatype="html">
+        <source>Move <x id="name" equiv-text="this.items[0].name"/></source>
+        <target state="needs-review-translation">Déplacer <x id="name" equiv-text="this.items[0].name"/></target>
+      </trans-unit>
+      <trans-unit id="move.title_many" datatype="html">
+        <source>Move <x id="count" equiv-text="this.items.length"/> items</source>
+        <target state="needs-review-translation">Déplacer <x id="count" equiv-text="this.items.length"/> éléments</target>
+      </trans-unit>
+      <trans-unit id="preview.position" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ index() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ items.length }}"/></source>
+        <target state="needs-review-translation"><x id="INTERPOLATION" equiv-text="{{ index() + 1 }}"/> sur <x id="INTERPOLATION_1" equiv-text="{{ items.length }}"/></target>
+      </trans-unit>
+      <trans-unit id="preview.close" datatype="html">
+        <source>Close preview</source>
+        <target state="needs-review-translation">Fermer l'aperçu</target>
+      </trans-unit>
+      <trans-unit id="preview.prev" datatype="html">
+        <source>Previous file</source>
+        <target state="needs-review-translation">Fichier précédent</target>
+      </trans-unit>
+      <trans-unit id="preview.next" datatype="html">
+        <source>Next file</source>
+        <target state="needs-review-translation">Fichier suivant</target>
+      </trans-unit>
+      <trans-unit id="preview.loading" datatype="html">
+        <source>Loading preview…</source>
+        <target state="needs-review-translation">Chargement de l'aperçu…</target>
+      </trans-unit>
+      <trans-unit id="preview.try_again" datatype="html">
+        <source>Try again</source>
+        <target state="needs-review-translation">Réessayer</target>
+      </trans-unit>
+      <trans-unit id="preview.err.load" datatype="html">
+        <source>Could not load a preview for this file.</source>
+        <target state="needs-review-translation">Impossible de charger un aperçu de ce fichier.</target>
+      </trans-unit>
+      <trans-unit id="preview.err.download" datatype="html">
+        <source>Could not start the download.</source>
+        <target state="needs-review-translation">Impossible de démarrer le téléchargement.</target>
+      </trans-unit>
+      <trans-unit id="preview.err.expired" datatype="html">
+        <source>That preview link expired. Try again.</source>
+        <target state="needs-review-translation">Ce lien d'aperçu a expiré. Réessayez.</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.1day" datatype="html">
+        <source>1 day</source>
+        <target state="needs-review-translation">1 jour</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.7days" datatype="html">
+        <source>7 days</source>
+        <target state="needs-review-translation">7 jours</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.30days" datatype="html">
+        <source>30 days</source>
+        <target state="needs-review-translation">30 jours</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.never" datatype="html">
+        <source>Never</source>
+        <target state="needs-review-translation">Jamais</target>
+      </trans-unit>
+      <trans-unit id="share.expires_in" datatype="html">
+        <source>Link expires in</source>
+        <target state="needs-review-translation">Le lien expire dans</target>
+      </trans-unit>
+      <trans-unit id="share.create_link" datatype="html">
+        <source> Create link </source>
+        <target state="needs-review-translation">Créer un lien</target>
+      </trans-unit>
+      <trans-unit id="share.loading_links" datatype="html">
+        <source>Loading links…</source>
+        <target state="needs-review-translation">Chargement des liens…</target>
+      </trans-unit>
+      <trans-unit id="share.not_shared" datatype="html">
+        <source>This file isn&apos;t shared yet.</source>
+        <target state="needs-review-translation">Ce fichier n'est pas encore partagé.</target>
+      </trans-unit>
+      <trans-unit id="share.expires_on" datatype="html">
+        <source>Expires <x id="INTERPOLATION" equiv-text="{{ formatDate(link.expiresAt) }}"/></source>
+        <target state="needs-review-translation">Expire le <x id="INTERPOLATION" equiv-text="{{ formatDate(link.expiresAt) }}"/></target>
+      </trans-unit>
+      <trans-unit id="share.never_expires" datatype="html">
+        <source>Never expires</source>
+        <target state="needs-review-translation">N'expire jamais</target>
+      </trans-unit>
+      <trans-unit id="share.change_expiry" datatype="html">
+        <source>Change expiry</source>
+        <target state="needs-review-translation">Modifier l'expiration</target>
+      </trans-unit>
+      <trans-unit id="share.change_expiry_option" datatype="html">
+        <source>Change expiry…</source>
+        <target state="needs-review-translation">Modifier l'expiration…</target>
+      </trans-unit>
+      <trans-unit id="share.copied" datatype="html">
+        <source>Copied</source>
+        <target state="needs-review-translation">Copié</target>
+      </trans-unit>
+      <trans-unit id="share.link_actions" datatype="html">
+        <source>Link actions</source>
+        <target state="needs-review-translation">Actions du lien</target>
+      </trans-unit>
+      <trans-unit id="share.stop_sharing" datatype="html">
+        <source> Stop sharing </source>
+        <target state="needs-review-translation">Arrêter le partage</target>
+      </trans-unit>
+      <trans-unit id="share.done" datatype="html">
+        <source>Done</source>
+        <target state="needs-review-translation">Terminé</target>
+      </trans-unit>
+      <trans-unit id="share.err.load" datatype="html">
+        <source>Could not load this file’s links.</source>
+        <target state="needs-review-translation">Impossible de charger les liens de ce fichier.</target>
+      </trans-unit>
+      <trans-unit id="share.err.create" datatype="html">
+        <source>Could not create the link.</source>
+        <target state="needs-review-translation">Impossible de créer le lien.</target>
+      </trans-unit>
+      <trans-unit id="share.err.expiry" datatype="html">
+        <source>Could not change the expiry.</source>
+        <target state="needs-review-translation">Impossible de modifier l'expiration.</target>
+      </trans-unit>
+      <trans-unit id="share.err.revoke" datatype="html">
+        <source>Could not revoke the link.</source>
+        <target state="needs-review-translation">Impossible de révoquer le lien.</target>
+      </trans-unit>
+      <trans-unit id="share.err.stop" datatype="html">
+        <source>Could not stop sharing this file.</source>
+        <target state="needs-review-translation">Impossible d'arrêter le partage de ce fichier.</target>
+      </trans-unit>
+      <trans-unit id="share.menu.copy" datatype="html">
+        <source>Copy link</source>
+        <target state="needs-review-translation">Copier le lien</target>
+      </trans-unit>
+      <trans-unit id="share.menu.revoke" datatype="html">
+        <source>Revoke</source>
+        <target state="needs-review-translation">Révoquer</target>
+      </trans-unit>
+      <trans-unit id="share.err.copy" datatype="html">
+        <source>Copying isn’t available here — select and copy the link manually.</source>
+        <target state="needs-review-translation">La copie n'est pas disponible ici — sélectionnez et copiez le lien manuellement.</target>
+      </trans-unit>
+      <trans-unit id="share.title" datatype="html">
+        <source>Share <x id="name" equiv-text="this.fileName"/></source>
+        <target state="needs-review-translation">Partager <x id="name" equiv-text="this.fileName"/></target>
+      </trans-unit>
+      <trans-unit id="share.status.active" datatype="html">
+        <source>Active</source>
+        <target state="needs-review-translation">Actif</target>
+      </trans-unit>
+      <trans-unit id="share.status.expired" datatype="html">
+        <source>Expired</source>
+        <target state="needs-review-translation">Expiré</target>
+      </trans-unit>
+      <trans-unit id="share.status.revoked" datatype="html">
+        <source>Revoked</source>
+        <target state="needs-review-translation">Révoqué</target>
+      </trans-unit>
       <trans-unit id="lang.label" datatype="html">
         <source>Language</source>
         <target state="needs-review-translation">Langue</target>
@@ -329,14 +709,6 @@
         <source> Empty Trash </source>
         <target state="needs-review-translation">Vider la corbeille</target>
       </trans-unit>
-      <trans-unit id="common.dismiss" datatype="html">
-        <source>Dismiss</source>
-        <target state="needs-review-translation">Ignorer</target>
-      </trans-unit>
-      <trans-unit id="common.loading" datatype="html">
-        <source>Loading…</source>
-        <target state="needs-review-translation">Chargement…</target>
-      </trans-unit>
       <trans-unit id="trash.empty_state" datatype="html">
         <source>Trash is empty.</source>
         <target state="needs-review-translation">La corbeille est vide.</target>
@@ -372,10 +744,6 @@
       <trans-unit id="trash.purge.body_file" datatype="html">
         <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be permanently deleted and the storage freed immediately.</source>
         <target state="needs-review-translation">Cette action est irréversible. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> sera supprimé définitivement et le stockage libéré immédiatement.</target>
-      </trans-unit>
-      <trans-unit id="common.cancel" datatype="html">
-        <source>Cancel</source>
-        <target state="needs-review-translation">Annuler</target>
       </trans-unit>
       <trans-unit id="trash.empty.title" datatype="html">
         <source>Empty the Trash?</source>
