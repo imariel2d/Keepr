@@ -66,20 +66,26 @@ export class App {
    */
   protected readonly navItems = computed<NavItem[]>(() => {
     const items: NavItem[] = [
-      { key: 'files', label: 'My Files', icon: 'folder' },
-      { key: 'trash', label: 'Trash', icon: 'trash-2' },
+      { key: 'files', label: $localize`:@@nav.my_files:My Files`, icon: 'folder' },
+      { key: 'trash', label: $localize`:@@nav.trash:Trash`, icon: 'trash-2' },
     ];
     if (this.auth.isAdmin()) {
       items.push({
-        key: 'admin', label: 'Admin', icon: 'shield',
+        key: 'admin', label: $localize`:@@nav.admin:Admin`, icon: 'shield',
         children: [
-          { key: 'admin/accounts', label: 'Accounts', icon: 'users' },
-          { key: 'admin/email', label: 'Email', icon: 'mail' },
+          { key: 'admin/accounts', label: $localize`:@@nav.accounts:Accounts`, icon: 'users' },
+          { key: 'admin/email', label: $localize`:@@nav.email:Email`, icon: 'mail' },
         ],
       });
     }
     return items;
   });
+
+  /** Theme toggle label — dynamic, so localized here rather than with a template i18n attribute. */
+  protected readonly themeToggleLabel = computed(() =>
+    this.theme.theme() === 'dark'
+      ? $localize`:@@theme.to_light:Switch to light mode`
+      : $localize`:@@theme.to_dark:Switch to dark mode`);
 
   constructor() {
     this.router.events
@@ -130,7 +136,9 @@ export class App {
   protected quotaLabel(): string {
     const u = this.usage.usage();
     if (!u) return '';
-    return `${this.bytes.transform(u.usedBytes)} of ${this.bytes.transform(u.quotaBytes)} used`;
+    const used = this.bytes.transform(u.usedBytes);
+    const total = this.bytes.transform(u.quotaBytes);
+    return $localize`:@@quota.used:${used}:used: of ${total}:total: used`;
   }
 
   /**
@@ -139,7 +147,9 @@ export class App {
    */
   protected quotaNote(): string {
     const trashed = this.usage.usage()?.trashedBytes ?? 0;
-    return trashed > 0 ? `${this.bytes.transform(trashed)} in Trash` : '';
+    if (trashed <= 0) return '';
+    const amount = this.bytes.transform(trashed);
+    return $localize`:@@quota.in_trash:${amount}:trashed: in Trash`;
   }
 
   protected usedPercent(): number {

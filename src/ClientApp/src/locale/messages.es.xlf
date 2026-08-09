@@ -5,6 +5,70 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="es" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="shell.skip_to_content" datatype="html">
+        <source>Skip to content</source>
+        <target state="needs-review-translation">Saltar al contenido</target>
+      </trans-unit>
+      <trans-unit id="shell.open_menu" datatype="html">
+        <source>Open navigation menu</source>
+        <target state="needs-review-translation">Abrir el menú de navegación</target>
+      </trans-unit>
+      <trans-unit id="shell.search" datatype="html">
+        <source>Search files and folders</source>
+        <target state="needs-review-translation">Buscar archivos y carpetas</target>
+      </trans-unit>
+      <trans-unit id="shell.clear_search" datatype="html">
+        <source>Clear search</source>
+        <target state="needs-review-translation">Borrar búsqueda</target>
+      </trans-unit>
+      <trans-unit id="shell.your_profile" datatype="html">
+        <source>Your profile</source>
+        <target state="needs-review-translation">Tu perfil</target>
+      </trans-unit>
+      <trans-unit id="shell.log_out" datatype="html">
+        <source>Log out</source>
+        <target state="needs-review-translation">Cerrar sesión</target>
+      </trans-unit>
+      <trans-unit id="shell.nav" datatype="html">
+        <source>Navigation</source>
+        <target state="needs-review-translation">Navegación</target>
+      </trans-unit>
+      <trans-unit id="nav.my_files" datatype="html">
+        <source>My Files</source>
+        <target state="needs-review-translation">Mis archivos</target>
+      </trans-unit>
+      <trans-unit id="nav.trash" datatype="html">
+        <source>Trash</source>
+        <target state="needs-review-translation">Papelera</target>
+      </trans-unit>
+      <trans-unit id="nav.admin" datatype="html">
+        <source>Admin</source>
+        <target state="needs-review-translation">Administración</target>
+      </trans-unit>
+      <trans-unit id="nav.accounts" datatype="html">
+        <source>Accounts</source>
+        <target state="needs-review-translation">Cuentas</target>
+      </trans-unit>
+      <trans-unit id="nav.email" datatype="html">
+        <source>Email</source>
+        <target state="needs-review-translation">Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="theme.to_light" datatype="html">
+        <source>Switch to light mode</source>
+        <target state="needs-review-translation">Cambiar al modo claro</target>
+      </trans-unit>
+      <trans-unit id="theme.to_dark" datatype="html">
+        <source>Switch to dark mode</source>
+        <target state="needs-review-translation">Cambiar al modo oscuro</target>
+      </trans-unit>
+      <trans-unit id="quota.used" datatype="html">
+        <source><x id="used" equiv-text="used"/> of <x id="total" equiv-text="total"/> used</source>
+        <target state="needs-review-translation"><x id="used" equiv-text="used"/> de <x id="total" equiv-text="total"/> usado</target>
+      </trans-unit>
+      <trans-unit id="quota.in_trash" datatype="html">
+        <source><x id="trashed" equiv-text="amount"/> in Trash</source>
+        <target state="needs-review-translation"><x id="trashed" equiv-text="amount"/> en la papelera</target>
+      </trans-unit>
       <trans-unit id="errors.invalid_credentials" datatype="html">
         <source>Invalid credentials.</source>
         <target state="needs-review-translation">Credenciales no válidas.</target>
