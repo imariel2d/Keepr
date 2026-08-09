@@ -10,5 +10,6 @@ export function meetsMinLength(password: string): boolean {
 
 /** The live "at least N characters" requirement row shown next to a password field. */
 export function lengthRequirement(password: string): { label: string; met: boolean }[] {
-  return [{ label: `At least ${MIN_PASSWORD_LENGTH} characters`, met: meetsMinLength(password) }];
+  const label = $localize`:@@password.min_chars:At least ${MIN_PASSWORD_LENGTH}:count: characters`;
+  return [{ label, met: meetsMinLength(password) }];
 }

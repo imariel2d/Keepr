@@ -23,15 +23,16 @@
 > quota, theme toggle, drawer), the **Trash** screen (ICU plurals), the **Files** feature (grid, breadcrumbs,
 > selection bar, context menus, new-folder/rename/delete modals, and the move / preview / share
 > dialogs — with ICU plurals and split file/folder/many confirmation copy), the **public share viewer**
-> (`/s/:token`), plus the **/profile language card** (wires the switcher to `PATCH /api/me/profile`).
-> `es`/`fr` XLIFF catalogs (200 units, machine-translated, `needs-review`, id-complete against the
-> source) — the production build emits `browser/{en,es,fr}/` with the right base hrefs and per-locale
-> copy; the Dockerfile carries all three unchanged.
+> (`/s/:token`), the **admin screens** (accounts table + all five modals, and email settings), plus
+> the **/profile language card** (wires the switcher to `PATCH /api/me/profile`). **Every UI screen is
+> now localized.** `es`/`fr` XLIFF catalogs (292 units, machine-translated, `needs-review`,
+> id-complete against the source) — the production build emits `browser/{en,es,fr}/` with the right
+> base hrefs and per-locale copy; the Dockerfile carries all three unchanged.
 >
-> **Not built yet:** the **admin screens' copy** (accounts + email settings — still hardcoded
-> English), the Phase-2 field-validation codes (§5.3), the client
-> bootstrap auto-redirect for a signed-in user whose account preference differs from the current build
-> (the server cookie redirect covers the same-browser case), and emails (§10 P3).
+> **Not built yet:** the Phase-2 field-validation codes (§5.3 — password/email/register validation
+> messages still English), the client bootstrap auto-redirect for a signed-in user whose account
+> preference differs from the current build (the server cookie redirect covers the same-browser case),
+> and emails (§10 P3).
 >
 > Two load-bearing decisions the user made up front (see §2):
 >

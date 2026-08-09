@@ -69,6 +69,10 @@
         <source><x id="trashed" equiv-text="amount"/> in Trash</source>
         <target state="needs-review-translation"><x id="trashed" equiv-text="amount"/> en la papelera</target>
       </trans-unit>
+      <trans-unit id="password.min_chars" datatype="html">
+        <source>At least <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> characters</source>
+        <target state="needs-review-translation">Al menos <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> caracteres</target>
+      </trans-unit>
       <trans-unit id="errors.invalid_credentials" datatype="html">
         <source>Invalid credentials.</source>
         <target state="needs-review-translation">Credenciales no válidas.</target>
@@ -100,6 +104,394 @@
       <trans-unit id="errors.generic" datatype="html">
         <source>Something went wrong. Please try again.</source>
         <target state="needs-review-translation">Algo salió mal. Inténtalo de nuevo.</target>
+      </trans-unit>
+      <trans-unit id="admin.total_count" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ total() }}"/> total</source>
+        <target state="needs-review-translation"><x id="INTERPOLATION" equiv-text="{{ total() }}"/> en total</target>
+      </trans-unit>
+      <trans-unit id="admin.new_account" datatype="html">
+        <source> New account </source>
+        <target state="needs-review-translation">Nueva cuenta</target>
+      </trans-unit>
+      <trans-unit id="admin.loading" datatype="html">
+        <source>Loading accounts…</source>
+        <target state="needs-review-translation">Cargando cuentas…</target>
+      </trans-unit>
+      <trans-unit id="admin.col.email" datatype="html">
+        <source>Email</source>
+        <target state="needs-review-translation">Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="admin.col.role" datatype="html">
+        <source>Role</source>
+        <target state="needs-review-translation">Rol</target>
+      </trans-unit>
+      <trans-unit id="admin.col.storage" datatype="html">
+        <source>Storage</source>
+        <target state="needs-review-translation">Almacenamiento</target>
+      </trans-unit>
+      <trans-unit id="admin.col.sessions" datatype="html">
+        <source>Sessions</source>
+        <target state="needs-review-translation">Sesiones</target>
+      </trans-unit>
+      <trans-unit id="admin.col.joined" datatype="html">
+        <source>Joined</source>
+        <target state="needs-review-translation">Se unió</target>
+      </trans-unit>
+      <trans-unit id="admin.you" datatype="html">
+        <source>you</source>
+        <target state="needs-review-translation">tú</target>
+      </trans-unit>
+      <trans-unit id="admin.pending_title" datatype="html">
+        <source>Invited — not yet claimed</source>
+        <target state="needs-review-translation">Invitado — aún sin reclamar</target>
+      </trans-unit>
+      <trans-unit id="admin.pending" datatype="html">
+        <source>Pending</source>
+        <target state="needs-review-translation">Pendiente</target>
+      </trans-unit>
+      <trans-unit id="admin.storage_of" datatype="html">
+        <source>of</source>
+        <target state="needs-review-translation">de</target>
+      </trans-unit>
+      <trans-unit id="admin.resend" datatype="html">
+        <source>Resend</source>
+        <target state="needs-review-translation">Reenviar</target>
+      </trans-unit>
+      <trans-unit id="admin.showing" datatype="html">
+        <source>Showing <x id="INTERPOLATION" equiv-text="{{ rangeStart() }}"/>–<x id="INTERPOLATION_1" equiv-text="{{ rangeEnd() }}"/> of <x id="INTERPOLATION_2" equiv-text="{{ total() }}"/></source>
+        <target state="needs-review-translation">Mostrando <x id="INTERPOLATION" equiv-text="{{ rangeStart() }}"/>–<x id="INTERPOLATION_1" equiv-text="{{ rangeEnd() }}"/> de <x id="INTERPOLATION_2" equiv-text="{{ total() }}"/></target>
+      </trans-unit>
+      <trans-unit id="admin.prev" datatype="html">
+        <source>Prev</source>
+        <target state="needs-review-translation">Anterior</target>
+      </trans-unit>
+      <trans-unit id="admin.next" datatype="html">
+        <source>Next</source>
+        <target state="needs-review-translation">Siguiente</target>
+      </trans-unit>
+      <trans-unit id="admin.email_placeholder" datatype="html">
+        <source>person@example.com</source>
+        <target state="needs-review-translation">persona@ejemplo.com</target>
+      </trans-unit>
+      <trans-unit id="admin.role.user" datatype="html">
+        <source>User</source>
+        <target state="needs-review-translation">Usuario</target>
+      </trans-unit>
+      <trans-unit id="admin.role.admin" datatype="html">
+        <source>Admin</source>
+        <target state="needs-review-translation">Administrador</target>
+      </trans-unit>
+      <trans-unit id="admin.create.how" datatype="html">
+        <source>How they get in</source>
+        <target state="needs-review-translation">Cómo acceden</target>
+      </trans-unit>
+      <trans-unit id="admin.create.set_password" datatype="html">
+        <source>Set a password now</source>
+        <target state="needs-review-translation">Establecer una contraseña ahora</target>
+      </trans-unit>
+      <trans-unit id="admin.create.send_invite" datatype="html">
+        <source>Send an email invite</source>
+        <target state="needs-review-translation">Enviar una invitación por correo</target>
+      </trans-unit>
+      <trans-unit id="field.password" datatype="html">
+        <source>Password</source>
+        <target state="needs-review-translation">Contraseña</target>
+      </trans-unit>
+      <trans-unit id="field.password_min" datatype="html">
+        <source>At least <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> characters</source>
+        <target state="needs-review-translation">Al menos <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> caracteres</target>
+      </trans-unit>
+      <trans-unit id="admin.create.warn" datatype="html">
+        <source><x id="START_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;14&quot; /&gt;"/><x id="CLOSE_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;14&quot; /&gt;"/> This email isn&apos;t verified. If email delivery is turned on later, the real owner of this address could claim this account. Prefer an email invite once a mailer is configured. </source>
+        <target state="needs-review-translation">Este correo electrónico no está verificado. Si la entrega de correo se activa más tarde, el verdadero propietario de esta dirección podría reclamar esta cuenta. Es preferible una invitación por correo una vez configurado un servicio de correo.</target>
+      </trans-unit>
+      <trans-unit id="admin.create.invite_hint" datatype="html">
+        <source> We&apos;ll email a link to set their own password. Needs a configured mail sender. </source>
+        <target state="needs-review-translation">Enviaremos por correo un enlace para que establezcan su propia contraseña. Requiere un remitente de correo configurado.</target>
+      </trans-unit>
+      <trans-unit id="admin.create.no_mail" datatype="html">
+        <source> No mail sender is configured — switch to “Set a password now”, or configure email first. </source>
+        <target state="needs-review-translation">No hay ningún remitente de correo configurado — cambia a "Establecer una contraseña ahora" o configura primero el correo.</target>
+      </trans-unit>
+      <trans-unit id="common.cancel" datatype="html">
+        <source>Cancel</source>
+        <target state="needs-review-translation">Cancelar</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.title" datatype="html">
+        <source>Reset password</source>
+        <target state="needs-review-translation">Restablecer contraseña</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.how" datatype="html">
+        <source>How to reset</source>
+        <target state="needs-review-translation">Cómo restablecer</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.set_now" datatype="html">
+        <source>Set a new password now</source>
+        <target state="needs-review-translation">Establecer una nueva contraseña ahora</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.email_link" datatype="html">
+        <source>Email a reset link</source>
+        <target state="needs-review-translation">Enviar un enlace de restablecimiento por correo</target>
+      </trans-unit>
+      <trans-unit id="field.new_password" datatype="html">
+        <source>New password</source>
+        <target state="needs-review-translation">Nueva contraseña</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.now_hint" datatype="html">
+        <source>Signs them out everywhere and asks them to change this password on next sign-in.</source>
+        <target state="needs-review-translation">Cierra su sesión en todas partes y les pide cambiar esta contraseña en el próximo inicio de sesión.</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.link_hint" datatype="html">
+        <source> We&apos;ll email a link to choose a new password. Needs a configured mail sender and a verified email. </source>
+        <target state="needs-review-translation">Enviaremos por correo un enlace para elegir una nueva contraseña. Requiere un remitente de correo configurado y un correo verificado.</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.no_mail" datatype="html">
+        <source> No mail sender is configured — switch to “Set a new password now”, or configure email first. </source>
+        <target state="needs-review-translation">No hay ningún remitente de correo configurado — cambia a "Establecer una nueva contraseña ahora" o configura primero el correo.</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.unverified" datatype="html">
+        <source> This account&apos;s email isn&apos;t verified — set a new password directly instead. </source>
+        <target state="needs-review-translation">El correo de esta cuenta no está verificado — establece una nueva contraseña directamente en su lugar.</target>
+      </trans-unit>
+      <trans-unit id="admin.role.title" datatype="html">
+        <source>Change role</source>
+        <target state="needs-review-translation">Cambiar rol</target>
+      </trans-unit>
+      <trans-unit id="admin.role.hint" datatype="html">
+        <source>A change takes effect on their next sign-in.</source>
+        <target state="needs-review-translation">El cambio surte efecto en su próximo inicio de sesión.</target>
+      </trans-unit>
+      <trans-unit id="common.save" datatype="html">
+        <source>Save</source>
+        <target state="needs-review-translation">Guardar</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.title" datatype="html">
+        <source>Set storage quota</source>
+        <target state="needs-review-translation">Establecer cuota de almacenamiento</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.sub" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ u.email }}"/> — currently using <x id="INTERPOLATION_1" equiv-text="{{ u.usedBytes | bytes }}"/>.</source>
+        <target state="needs-review-translation"><x id="INTERPOLATION" equiv-text="{{ u.email }}"/> — usando actualmente <x id="INTERPOLATION_1" equiv-text="{{ u.usedBytes | bytes }}"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.new" datatype="html">
+        <source>New quota (GB)</source>
+        <target state="needs-review-translation">Nueva cuota (GB)</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.hint" datatype="html">
+        <source>Setting it below current usage is allowed — it just blocks new uploads.</source>
+        <target state="needs-review-translation">Se permite establecerla por debajo del uso actual — solo bloquea nuevas subidas.</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.title" datatype="html">
+        <source>Remove account</source>
+        <target state="needs-review-translation">Eliminar cuenta</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.confirm" datatype="html">
+        <source>Remove <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?</source>
+        <target state="needs-review-translation">¿Eliminar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.warn" datatype="html">
+        <source><x id="START_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;15&quot; /&gt;"/><x id="CLOSE_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;15&quot; /&gt;"/> This signs them out immediately and permanently deletes their account and all files — including trash. There is no recovery. </source>
+        <target state="needs-review-translation">Esto cierra su sesión de inmediato y elimina permanentemente su cuenta y todos los archivos, incluida la papelera. No hay recuperación posible.</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.type_to_confirm" datatype="html">
+        <source>Type <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> to confirm</source>
+        <target state="needs-review-translation">Escribe <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> para confirmar</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.created_no_email" datatype="html">
+        <source><x id="email" equiv-text="res.account.email"/> was created, but the invite email couldn&apos;t be sent. Use &quot;Resend&quot; on their row to try again.</source>
+        <target state="needs-review-translation">Se creó <x id="email" equiv-text="res.account.email"/>, pero no se pudo enviar el correo de invitación. Usa "Reenviar" en su fila para intentarlo de nuevo.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.invite_sent" datatype="html">
+        <source>Invite sent to <x id="email" equiv-text="res.account.email"/>.</source>
+        <target state="needs-review-translation">Invitación enviada a <x id="email" equiv-text="res.account.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.created" datatype="html">
+        <source>Account created for <x id="email" equiv-text="res.account.email"/>.</source>
+        <target state="needs-review-translation">Cuenta creada para <x id="email" equiv-text="res.account.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.role_changed" datatype="html">
+        <source><x id="email" equiv-text="u.email"/> is now <x id="role" equiv-text="this.roleLabel(updated.role)"/>.</source>
+        <target state="needs-review-translation"><x id="email" equiv-text="u.email"/> ahora es <x id="role" equiv-text="this.roleLabel(updated.role)"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.invite_resent" datatype="html">
+        <source>Invite re-sent to <x id="email" equiv-text="u.email"/>.</source>
+        <target state="needs-review-translation">Invitación reenviada a <x id="email" equiv-text="u.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.reset_link_sent" datatype="html">
+        <source>Reset link sent to <x id="email" equiv-text="u.email"/>.</source>
+        <target state="needs-review-translation">Enlace de restablecimiento enviado a <x id="email" equiv-text="u.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.reset_done" datatype="html">
+        <source>Password reset for <x id="email" equiv-text="u.email"/> — they&apos;ll be asked to change it on next sign-in.</source>
+        <target state="needs-review-translation">Contraseña restablecida para <x id="email" equiv-text="u.email"/> — se le pedirá cambiarla en el próximo inicio de sesión.</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.invalid" datatype="html">
+        <source>Enter a storage size of 0 GB or more.</source>
+        <target state="needs-review-translation">Introduce un tamaño de almacenamiento de 0 GB o más.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.quota_updated" datatype="html">
+        <source>Quota updated for <x id="email" equiv-text="u.email"/>.</source>
+        <target state="needs-review-translation">Cuota actualizada para <x id="email" equiv-text="u.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.removed" datatype="html">
+        <source><x id="email" equiv-text="u.email"/> has been removed.</source>
+        <target state="needs-review-translation"><x id="email" equiv-text="u.email"/> ha sido eliminado.</target>
+      </trans-unit>
+      <trans-unit id="admin.row_actions" datatype="html">
+        <source>Actions for <x id="email" equiv-text="u.email"/></source>
+        <target state="needs-review-translation">Acciones para <x id="email" equiv-text="u.email"/></target>
+      </trans-unit>
+      <trans-unit id="password.hide" datatype="html">
+        <source>Hide password</source>
+        <target state="needs-review-translation">Ocultar contraseña</target>
+      </trans-unit>
+      <trans-unit id="password.show" datatype="html">
+        <source>Show password</source>
+        <target state="needs-review-translation">Mostrar contraseña</target>
+      </trans-unit>
+      <trans-unit id="admin.create.send_invite_btn" datatype="html">
+        <source>Send invite</source>
+        <target state="needs-review-translation">Enviar invitación</target>
+      </trans-unit>
+      <trans-unit id="admin.create.create_btn" datatype="html">
+        <source>Create account</source>
+        <target state="needs-review-translation">Crear cuenta</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.send_link_btn" datatype="html">
+        <source>Send reset link</source>
+        <target state="needs-review-translation">Enviar enlace de restablecimiento</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.reset_btn" datatype="html">
+        <source>Reset password</source>
+        <target state="needs-review-translation">Restablecer contraseña</target>
+      </trans-unit>
+      <trans-unit id="email.loading" datatype="html">
+        <source>Loading settings…</source>
+        <target state="needs-review-translation">Cargando la configuración…</target>
+      </trans-unit>
+      <trans-unit id="email.lede" datatype="html">
+        <source> Choose a provider and paste its API key to turn on outbound email — account invites, and later password resets. Changes take effect immediately, no redeploy. </source>
+        <target state="needs-review-translation">Elige un proveedor y pega su clave de API para activar el correo saliente: invitaciones de cuenta y, más adelante, restablecimientos de contraseña. Los cambios surten efecto de inmediato, sin redespliegue.</target>
+      </trans-unit>
+      <trans-unit id="email.provider" datatype="html">
+        <source>Provider</source>
+        <target state="needs-review-translation">Proveedor</target>
+      </trans-unit>
+      <trans-unit id="email.from_address" datatype="html">
+        <source>From address</source>
+        <target state="needs-review-translation">Dirección de remitente</target>
+      </trans-unit>
+      <trans-unit id="email.from_address_ph" datatype="html">
+        <source>no-reply@yourdomain.com</source>
+        <target state="needs-review-translation">no-reply@tudominio.com</target>
+      </trans-unit>
+      <trans-unit id="email.from_name" datatype="html">
+        <source>From name</source>
+        <target state="needs-review-translation">Nombre de remitente</target>
+      </trans-unit>
+      <trans-unit id="email.api_key" datatype="html">
+        <source>API key</source>
+        <target state="needs-review-translation">Clave de API</target>
+      </trans-unit>
+      <trans-unit id="email.api_key_ph" datatype="html">
+        <source>Paste the provider API key</source>
+        <target state="needs-review-translation">Pega la clave de API del proveedor</target>
+      </trans-unit>
+      <trans-unit id="email.key_hint" datatype="html">
+        <source>The key is stored encrypted and never shown again.</source>
+        <target state="needs-review-translation">La clave se almacena cifrada y no se vuelve a mostrar.</target>
+      </trans-unit>
+      <trans-unit id="email.configured" datatype="html">
+        <source>Configured</source>
+        <target state="needs-review-translation">Configurada</target>
+      </trans-unit>
+      <trans-unit id="email.replace" datatype="html">
+        <source>Replace</source>
+        <target state="needs-review-translation">Reemplazar</target>
+      </trans-unit>
+      <trans-unit id="email.mailgun_domain" datatype="html">
+        <source>Mailgun sending domain</source>
+        <target state="needs-review-translation">Dominio de envío de Mailgun</target>
+      </trans-unit>
+      <trans-unit id="email.mailgun_region" datatype="html">
+        <source>Mailgun region</source>
+        <target state="needs-review-translation">Región de Mailgun</target>
+      </trans-unit>
+      <trans-unit id="email.off_hint" datatype="html">
+        <source> Outbound email is off. Account invites and other email features are unavailable until a provider is set. </source>
+        <target state="needs-review-translation">El correo saliente está desactivado. Las invitaciones de cuenta y otras funciones de correo no están disponibles hasta que se configure un proveedor.</target>
+      </trans-unit>
+      <trans-unit id="email.public_url" datatype="html">
+        <source>Public base URL</source>
+        <target state="needs-review-translation">URL base pública</target>
+      </trans-unit>
+      <trans-unit id="email.public_url_hint" datatype="html">
+        <source>Origin used for links in emails (the claim link).</source>
+        <target state="needs-review-translation">Origen usado para los enlaces en los correos (el enlace de reclamación).</target>
+      </trans-unit>
+      <trans-unit id="email.invite_expiry" datatype="html">
+        <source>Invite expiry (days)</source>
+        <target state="needs-review-translation">Caducidad de la invitación (días)</target>
+      </trans-unit>
+      <trans-unit id="email.save_first" datatype="html">
+        <source>Save first to test.</source>
+        <target state="needs-review-translation">Guarda primero para probar.</target>
+      </trans-unit>
+      <trans-unit id="email.last_test" datatype="html">
+        <source>Last test <x id="INTERPOLATION" equiv-text="{{ formatDate(lastTestAt) }}"/> — <x id="INTERPOLATION_1" equiv-text="{{ testResult() }}"/></source>
+        <target state="needs-review-translation">Última prueba <x id="INTERPOLATION" equiv-text="{{ formatDate(lastTestAt) }}"/> — <x id="INTERPOLATION_1" equiv-text="{{ testResult() }}"/></target>
+      </trans-unit>
+      <trans-unit id="email.provider.none" datatype="html">
+        <source>None (off)</source>
+        <target state="needs-review-translation">Ninguno (desactivado)</target>
+      </trans-unit>
+      <trans-unit id="email.status.off" datatype="html">
+        <source>Off</source>
+        <target state="needs-review-translation">Desactivado</target>
+      </trans-unit>
+      <trans-unit id="email.status.active_aria" datatype="html">
+        <source>Active provider: <x id="provider" equiv-text="active.label"/></source>
+        <target state="needs-review-translation">Proveedor activo: <x id="provider" equiv-text="active.label"/></target>
+      </trans-unit>
+      <trans-unit id="email.status.off_aria" datatype="html">
+        <source>Outbound email is off</source>
+        <target state="needs-review-translation">El correo saliente está desactivado</target>
+      </trans-unit>
+      <trans-unit id="email.hide_key" datatype="html">
+        <source>Hide key</source>
+        <target state="needs-review-translation">Ocultar clave</target>
+      </trans-unit>
+      <trans-unit id="email.show_key" datatype="html">
+        <source>Show key</source>
+        <target state="needs-review-translation">Mostrar clave</target>
+      </trans-unit>
+      <trans-unit id="email.testing" datatype="html">
+        <source>Sending…</source>
+        <target state="needs-review-translation">Enviando…</target>
+      </trans-unit>
+      <trans-unit id="email.send_test" datatype="html">
+        <source>Send test email</source>
+        <target state="needs-review-translation">Enviar correo de prueba</target>
+      </trans-unit>
+      <trans-unit id="common.saving" datatype="html">
+        <source>Saving…</source>
+        <target state="needs-review-translation">Guardando…</target>
+      </trans-unit>
+      <trans-unit id="email.test_succeeded" datatype="html">
+        <source>succeeded</source>
+        <target state="needs-review-translation">correcta</target>
+      </trans-unit>
+      <trans-unit id="email.test_failed" datatype="html">
+        <source>failed</source>
+        <target state="needs-review-translation">fallida</target>
+      </trans-unit>
+      <trans-unit id="email.saved" datatype="html">
+        <source>Email settings saved.</source>
+        <target state="needs-review-translation">Configuración de correo guardada.</target>
+      </trans-unit>
+      <trans-unit id="email.test_sent" datatype="html">
+        <source>Test email sent — check your inbox.</source>
+        <target state="needs-review-translation">Correo de prueba enviado — revisa tu bandeja de entrada.</target>
       </trans-unit>
       <trans-unit id="common.checking_link" datatype="html">
         <source>Checking your link…</source>
@@ -236,10 +628,6 @@
       <trans-unit id="files.folder_name_placeholder" datatype="html">
         <source>Folder name</source>
         <target state="needs-review-translation">Nombre de la carpeta</target>
-      </trans-unit>
-      <trans-unit id="common.cancel" datatype="html">
-        <source>Cancel</source>
-        <target state="needs-review-translation">Cancelar</target>
       </trans-unit>
       <trans-unit id="files.create" datatype="html">
         <source>Create</source>
@@ -565,14 +953,6 @@
         <source>Finish setting up <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</source>
         <target state="needs-review-translation">Termina de configurar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</target>
       </trans-unit>
-      <trans-unit id="field.password" datatype="html">
-        <source>Password</source>
-        <target state="needs-review-translation">Contraseña</target>
-      </trans-unit>
-      <trans-unit id="field.password_min" datatype="html">
-        <source>At least <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> characters</source>
-        <target state="needs-review-translation">Al menos <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> caracteres</target>
-      </trans-unit>
       <trans-unit id="field.confirm_password" datatype="html">
         <source>Confirm password</source>
         <target state="needs-review-translation">Confirmar contraseña</target>
@@ -580,14 +960,6 @@
       <trans-unit id="common.passwords_no_match" datatype="html">
         <source>Passwords don&apos;t match.</source>
         <target state="needs-review-translation">Las contraseñas no coinciden.</target>
-      </trans-unit>
-      <trans-unit id="password.hide" datatype="html">
-        <source>Hide password</source>
-        <target state="needs-review-translation">Ocultar contraseña</target>
-      </trans-unit>
-      <trans-unit id="password.show" datatype="html">
-        <source>Show password</source>
-        <target state="needs-review-translation">Mostrar contraseña</target>
       </trans-unit>
       <trans-unit id="claim.submit" datatype="html">
         <source>Set password &amp; sign in</source>
@@ -684,10 +1056,6 @@
       <trans-unit id="reset.sub" datatype="html">
         <source>Choose a new password for <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</source>
         <target state="needs-review-translation">Elige una nueva contraseña para <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</target>
-      </trans-unit>
-      <trans-unit id="field.new_password" datatype="html">
-        <source>New password</source>
-        <target state="needs-review-translation">Nueva contraseña</target>
       </trans-unit>
       <trans-unit id="reset.submit" datatype="html">
         <source>Reset password &amp; sign in</source>

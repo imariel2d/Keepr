@@ -5,7 +5,7 @@ import { AdminUserListItem, Role } from '../../core/models';
 import { BytesPipe } from '../../core/bytes.pipe';
 import { formatDate } from '../../core/file-type';
 import { MIN_PASSWORD_LENGTH, lengthRequirement, meetsMinLength } from '../../core/password-policy';
-import { problemCode, problemDetail, problemStatus, validationErrors } from '../../core/problem-details';
+import { errorMessage, problemCode, problemStatus, validationErrors } from '../../core/problem-details';
 import { menuAnchor } from '../../core/menu-anchor';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { IconComponent } from '../../cove/lib/icon/icon.component';
@@ -135,8 +135,8 @@ export class Admin {
       const res = await this.api.listUsers(this.page(), this.pageSize);
       this.users.set(res.items);
       this.total.set(res.total);
-    } catch {
-      this.error.set('Could not load accounts.');
+    } catch (e) {
+      this.error.set(errorMessage(e));
     } finally {
       this.loading.set(false);
     }
@@ -164,15 +164,15 @@ export class Admin {
     event.stopPropagation();
     const items: ContextMenuItem[] = [];
     if (!this.isSelf(u)) {
-      items.push({ label: 'Change role', icon: 'shield', onSelect: () => this.openRole(u) });
+      items.push({ label: $localize`:@@admin.role.title:Change role`, icon: 'shield', onSelect: () => this.openRole(u) });
     }
-    items.push({ label: 'Set quota', icon: 'sliders-horizontal', onSelect: () => this.openQuota(u) });
+    items.push({ label: $localize`:@@admin.quota.title:Set storage quota`, icon: 'sliders-horizontal', onSelect: () => this.openQuota(u) });
     if (!u.pending) {
-      items.push({ label: 'Reset password', icon: 'key-round', onSelect: () => this.openReset(u) });
+      items.push({ label: $localize`:@@admin.reset.title:Reset password`, icon: 'key-round', onSelect: () => this.openReset(u) });
     }
     if (!this.isSelf(u)) {
       items.push({ divider: true });
-      items.push({ label: 'Remove account', icon: 'user-x', danger: true, onSelect: () => this.openKick(u) });
+      items.push({ label: $localize`:@@admin.remove.title:Remove account`, icon: 'user-x', danger: true, onSelect: () => this.openKick(u) });
     }
     this.menuItems.set(items);
     const { x, y } = menuAnchor(event);
@@ -221,13 +221,11 @@ export class Admin {
       this.createOpen.set(false);
 
       if (res.invited && !res.inviteEmailSent) {
-        this.notice.set(
-          `${res.account.email} was created, but the invite email couldn't be sent. ` +
-          `Use "Resend invite" on their row to try again.`);
+        this.notice.set($localize`:@@admin.notice.created_no_email:${res.account.email}:email: was created, but the invite email couldn't be sent. Use "Resend" on their row to try again.`);
       } else if (res.invited) {
-        this.notice.set(`Invite sent to ${res.account.email}.`);
+        this.notice.set($localize`:@@admin.notice.invite_sent:Invite sent to ${res.account.email}:email:.`);
       } else {
-        this.notice.set(`Account created for ${res.account.email}.`);
+        this.notice.set($localize`:@@admin.notice.created:Account created for ${res.account.email}:email:.`);
       }
       await this.load();
     } catch (e) {
@@ -239,7 +237,7 @@ export class Admin {
         // code. Keying off the code (not the bare status) stops a duplicate-email 409 from being
         // mislabelled "no mail sender configured".
         this.emailUnavailable.set(problemCode(e) === 'email_not_configured');
-        this.dialogError.set(problemDetail(e, 'Could not create the account.'));
+        this.dialogError.set(errorMessage(e));
       }
     } finally {
       this.creating.set(false);
@@ -268,10 +266,10 @@ export class Admin {
       const updated = await this.api.updateRole(u.id, this.roleValue());
       this.patchRow(u.id, { role: updated.role });
       this.roleTarget.set(null);
-      this.notice.set(`${u.email} is now ${updated.role}.`);
+      this.notice.set($localize`:@@admin.notice.role_changed:${u.email}:email: is now ${this.roleLabel(updated.role)}:role:.`);
     } catch (e) {
       // 400 self-demote / 409 last admin carry a user-facing detail.
-      this.dialogError.set(problemDetail(e, 'Could not change the role.'));
+      this.dialogError.set(errorMessage(e));
     } finally {
       this.savingRole.set(false);
     }
@@ -286,14 +284,14 @@ export class Admin {
     this.error.set(null);
     try {
       await this.api.resendInvite(u.id);
-      this.notice.set(`Invite re-sent to ${u.email}.`);
+      this.notice.set($localize`:@@admin.notice.invite_resent:Invite re-sent to ${u.email}:email:.`);
     } catch (e) {
       // A 409 here means a concurrent resend already issued a fresh invite — the send effectively
       // succeeded, so don't surface it as a failure.
       if (problemStatus(e) === 409) {
-        this.notice.set(`Invite re-sent to ${u.email}.`);
+        this.notice.set($localize`:@@admin.notice.invite_resent:Invite re-sent to ${u.email}:email:.`);
       } else {
-        this.error.set(problemDetail(e, `Could not resend the invite to ${u.email}.`));
+        this.error.set(errorMessage(e));
       }
     } finally {
       this.resendingId.set(null);
@@ -342,8 +340,8 @@ export class Admin {
       this.resetTarget.set(null);
       this.notice.set(
         this.resetSendLink()
-          ? `Reset link sent to ${u.email}.`
-          : `Password reset for ${u.email} — they'll be asked to change it on next sign-in.`);
+          ? $localize`:@@admin.notice.reset_link_sent:Reset link sent to ${u.email}:email:.`
+          : $localize`:@@admin.notice.reset_done:Password reset for ${u.email}:email: — they'll be asked to change it on next sign-in.`);
       await this.load();
     } catch (e) {
       const fieldErrors = validationErrors(e);
@@ -356,7 +354,7 @@ export class Admin {
       const code = problemCode(e);
       this.resetEmailUnavailable.set(code === 'email_not_configured');
       this.resetEmailUnverified.set(code === 'email_unverified');
-      this.dialogError.set(problemDetail(e, 'Could not reset the password.'));
+      this.dialogError.set(errorMessage(e));
     } finally {
       this.resetting.set(false);
     }
@@ -376,7 +374,7 @@ export class Admin {
 
     const gb = Number(this.quotaGb());
     if (!Number.isFinite(gb) || gb < 0) {
-      this.dialogError.set('Enter a storage size of 0 GB or more.');
+      this.dialogError.set($localize`:@@admin.quota.invalid:Enter a storage size of 0 GB or more.`);
       return;
     }
 
@@ -386,9 +384,9 @@ export class Admin {
       const updated = await this.api.updateQuota(u.id, Math.round(gb * GB));
       this.patchRow(u.id, { quotaBytes: updated.quotaBytes, remainingBytes: updated.remainingBytes });
       this.quotaTarget.set(null);
-      this.notice.set(`Quota updated for ${u.email}.`);
+      this.notice.set($localize`:@@admin.notice.quota_updated:Quota updated for ${u.email}:email:.`);
     } catch (e) {
-      this.dialogError.set(problemDetail(e, 'Could not update the quota.'));
+      this.dialogError.set(errorMessage(e));
     } finally {
       this.saving.set(false);
     }
@@ -411,10 +409,10 @@ export class Admin {
     try {
       await this.api.kickUser(u.id);
       this.kickTarget.set(null);
-      this.notice.set(`${u.email} has been removed.`);
+      this.notice.set($localize`:@@admin.notice.removed:${u.email}:email: has been removed.`);
       await this.load();
     } catch (e) {
-      this.dialogError.set(problemDetail(e, 'Could not remove this account.'));
+      this.dialogError.set(errorMessage(e));
     } finally {
       this.kicking.set(false);
     }
@@ -422,5 +420,31 @@ export class Admin {
 
   private patchRow(id: string, patch: Partial<AdminUserListItem>): void {
     this.users.update((list) => list.map((x) => (x.id === id ? { ...x, ...patch } : x)));
+  }
+
+  // ---- localized labels (the role enum drives CSS/logic; these are its display forms) ----------
+
+  protected roleLabel(role: string): string {
+    return role === 'Admin' ? $localize`:@@admin.role.admin:Admin` : $localize`:@@admin.role.user:User`;
+  }
+
+  protected actionsLabel(u: AdminUserListItem): string {
+    return $localize`:@@admin.row_actions:Actions for ${u.email}:email:`;
+  }
+
+  protected revealLabel(shown: boolean): string {
+    return shown ? $localize`:@@password.hide:Hide password` : $localize`:@@password.show:Show password`;
+  }
+
+  protected createButtonLabel(): string {
+    return this.newSendInvite()
+      ? $localize`:@@admin.create.send_invite_btn:Send invite`
+      : $localize`:@@admin.create.create_btn:Create account`;
+  }
+
+  protected resetButtonLabel(): string {
+    return this.resetSendLink()
+      ? $localize`:@@admin.reset.send_link_btn:Send reset link`
+      : $localize`:@@admin.reset.reset_btn:Reset password`;
   }
 }
