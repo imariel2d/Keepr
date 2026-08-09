@@ -22,14 +22,14 @@
 > reset-password, claim, and confirm-email — the **app shell/chrome** (topbar, search, sidebar nav,
 > quota, theme toggle, drawer), the **Trash** screen (ICU plurals), the **Files** feature (grid, breadcrumbs,
 > selection bar, context menus, new-folder/rename/delete modals, and the move / preview / share
-> dialogs — with ICU plurals and split file/folder/many confirmation copy), plus the **/profile
-> language card** (wires the switcher to `PATCH /api/me/profile`). `es`/`fr` XLIFF catalogs (193 units,
-> machine-translated, `needs-review`, id-complete against the source) — the production build emits
-> `browser/{en,es,fr}/` with the right base hrefs and per-locale copy; the Dockerfile carries all three
-> unchanged.
+> dialogs — with ICU plurals and split file/folder/many confirmation copy), the **public share viewer**
+> (`/s/:token`), plus the **/profile language card** (wires the switcher to `PATCH /api/me/profile`).
+> `es`/`fr` XLIFF catalogs (200 units, machine-translated, `needs-review`, id-complete against the
+> source) — the production build emits `browser/{en,es,fr}/` with the right base hrefs and per-locale
+> copy; the Dockerfile carries all three unchanged.
 >
-> **Not built yet:** the remaining **authenticated content screens' copy** (admin, the public share
-> viewer — still hardcoded English), the Phase-2 field-validation codes (§5.3), the client
+> **Not built yet:** the **admin screens' copy** (accounts + email settings — still hardcoded
+> English), the Phase-2 field-validation codes (§5.3), the client
 > bootstrap auto-redirect for a signed-in user whose account preference differs from the current build
 > (the server cookie redirect covers the same-browser case), and emails (§10 P3).
 >

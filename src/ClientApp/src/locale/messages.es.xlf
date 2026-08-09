@@ -89,6 +89,14 @@
         <source>That isn&apos;t a supported language.</source>
         <target state="needs-review-translation">Ese idioma no es compatible.</target>
       </trans-unit>
+      <trans-unit id="errors.share_not_found" datatype="html">
+        <source>This share link doesn&apos;t exist.</source>
+        <target state="needs-review-translation">Este enlace para compartir no existe.</target>
+      </trans-unit>
+      <trans-unit id="errors.share_unavailable" datatype="html">
+        <source>This share link is no longer available.</source>
+        <target state="needs-review-translation">Este enlace para compartir ya no está disponible.</target>
+      </trans-unit>
       <trans-unit id="errors.generic" datatype="html">
         <source>Something went wrong. Please try again.</source>
         <target state="needs-review-translation">Algo salió mal. Inténtalo de nuevo.</target>
@@ -696,6 +704,26 @@
       <trans-unit id="profile.name.saved" datatype="html">
         <source>Profile saved.</source>
         <target state="needs-review-translation">Perfil guardado.</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.not_found_title" datatype="html">
+        <source>Link not found</source>
+        <target state="needs-review-translation">Enlace no encontrado</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.unavailable_title" datatype="html">
+        <source>Link unavailable</source>
+        <target state="needs-review-translation">Enlace no disponible</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.error_title" datatype="html">
+        <source>Something went wrong</source>
+        <target state="needs-review-translation">Algo salió mal</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.error_body" datatype="html">
+        <source>We couldn&apos;t load this file. Please try again later.</source>
+        <target state="needs-review-translation">No pudimos cargar este archivo. Inténtalo de nuevo más tarde.</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.download_err" datatype="html">
+        <source>Could not start the download. The link may have just expired.</source>
+        <target state="needs-review-translation">No se pudo iniciar la descarga. Puede que el enlace acabe de caducar.</target>
       </trans-unit>
       <trans-unit id="trash.title" datatype="html">
         <source>Trash</source>

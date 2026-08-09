@@ -169,11 +169,25 @@
           <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="errors.share_not_found" datatype="html">
+        <source>This share link doesn&apos;t exist.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="errors.share_unavailable" datatype="html">
+        <source>This share link is no longer available.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="errors.generic" datatype="html">
         <source>Something went wrong. Please try again.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="common.checking_link" datatype="html">
@@ -433,6 +447,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/files/move-dialog.ts</context>
           <context context-type="linenumber">34,35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/share/share-viewer.html</context>
+          <context context-type="linenumber">6,10</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/trash/trash.html</context>
@@ -697,6 +715,10 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/files/preview-overlay.html</context>
           <context context-type="linenumber">48,50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/share/share-viewer.html</context>
+          <context context-type="linenumber">44,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="files.menu.share" datatype="html">
@@ -1375,6 +1397,41 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/profile/profile.ts</context>
           <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share_viewer.not_found_title" datatype="html">
+        <source>Link not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/share/share-viewer.html</context>
+          <context context-type="linenumber">56,58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share_viewer.unavailable_title" datatype="html">
+        <source>Link unavailable</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/share/share-viewer.html</context>
+          <context context-type="linenumber">64,66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share_viewer.error_title" datatype="html">
+        <source>Something went wrong</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/share/share-viewer.html</context>
+          <context context-type="linenumber">72,73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share_viewer.error_body" datatype="html">
+        <source>We couldn&apos;t load this file. Please try again later.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/share/share-viewer.html</context>
+          <context context-type="linenumber">73,77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="share_viewer.download_err" datatype="html">
+        <source>Could not start the download. The link may have just expired.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/share/share-viewer.ts</context>
+          <context context-type="linenumber">91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="trash.title" datatype="html">

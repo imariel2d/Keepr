@@ -39,6 +39,9 @@ const ERROR_MESSAGES: Record<string, () => string> = {
   password_incorrect: () =>
     $localize`:@@errors.password_incorrect:Your current password is incorrect.`,
   invalid_language: () => $localize`:@@errors.invalid_language:That isn't a supported language.`,
+  share_not_found: () => $localize`:@@errors.share_not_found:This share link doesn't exist.`,
+  share_unavailable: () =>
+    $localize`:@@errors.share_unavailable:This share link is no longer available.`,
 };
 
 /**

@@ -3,7 +3,7 @@
     @case ('loading') {
       <div class="card status">
         <cove-icon name="loader" [size]="28" />
-        <p>Loading…</p>
+        <p i18n="@@common.loading">Loading…</p>
       </div>
     }
 
@@ -40,7 +40,7 @@
         }
 
         <cove-button variant="primary" size="lg" icon="download" class="download"
-                     (click)="download()">
+                     (click)="download()" i18n="@@files.menu.download">
           Download
         </cove-button>
 
@@ -53,7 +53,7 @@
     @case ('notfound') {
       <div class="card status">
         <cove-icon name="link-2-off" [size]="28" />
-        <h1>Link not found</h1>
+        <h1 i18n="@@share_viewer.not_found_title">Link not found</h1>
         <p>{{ message() }}</p>
       </div>
     }
@@ -61,7 +61,7 @@
     @case ('gone') {
       <div class="card status">
         <cove-icon name="clock" [size]="28" />
-        <h1>Link unavailable</h1>
+        <h1 i18n="@@share_viewer.unavailable_title">Link unavailable</h1>
         <p>{{ message() }}</p>
       </div>
     }
@@ -69,8 +69,8 @@
     @case ('error') {
       <div class="card status">
         <cove-icon name="alert-circle" [size]="28" />
-        <h1>Something went wrong</h1>
-        <p>We couldn't load this file. Please try again later.</p>
+        <h1 i18n="@@share_viewer.error_title">Something went wrong</h1>
+        <p i18n="@@share_viewer.error_body">We couldn't load this file. Please try again later.</p>
       </div>
     }
   }
