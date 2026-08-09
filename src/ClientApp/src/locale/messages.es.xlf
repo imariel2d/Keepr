@@ -317,6 +317,98 @@
         <source>Profile saved.</source>
         <target state="needs-review-translation">Perfil guardado.</target>
       </trans-unit>
+      <trans-unit id="trash.title" datatype="html">
+        <source>Trash</source>
+        <target state="needs-review-translation">Papelera</target>
+      </trans-unit>
+      <trans-unit id="trash.sub" datatype="html">
+        <source> Items stay here for 10 days, then are deleted permanently. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>They still use your storage until then.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="needs-review-translation">Los elementos permanecen aquí 10 días y luego se eliminan permanentemente. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Siguen ocupando tu almacenamiento hasta entonces.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="trash.empty" datatype="html">
+        <source> Empty Trash </source>
+        <target state="needs-review-translation">Vaciar la papelera</target>
+      </trans-unit>
+      <trans-unit id="common.dismiss" datatype="html">
+        <source>Dismiss</source>
+        <target state="needs-review-translation">Descartar</target>
+      </trans-unit>
+      <trans-unit id="common.loading" datatype="html">
+        <source>Loading…</source>
+        <target state="needs-review-translation">Cargando…</target>
+      </trans-unit>
+      <trans-unit id="trash.empty_state" datatype="html">
+        <source>Trash is empty.</source>
+        <target state="needs-review-translation">La papelera está vacía.</target>
+      </trans-unit>
+      <trans-unit id="4901790529703340453" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 item} other {<x id="INTERPOLATION"/> items}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 elemento} other {<x id="INTERPOLATION"/> elementos}}</target>
+      </trans-unit>
+      <trans-unit id="trash.summary" datatype="html">
+        <source><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> · <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> recoverable</source>
+        <target state="needs-review-translation"><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> · <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> recuperable</target>
+      </trans-unit>
+      <trans-unit id="trash.kind_folder" datatype="html">
+        <source>Folder</source>
+        <target state="needs-review-translation">Carpeta</target>
+      </trans-unit>
+      <trans-unit id="trash.deleted_on" datatype="html">
+        <source>deleted <x id="INTERPOLATION" equiv-text="{{ formatDate(item.deletedAt) }}"/></source>
+        <target state="needs-review-translation">eliminado el <x id="INTERPOLATION" equiv-text="{{ formatDate(item.deletedAt) }}"/></target>
+      </trans-unit>
+      <trans-unit id="trash.restore" datatype="html">
+        <source> Restore </source>
+        <target state="needs-review-translation">Restaurar</target>
+      </trans-unit>
+      <trans-unit id="trash.delete_forever" datatype="html">
+        <source> Delete forever </source>
+        <target state="needs-review-translation">Eliminar permanentemente</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_folder" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and everything inside it will be permanently deleted and the storage freed immediately.</source>
+        <target state="needs-review-translation">Esto no se puede deshacer. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> y todo su contenido se eliminarán permanentemente y el almacenamiento se liberará de inmediato.</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_file" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be permanently deleted and the storage freed immediately.</source>
+        <target state="needs-review-translation">Esto no se puede deshacer. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> se eliminará permanentemente y el almacenamiento se liberará de inmediato.</target>
+      </trans-unit>
+      <trans-unit id="common.cancel" datatype="html">
+        <source>Cancel</source>
+        <target state="needs-review-translation">Cancelar</target>
+      </trans-unit>
+      <trans-unit id="trash.empty.title" datatype="html">
+        <source>Empty the Trash?</source>
+        <target state="needs-review-translation">¿Vaciar la papelera?</target>
+      </trans-unit>
+      <trans-unit id="trash.empty.body" datatype="html">
+        <source>All <x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> will be permanently deleted and <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> of storage freed. This cannot be undone.</source>
+        <target state="needs-review-translation">Se eliminarán permanentemente <x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> y se liberarán <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> de almacenamiento. Esto no se puede deshacer.</target>
+      </trans-unit>
+      <trans-unit id="trash.restored" datatype="html">
+        <source>Restored &quot;<x id="name" equiv-text="res.name"/>&quot;.</source>
+        <target state="needs-review-translation">Restaurado "<x id="name" equiv-text="res.name"/>".</target>
+      </trans-unit>
+      <trans-unit id="trash.restored_as" datatype="html">
+        <source>Restored as &quot;<x id="newName" equiv-text="res.name"/>&quot; — &quot;<x id="oldName" equiv-text="item.name"/>&quot; was taken.</source>
+        <target state="needs-review-translation">Restaurado como "<x id="newName" equiv-text="res.name"/>" — "<x id="oldName" equiv-text="item.name"/>" ya estaba en uso.</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_today" datatype="html">
+        <source>Deletes today</source>
+        <target state="needs-review-translation">Se elimina hoy</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_tomorrow" datatype="html">
+        <source>Deletes tomorrow</source>
+        <target state="needs-review-translation">Se elimina mañana</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_in_days" datatype="html">
+        <source>Deletes in <x id="days" equiv-text="days"/> days</source>
+        <target state="needs-review-translation">Se elimina en <x id="days" equiv-text="days"/> días</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.title" datatype="html">
+        <source>Delete <x id="name" equiv-text="name"/> forever?</source>
+        <target state="needs-review-translation">¿Eliminar <x id="name" equiv-text="name"/> permanentemente?</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

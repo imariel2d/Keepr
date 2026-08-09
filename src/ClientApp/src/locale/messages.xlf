@@ -620,6 +620,187 @@
           <context context-type="linenumber">120</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="trash.title" datatype="html">
+        <source>Trash</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.sub" datatype="html">
+        <source> Items stay here for 10 days, then are deleted permanently. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>They still use your storage until then.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">5,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.empty" datatype="html">
+        <source> Empty Trash </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">100,102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.dismiss" datatype="html">
+        <source>Dismiss</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.loading" datatype="html">
+        <source>Loading…</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.empty_state" datatype="html">
+        <source>Trash is empty.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">38,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4901790529703340453" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 item} other {<x id="INTERPOLATION"/> items}}</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.summary" datatype="html">
+        <source><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> · <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> recoverable</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">41,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.kind_folder" datatype="html">
+        <source>Folder</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">53,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.deleted_on" datatype="html">
+        <source>deleted <x id="INTERPOLATION" equiv-text="{{ formatDate(item.deletedAt) }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.restore" datatype="html">
+        <source> Restore </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.delete_forever" datatype="html">
+        <source> Delete forever </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">69,70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">92,94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_folder" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and everything inside it will be permanently deleted and the storage freed immediately.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">85,86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_file" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be permanently deleted and the storage freed immediately.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">87,88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="common.cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">91,92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">99,100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.empty.title" datatype="html">
+        <source>Empty the Trash?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.empty.body" datatype="html">
+        <source>All <x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> will be permanently deleted and <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> of storage freed. This cannot be undone.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.html</context>
+          <context context-type="linenumber">97,98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.restored" datatype="html">
+        <source>Restored &quot;<x id="name" equiv-text="res.name"/>&quot;.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.ts</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.restored_as" datatype="html">
+        <source>Restored as &quot;<x id="newName" equiv-text="res.name"/>&quot; — &quot;<x id="oldName" equiv-text="item.name"/>&quot; was taken.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.ts</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.deletes_today" datatype="html">
+        <source>Deletes today</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.deletes_tomorrow" datatype="html">
+        <source>Deletes tomorrow</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.ts</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.deletes_in_days" datatype="html">
+        <source>Deletes in <x id="days" equiv-text="days"/> days</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.ts</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="trash.purge.title" datatype="html">
+        <source>Delete <x id="name" equiv-text="name"/> forever?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/trash/trash.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

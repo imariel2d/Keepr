@@ -20,13 +20,14 @@
 > shared `LanguageSwitcher`; `errorMessage()` in `problem-details.ts` (code → `$localize` copy, server
 > `detail` fallback). **Localized screens:** the whole **auth/entry flow** — login, forgot-password,
 > reset-password, claim, and confirm-email — the **app shell/chrome** (topbar, search, sidebar nav,
-> quota, theme toggle, drawer), plus the **/profile language card** (wires the switcher to
-> `PATCH /api/me/profile`). `es`/`fr` XLIFF catalogs (78 units, machine-translated, `needs-review`,
-> id-complete against the source) — the production build emits `browser/{en,es,fr}/` with the right
-> base hrefs and per-locale copy; the Dockerfile carries all three unchanged.
+> quota, theme toggle, drawer), the **Trash** screen (incl. ICU plurals for the item counts), plus the
+> **/profile language card** (wires the switcher to `PATCH /api/me/profile`). `es`/`fr` XLIFF catalogs
+> (101 units, machine-translated, `needs-review`, id-complete against the source) — the production
+> build emits `browser/{en,es,fr}/` with the right base hrefs and per-locale copy; the Dockerfile
+> carries all three unchanged.
 >
-> **Not built yet:** the **authenticated content screens' copy** (files, trash, admin, share viewer —
-> still hardcoded English), the Phase-2 field-validation codes (§5.3), the client
+> **Not built yet:** the remaining **authenticated content screens' copy** (files, admin, share viewer
+> — still hardcoded English), the Phase-2 field-validation codes (§5.3), the client
 > bootstrap auto-redirect for a signed-in user whose account preference differs from the current build
 > (the server cookie redirect covers the same-browser case), and emails (§10 P3).
 >

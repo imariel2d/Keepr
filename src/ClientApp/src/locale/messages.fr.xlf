@@ -317,6 +317,98 @@
         <source>Profile saved.</source>
         <target state="needs-review-translation">Profil enregistré.</target>
       </trans-unit>
+      <trans-unit id="trash.title" datatype="html">
+        <source>Trash</source>
+        <target state="needs-review-translation">Corbeille</target>
+      </trans-unit>
+      <trans-unit id="trash.sub" datatype="html">
+        <source> Items stay here for 10 days, then are deleted permanently. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>They still use your storage until then.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="needs-review-translation">Les éléments restent ici pendant 10 jours, puis sont supprimés définitivement. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Ils occupent votre stockage jusque-là.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="trash.empty" datatype="html">
+        <source> Empty Trash </source>
+        <target state="needs-review-translation">Vider la corbeille</target>
+      </trans-unit>
+      <trans-unit id="common.dismiss" datatype="html">
+        <source>Dismiss</source>
+        <target state="needs-review-translation">Ignorer</target>
+      </trans-unit>
+      <trans-unit id="common.loading" datatype="html">
+        <source>Loading…</source>
+        <target state="needs-review-translation">Chargement…</target>
+      </trans-unit>
+      <trans-unit id="trash.empty_state" datatype="html">
+        <source>Trash is empty.</source>
+        <target state="needs-review-translation">La corbeille est vide.</target>
+      </trans-unit>
+      <trans-unit id="4901790529703340453" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 item} other {<x id="INTERPOLATION"/> items}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 élément} other {<x id="INTERPOLATION"/> éléments}}</target>
+      </trans-unit>
+      <trans-unit id="trash.summary" datatype="html">
+        <source><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> · <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> recoverable</source>
+        <target state="needs-review-translation"><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> · <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> récupérable</target>
+      </trans-unit>
+      <trans-unit id="trash.kind_folder" datatype="html">
+        <source>Folder</source>
+        <target state="needs-review-translation">Dossier</target>
+      </trans-unit>
+      <trans-unit id="trash.deleted_on" datatype="html">
+        <source>deleted <x id="INTERPOLATION" equiv-text="{{ formatDate(item.deletedAt) }}"/></source>
+        <target state="needs-review-translation">supprimé le <x id="INTERPOLATION" equiv-text="{{ formatDate(item.deletedAt) }}"/></target>
+      </trans-unit>
+      <trans-unit id="trash.restore" datatype="html">
+        <source> Restore </source>
+        <target state="needs-review-translation">Restaurer</target>
+      </trans-unit>
+      <trans-unit id="trash.delete_forever" datatype="html">
+        <source> Delete forever </source>
+        <target state="needs-review-translation">Supprimer définitivement</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_folder" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and everything inside it will be permanently deleted and the storage freed immediately.</source>
+        <target state="needs-review-translation">Cette action est irréversible. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> et tout son contenu seront supprimés définitivement et le stockage libéré immédiatement.</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_file" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be permanently deleted and the storage freed immediately.</source>
+        <target state="needs-review-translation">Cette action est irréversible. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> sera supprimé définitivement et le stockage libéré immédiatement.</target>
+      </trans-unit>
+      <trans-unit id="common.cancel" datatype="html">
+        <source>Cancel</source>
+        <target state="needs-review-translation">Annuler</target>
+      </trans-unit>
+      <trans-unit id="trash.empty.title" datatype="html">
+        <source>Empty the Trash?</source>
+        <target state="needs-review-translation">Vider la corbeille ?</target>
+      </trans-unit>
+      <trans-unit id="trash.empty.body" datatype="html">
+        <source>All <x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> will be permanently deleted and <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> of storage freed. This cannot be undone.</source>
+        <target state="needs-review-translation"><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> seront supprimés définitivement et <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> de stockage libérés. Cette action est irréversible.</target>
+      </trans-unit>
+      <trans-unit id="trash.restored" datatype="html">
+        <source>Restored &quot;<x id="name" equiv-text="res.name"/>&quot;.</source>
+        <target state="needs-review-translation">Restauré "<x id="name" equiv-text="res.name"/>".</target>
+      </trans-unit>
+      <trans-unit id="trash.restored_as" datatype="html">
+        <source>Restored as &quot;<x id="newName" equiv-text="res.name"/>&quot; — &quot;<x id="oldName" equiv-text="item.name"/>&quot; was taken.</source>
+        <target state="needs-review-translation">Restauré sous "<x id="newName" equiv-text="res.name"/>" — "<x id="oldName" equiv-text="item.name"/>" était déjà pris.</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_today" datatype="html">
+        <source>Deletes today</source>
+        <target state="needs-review-translation">Supprimé aujourd'hui</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_tomorrow" datatype="html">
+        <source>Deletes tomorrow</source>
+        <target state="needs-review-translation">Supprimé demain</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_in_days" datatype="html">
+        <source>Deletes in <x id="days" equiv-text="days"/> days</source>
+        <target state="needs-review-translation">Supprimé dans <x id="days" equiv-text="days"/> jours</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.title" datatype="html">
+        <source>Delete <x id="name" equiv-text="name"/> forever?</source>
+        <target state="needs-review-translation">Supprimer <x id="name" equiv-text="name"/> définitivement ?</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
