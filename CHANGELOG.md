@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.3.0](https://github.com/imariel2d/keepr/compare/v1.2.0...v1.3.0) (2026-08-10)
+
+
+### Features
+
+* **api:** localize outbound emails per recipient ([#30](https://github.com/imariel2d/keepr/issues/30) Phase 3) ([f127b29](https://github.com/imariel2d/keepr/commit/f127b2933ddf67974accbbd3d96bdd5f704a75a6))
+* **api:** preferred language on account ([#30](https://github.com/imariel2d/keepr/issues/30)) ([945bb98](https://github.com/imariel2d/keepr/commit/945bb98adda671d22742b478d67c44902b2640c3))
+* **api:** stable error codes on every user-facing problem ([#30](https://github.com/imariel2d/keepr/issues/30)) ([95f7584](https://github.com/imariel2d/keepr/commit/95f7584f0dbaee2fdb7df25a1b63f741b18896ed))
+* **client:** i18n foundation + localized login + locale serving ([#30](https://github.com/imariel2d/keepr/issues/30)) ([6b23c2b](https://github.com/imariel2d/keepr/commit/6b23c2b2a7109cfa8c49dd240ba9d41616ea2a71))
+* **client:** localize the admin screens ([#30](https://github.com/imariel2d/keepr/issues/30)) ([5871d37](https://github.com/imariel2d/keepr/commit/5871d37f9dd1e4f72fb7a2804bd38504ae1beaca))
+* **client:** localize the app shell/chrome ([#30](https://github.com/imariel2d/keepr/issues/30)) ([d4cf5e8](https://github.com/imariel2d/keepr/commit/d4cf5e86330063ea4e94d0581978fb29d378719e))
+* **client:** localize the auth/entry screens ([#30](https://github.com/imariel2d/keepr/issues/30)) ([cdad576](https://github.com/imariel2d/keepr/commit/cdad576ea4b0917ba75e42e25df6f597c427bf03))
+* **client:** localize the Files feature ([#30](https://github.com/imariel2d/keepr/issues/30)) ([943be0c](https://github.com/imariel2d/keepr/commit/943be0ccf633fd861b865df5cf355c74f2e7365d))
+* **client:** localize the public share viewer ([#30](https://github.com/imariel2d/keepr/issues/30)) ([d9ce4fb](https://github.com/imariel2d/keepr/commit/d9ce4fb061a90e3876c79de57610d19417955e59))
+* **client:** localize the Trash screen ([#30](https://github.com/imariel2d/keepr/issues/30)) ([72b9e40](https://github.com/imariel2d/keepr/commit/72b9e4008577a6819d18b8795198514e72b520ef))
+* localize field-validation errors via codes ([#30](https://github.com/imariel2d/keepr/issues/30) Phase 2) ([bc743f2](https://github.com/imariel2d/keepr/commit/bc743f2c2e67a15596c3de6445d5731857cbe806))
+
+
+### Bug Fixes
+
+* **api:** redirect unprefixed paths to the locale build; keep e2e green ([#30](https://github.com/imariel2d/keepr/issues/30)) ([f4c3623](https://github.com/imariel2d/keepr/commit/f4c3623ae775c81a7c9d4f06f1a04c3636a5cb56))
+
 ## [1.2.0](https://github.com/imariel2d/keepr/compare/v1.1.0...v1.2.0) (2026-08-07)
 
 
