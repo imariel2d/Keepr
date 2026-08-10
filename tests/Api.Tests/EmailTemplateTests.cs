@@ -144,4 +144,31 @@ public class EmailTemplateTests
         Assert.DoesNotContain("<script>", content.HtmlBody);
         Assert.Contains("&lt;script&gt;", content.HtmlBody);
     }
+
+    [Fact]
+    public void Emails_render_in_the_recipients_locale()
+    {
+        // #30 Phase 3: the recipient's preferred language selects the copy; the expiry pluralizes
+        // in-language and the <html lang> follows.
+        var es = EmailTemplates.Invite(ClaimUrl, invitedBy: null, expiryDays: 7, locale: "es");
+        Assert.Contains("Te han invitado a Keepr", es.Subject);
+        Assert.Contains("7 días", es.TextBody);
+        Assert.Contains("lang=\"es\"", es.HtmlBody);
+
+        var fr = EmailTemplates.PasswordReset(ResetUrl, expiryMinutes: 1, locale: "fr");
+        Assert.Contains("Réinitialisez votre mot de passe Keepr", fr.Subject);
+        Assert.Contains("1 minute", fr.TextBody);
+        Assert.Contains("lang=\"fr\"", fr.HtmlBody);
+    }
+
+    [Fact]
+    public void An_unknown_or_unset_locale_falls_back_to_english()
+    {
+        Assert.Equal(
+            EmailTemplates.Invite(ClaimUrl, null, 7).Subject,
+            EmailTemplates.Invite(ClaimUrl, null, 7, locale: "de").Subject);
+        Assert.Equal(
+            EmailTemplates.Invite(ClaimUrl, null, 7).HtmlBody,
+            EmailTemplates.Invite(ClaimUrl, null, 7, locale: null).HtmlBody);
+    }
 }

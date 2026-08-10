@@ -49,12 +49,13 @@ public class InviteService(
     /// on transport failure — callers treat that as non-fatal (the account is already committed, §8.3).
     /// <paramref name="invitedByName"/> is the inviter's display name (first/last), or null to send a
     /// generic "you've been invited" line — the invite must never leak an admin's email address.</summary>
-    public async Task SendAsync(string toEmail, string rawToken, string? invitedByName, CancellationToken ct)
+    public async Task SendAsync(
+        string toEmail, string rawToken, string? invitedByName, CancellationToken ct, string? locale = null)
     {
         var s = await settings.GetAsync(ct);
         var expiryDays = Math.Max(1, s.InviteExpiryDays);
         var claimUrl = $"{ResolveBaseUrl(s.PublicBaseUrl)}/claim/{rawToken}";
-        var content = EmailTemplates.Invite(claimUrl, invitedByName, expiryDays);
+        var content = EmailTemplates.Invite(claimUrl, invitedByName, expiryDays, locale);
         var email = await senders.CreateAsync(ct);
         await email.SendAsync(
             new EmailMessage(toEmail, string.Empty, content.Subject, content.HtmlBody, content.TextBody),

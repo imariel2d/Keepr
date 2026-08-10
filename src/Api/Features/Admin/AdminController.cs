@@ -313,7 +313,7 @@ public class AdminController(
         {
             try
             {
-                await invites.SendAsync(user.Email, rawToken, await ActorDisplayNameAsync(ct), ct);
+                await invites.SendAsync(user.Email, rawToken, await ActorDisplayNameAsync(ct), ct, user.PreferredLanguage);
                 emailSent = true;
             }
             catch (Exception ex)
@@ -420,7 +420,7 @@ public class AdminController(
 
         try
         {
-            await invites.SendAsync(user.Email, token, await ActorDisplayNameAsync(ct), ct);
+            await invites.SendAsync(user.Email, token, await ActorDisplayNameAsync(ct), ct, user.PreferredLanguage);
         }
         catch (Exception ex)
         {
@@ -489,7 +489,7 @@ public class AdminController(
 
             try
             {
-                await resets.SendAsync(user.Email, raw, ct);
+                await resets.SendAsync(user.Email, raw, ct, user.PreferredLanguage);
             }
             catch (Exception ex)
             {

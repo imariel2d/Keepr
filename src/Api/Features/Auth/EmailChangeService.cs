@@ -55,12 +55,13 @@ public class EmailChangeService(
     /// <summary>Renders and sends the confirmation email to the <b>new</b> address via the currently
     /// configured provider. Throws on transport failure — the caller treats that as non-fatal (the 202
     /// already went out; the profile screen's Resend supersedes and retries).</summary>
-    public async Task SendConfirmationAsync(string newEmail, string rawToken, CancellationToken ct)
+    public async Task SendConfirmationAsync(
+        string newEmail, string rawToken, CancellationToken ct, string? locale = null)
     {
         var s = await settings.GetAsync(ct);
         var minutes = emailOptions.Value.EmailChangeExpiryMinutes; // startup-validated (Program.cs)
         var confirmUrl = $"{ResolveBaseUrl(s.PublicBaseUrl)}/confirm-email/{rawToken}";
-        var content = EmailTemplates.ConfirmEmailChange(confirmUrl, minutes);
+        var content = EmailTemplates.ConfirmEmailChange(confirmUrl, minutes, locale);
         var email = await senders.CreateAsync(ct);
         await email.SendAsync(
             new EmailMessage(newEmail, string.Empty, content.Subject, content.HtmlBody, content.TextBody),
@@ -71,9 +72,10 @@ public class EmailChangeService(
     /// original owner can react if it wasn't them (§5.3). The new address is masked so the old inbox
     /// doesn't spell it out. Throws on transport failure — the caller logs it; the change already
     /// committed and must not roll back over a missed notice.</summary>
-    public async Task SendChangedNoticeAsync(string oldEmail, string newEmail, CancellationToken ct)
+    public async Task SendChangedNoticeAsync(
+        string oldEmail, string newEmail, CancellationToken ct, string? locale = null)
     {
-        var content = EmailTemplates.EmailChanged(Mask(newEmail));
+        var content = EmailTemplates.EmailChanged(Mask(newEmail), locale);
         var email = await senders.CreateAsync(ct);
         await email.SendAsync(
             new EmailMessage(oldEmail, string.Empty, content.Subject, content.HtmlBody, content.TextBody),

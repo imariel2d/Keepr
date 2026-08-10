@@ -101,7 +101,7 @@ public class EmailChangeController(
 
         // Tell the OLD address the change happened, off the request's critical path. The change already
         // committed, so a failed notice is logged, never surfaced or rolled back.
-        DispatchChangedNotice(oldEmail, user.Email);
+        DispatchChangedNotice(oldEmail, user.Email, user.PreferredLanguage);
 
         return Ok(new EmailChangeResult(user.Email));
     }
@@ -109,7 +109,7 @@ public class EmailChangeController(
     /// <summary>Sends the old-address heads-up on a background task with its own DI scope (its own
     /// DbContext / sender) and lifetime — never the request's <c>CancellationToken</c>, which ends when
     /// the response returns. Fire-and-forget: a failed send is non-fatal and only logged.</summary>
-    private void DispatchChangedNotice(string oldEmail, string newEmail)
+    private void DispatchChangedNotice(string oldEmail, string newEmail, string? locale)
     {
         _ = Task.Run(async () =>
         {
@@ -117,7 +117,7 @@ public class EmailChangeController(
             {
                 using var scope = scopeFactory.CreateScope();
                 var svc = scope.ServiceProvider.GetRequiredService<EmailChangeService>();
-                await svc.SendChangedNoticeAsync(oldEmail, newEmail, CancellationToken.None);
+                await svc.SendChangedNoticeAsync(oldEmail, newEmail, CancellationToken.None, locale);
             }
             catch (Exception ex)
             {

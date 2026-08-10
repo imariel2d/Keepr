@@ -34,149 +34,129 @@ public static class EmailTemplates
     /// link, the raw link as a fallback, and the expiry. <paramref name="invitedBy"/> is the inviter's
     /// display name (their first/last name), not their email — when it's null/blank the template uses
     /// a generic line rather than exposing any address.</summary>
-    public static EmailContent Invite(string claimUrl, string? invitedBy, int expiryDays)
+    public static EmailContent Invite(string claimUrl, string? invitedBy, int expiryDays, string? locale = null)
     {
+        var s = EmailStrings.For(locale);
         var by = string.IsNullOrWhiteSpace(invitedBy) ? null : invitedBy;
-        var expiry = expiryDays == 1 ? "1 day" : $"{expiryDays} days";
+        var expiry = s.FormatDays(expiryDays);
 
-        var intro = by is null
-            ? "You've been invited to Keepr, a private place to keep your files."
-            : $"{by} has invited you to Keepr, a private place to keep your files.";
+        var intro = by is null ? s.InviteIntroGeneric : string.Format(s.InviteIntroByFormat, by);
 
-        var bodyHtml =
-            Paragraph(intro) +
-            Paragraph("Set a password to activate your account and sign in.");
+        var bodyHtml = Paragraph(intro) + Paragraph(s.InviteBody2);
 
-        var html = Layout(
-            preheader: "Set your password to activate your Keepr account.",
-            headline: "You're invited to Keepr",
+        var html = Layout(s,
+            preheader: s.InvitePreheader,
+            headline: s.InviteSubject,
             bodyHtml: bodyHtml,
-            ctaText: "Set your password",
+            ctaText: s.InviteCta,
             ctaUrl: claimUrl,
-            footerNote: $"This link expires in {expiry}. If the button doesn't work, paste this "
-                        + "address into your browser:");
+            footerNote: string.Format(s.ExpiresFooterFormat, expiry));
 
         var text = new StringBuilder()
-            .AppendLine("You're invited to Keepr")
+            .AppendLine(s.InviteSubject)
             .AppendLine()
             .AppendLine(intro)
             .AppendLine()
-            .AppendLine("Set a password to activate your account and sign in:")
+            .AppendLine(s.InviteBody2Text)
             .AppendLine(claimUrl)
             .AppendLine()
-            .AppendLine($"This link expires in {expiry}.")
+            .AppendLine(string.Format(s.ExpiresTextFormat, expiry))
             .ToString();
 
-        return new EmailContent("You're invited to Keepr", html, text);
+        return new EmailContent(s.InviteSubject, html, text);
     }
 
     /// <summary>The password-reset email: a Choose-a-new-password button to the reset link, the raw
     /// link as a fallback, the expiry, and a "you can ignore this" reassurance. Carries no account
     /// detail beyond the link itself. <paramref name="expiryMinutes"/> is the link lifetime (§4).</summary>
-    public static EmailContent PasswordReset(string resetUrl, int expiryMinutes)
+    public static EmailContent PasswordReset(string resetUrl, int expiryMinutes, string? locale = null)
     {
-        var minutes = expiryMinutes == 1 ? "1 minute" : $"{expiryMinutes} minutes";
+        var s = EmailStrings.For(locale);
+        var minutes = s.FormatMinutesOnly(expiryMinutes);
 
-        var bodyHtml =
-            Paragraph("We received a request to reset the password on your Keepr account.") +
-            Paragraph("Choose a new password to finish. If you didn't ask for this, you can ignore "
-                      + "this email — your password won't change.");
+        var bodyHtml = Paragraph(s.ResetBody1) + Paragraph(s.ResetBody2);
 
-        var html = Layout(
-            preheader: "Choose a new password for your Keepr account.",
-            headline: "Reset your password",
+        var html = Layout(s,
+            preheader: s.ResetPreheader,
+            headline: s.ResetHeadline,
             bodyHtml: bodyHtml,
-            ctaText: "Choose a new password",
+            ctaText: s.ResetCta,
             ctaUrl: resetUrl,
-            footerNote: $"This link expires in {minutes}. If the button doesn't work, paste this "
-                        + "address into your browser:");
+            footerNote: string.Format(s.ExpiresFooterFormat, minutes));
 
         var text = new StringBuilder()
-            .AppendLine("Reset your Keepr password")
+            .AppendLine(s.ResetSubject)
             .AppendLine()
-            .AppendLine("We received a request to reset the password on your Keepr account.")
-            .AppendLine("Choose a new password to finish:")
+            .AppendLine(s.ResetBody1)
+            .AppendLine(s.ResetBody1Text)
             .AppendLine(resetUrl)
             .AppendLine()
-            .AppendLine($"This link expires in {minutes}.")
-            .AppendLine("If you didn't request this, you can ignore this email — your password won't change.")
+            .AppendLine(string.Format(s.ExpiresTextFormat, minutes))
+            .AppendLine(s.ResetIgnoreText)
             .ToString();
 
-        return new EmailContent("Reset your Keepr password", html, text);
+        return new EmailContent(s.ResetSubject, html, text);
     }
 
     /// <summary>The change-email confirmation, sent to the <b>new</b> address: a Confirm button to the
     /// confirmation link, the raw link as a fallback, the expiry, and a "you can ignore this" line.
     /// Carries no account detail beyond the link itself. <paramref name="expiryMinutes"/> is the link
     /// lifetime (§5.5); rendered as hours when it divides evenly.</summary>
-    public static EmailContent ConfirmEmailChange(string confirmUrl, int expiryMinutes)
+    public static EmailContent ConfirmEmailChange(string confirmUrl, int expiryMinutes, string? locale = null)
     {
-        var expiry = FormatExpiry(expiryMinutes);
+        var s = EmailStrings.For(locale);
+        var expiry = s.FormatMinutes(expiryMinutes);
 
-        var bodyHtml =
-            Paragraph("Confirm this address to start using it to sign in to Keepr.") +
-            Paragraph("If you didn't request this, you can ignore this email — nothing will change.");
+        var bodyHtml = Paragraph(s.ConfirmBody1) + Paragraph(s.ConfirmBody2);
 
-        var html = Layout(
-            preheader: "Confirm your new email for your Keepr account.",
-            headline: "Confirm your new email",
+        var html = Layout(s,
+            preheader: s.ConfirmPreheader,
+            headline: s.ConfirmHeadline,
             bodyHtml: bodyHtml,
-            ctaText: "Confirm this email",
+            ctaText: s.ConfirmCta,
             ctaUrl: confirmUrl,
-            footerNote: $"This link expires in {expiry}. If the button doesn't work, paste this "
-                        + "address into your browser:");
+            footerNote: string.Format(s.ExpiresFooterFormat, expiry));
 
         var text = new StringBuilder()
-            .AppendLine("Confirm your new Keepr email")
+            .AppendLine(s.ConfirmSubject)
             .AppendLine()
-            .AppendLine("Confirm this address to start using it to sign in to Keepr:")
+            .AppendLine(s.ConfirmBody1Text)
             .AppendLine(confirmUrl)
             .AppendLine()
-            .AppendLine($"This link expires in {expiry}.")
-            .AppendLine("If you didn't request this, you can ignore this email — nothing will change.")
+            .AppendLine(string.Format(s.ExpiresTextFormat, expiry))
+            .AppendLine(s.ConfirmIgnoreText)
             .ToString();
 
-        return new EmailContent("Confirm your new Keepr email", html, text);
+        return new EmailContent(s.ConfirmSubject, html, text);
     }
 
     /// <summary>The heads-up sent to the <b>old</b> address once an email change completes, so the
     /// original owner can react if it wasn't them. No CTA. <paramref name="newEmailMasked"/> is the new
     /// address partially masked (e.g. <c>n•••@example.com</c>) so the old inbox doesn't spell out the
     /// full new address. See docs/feature-27-change-email.md §11.</summary>
-    public static EmailContent EmailChanged(string newEmailMasked)
+    public static EmailContent EmailChanged(string newEmailMasked, string? locale = null)
     {
-        var bodyHtml =
-            Paragraph($"The email address on your Keepr account was changed to {newEmailMasked}.") +
-            Paragraph("If this wasn't you, contact your admin right away.");
+        var s = EmailStrings.For(locale);
+        var body1 = string.Format(s.ChangedBody1Format, newEmailMasked);
 
-        var html = Layout(
-            preheader: "The email address on your Keepr account was changed.",
-            headline: "Your Keepr email was changed",
+        var bodyHtml = Paragraph(body1) + Paragraph(s.ChangedBody2);
+
+        var html = Layout(s,
+            preheader: s.ChangedPreheader,
+            headline: s.ChangedSubject,
             bodyHtml: bodyHtml,
             ctaText: null,
             ctaUrl: null,
             footerNote: null);
 
         var text = new StringBuilder()
-            .AppendLine("Your Keepr email was changed")
+            .AppendLine(s.ChangedSubject)
             .AppendLine()
-            .AppendLine($"The email address on your Keepr account was changed to {newEmailMasked}.")
-            .AppendLine("If this wasn't you, contact your admin right away.")
+            .AppendLine(body1)
+            .AppendLine(s.ChangedBody2)
             .ToString();
 
-        return new EmailContent("Your Keepr email was changed", html, text);
-    }
-
-    /// <summary>"90 minutes" / "1 minute" / "24 hours" / "1 hour" — hours when the minutes divide evenly,
-    /// so a 1440-minute link reads "24 hours" rather than "1440 minutes".</summary>
-    private static string FormatExpiry(int minutes)
-    {
-        if (minutes % 60 == 0)
-        {
-            var hours = minutes / 60;
-            return hours == 1 ? "1 hour" : $"{hours} hours";
-        }
-        return minutes == 1 ? "1 minute" : $"{minutes} minutes";
+        return new EmailContent(s.ChangedSubject, html, text);
     }
 
     /// <summary>
@@ -185,7 +165,7 @@ public static class EmailTemplates
     /// progressive enhancement (Apple/iOS Mail honor it); the light design is the standalone baseline.
     /// </summary>
     private static string Layout(
-        string preheader, string headline, string bodyHtml,
+        EmailStrings s, string preheader, string headline, string bodyHtml,
         string? ctaText, string? ctaUrl, string? footerNote)
     {
         // The CTA button and the footer's raw-link line render only for emails that carry a link
@@ -209,7 +189,7 @@ public static class EmailTemplates
 
         return $$"""
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{s.LangTag}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -248,7 +228,7 @@ public static class EmailTemplates
             <td style="padding:20px 8px 8px 8px;">
               {{footerNoteLine}}
               {{footerLink}}
-              <p class="kp-faint" style="margin:0; font-family:{{FontStack}}; font-size:12px; line-height:1.5; color:{{InkFaint}};">If you weren't expecting this, you can ignore this email.</p>
+              <p class="kp-faint" style="margin:0; font-family:{{FontStack}}; font-size:12px; line-height:1.5; color:{{InkFaint}};">{{HtmlText(s.IgnoreFooter)}}</p>
             </td>
           </tr>
         </table>

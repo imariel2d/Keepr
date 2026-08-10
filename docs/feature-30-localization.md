@@ -34,9 +34,14 @@
 > each known code per field (unknown values pass through, so framework/email-settings validators are
 > unaffected). Six new field codes in `ErrorCodes` + `fields.*` catalog entries.
 >
-> **Not built yet:** the client bootstrap auto-redirect for a signed-in user whose account preference
-> differs from the current build (the server cookie redirect covers the same-browser case), and
-> emails (§10 P3).
+> **Phase 3 done:** outbound emails (invite, reset, change-email confirm, old-address heads-up) render
+> in the recipient's `PreferredLanguage`. `EmailStrings` holds the per-locale copy (English default +
+> fallback; expiry pluralizes in-language; `<html lang>` follows), selected by a `locale` threaded
+> from each send path's recipient. English output is byte-identical to before.
+>
+> **All three phases are built.** Remaining is non-code: a human pass over the machine-translated
+> `es`/`fr` catalogs + `EmailStrings` (shipped `needs-review`, Q-30-4), a full-stack live run, and the
+> optional signed-in bootstrap auto-redirect (the server cookie redirect covers the same-browser case).
 >
 > Two load-bearing decisions the user made up front (see §2):
 >

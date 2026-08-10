@@ -245,7 +245,7 @@ public class MeController(
                     "A change to your email is already pending. Cancel it or use the link we sent, then try again.");
             }
             await tx.CommitAsync(ct);
-            DispatchConfirmationEmail(newEmail, raw);
+            DispatchConfirmationEmail(newEmail, raw, user.PreferredLanguage);
         }
         return Accepted(new EmailChangePendingResponse(newEmail));
     }
@@ -266,7 +266,7 @@ public class MeController(
     /// <summary>Sends the change-email confirmation on a background task with its own DI scope and
     /// lifetime — never the request's <c>CancellationToken</c>, which ends when the 202 returns.
     /// Fire-and-forget: a failed send is non-fatal (the user can Resend) and only logged.</summary>
-    private void DispatchConfirmationEmail(string newEmail, string rawToken)
+    private void DispatchConfirmationEmail(string newEmail, string rawToken, string? locale)
     {
         _ = Task.Run(async () =>
         {
@@ -274,7 +274,7 @@ public class MeController(
             {
                 using var scope = scopeFactory.CreateScope();
                 var svc = scope.ServiceProvider.GetRequiredService<EmailChangeService>();
-                await svc.SendConfirmationAsync(newEmail, rawToken, CancellationToken.None);
+                await svc.SendConfirmationAsync(newEmail, rawToken, CancellationToken.None, locale);
             }
             catch (Exception ex)
             {
