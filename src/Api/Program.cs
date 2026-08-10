@@ -274,16 +274,28 @@ app.MapControllers();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-// "/" (and any unprefixed entry) → the picked locale's build. Cookie-or-English (Q-30-3).
-app.MapGet("/", (HttpContext ctx) => Results.Redirect($"/{LocalePicker.Pick(ctx)}/"));
-
 foreach (var locale in LocalePicker.Supported)
 {
     // Bare "/es" → "/es/" so the directory default-file + base href resolve.
     app.MapGet($"/{locale}", () => Results.Redirect($"/{locale}/"));
     // Deep links inside a locale (e.g. "/es/files") have no file on disk — serve that locale's SPA
     // shell so Angular's router can take over. Per-locale so the right base href/bundle is returned.
+    // This more specific fallback wins over the catch-all below for any "/{locale}/…" path.
     app.MapFallbackToFile($"{locale}/{{*path}}", $"{locale}/index.html");
 }
+
+// Any path WITHOUT a locale prefix — "/", a bookmarked "/files", a share link "/s/token", an old
+// link — redirects to the same path under the picked locale (cookie-or-English, Q-30-3), so client
+// routing + the per-locale base href resolve. Registered as the catch-all fallback, so it never
+// shadows the API, static files, or the per-locale fallbacks above.
+app.MapFallback((HttpContext ctx) =>
+{
+    var path = ctx.Request.Path.Value ?? "/";
+    // An unmatched API route stays a 404 — never redirect it into the SPA.
+    if (path.StartsWith("/api", StringComparison.OrdinalIgnoreCase))
+        return Results.NotFound();
+    var locale = LocalePicker.Pick(ctx);
+    return Results.Redirect($"/{locale}{path}{ctx.Request.QueryString}");
+});
 
 app.Run();

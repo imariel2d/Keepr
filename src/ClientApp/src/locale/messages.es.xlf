@@ -321,6 +321,10 @@
         <source>Type <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> to confirm</source>
         <target state="needs-review-translation">Escribe <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> para confirmar</target>
       </trans-unit>
+      <trans-unit id="admin.quota.menu" datatype="html">
+        <source>Set quota</source>
+        <target state="needs-review-translation">Establecer cuota</target>
+      </trans-unit>
       <trans-unit id="admin.notice.created_no_email" datatype="html">
         <source><x id="email" equiv-text="res.account.email"/> was created, but the invite email couldn&apos;t be sent. Use &quot;Resend&quot; on their row to try again.</source>
         <target state="needs-review-translation">Se creó <x id="email" equiv-text="res.account.email"/>, pero no se pudo enviar el correo de invitación. Usa "Reenviar" en su fila para intentarlo de nuevo.</target>

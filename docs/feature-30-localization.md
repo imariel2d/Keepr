@@ -207,26 +207,38 @@ Reuse the existing profile surface rather than adding a new controller:
 
 `ng build` emits `dist/ClientApp/browser/{en,es,fr}/` each with its own `index.html` (base href
 `/en/` etc.). The Dockerfile copies the whole `browser/` tree into `wwwroot/`, so the image contains
-all three builds. `Program.cs` changes its single SPA fallback into **per-locale fallbacks + a root
-redirect**:
+all three builds. `Program.cs` changes its single SPA fallback into **per-locale fallbacks + a
+catch-all redirect**:
 
 ```csharp
+app.UseDefaultFiles(); // "/es/" → "/es/index.html" (dir default doc)
 app.UseStaticFiles();
 
-// Root and any unprefixed path → pick the locale (cookie → en) and redirect.
-app.MapGet("/", (HttpContext ctx) => Results.Redirect($"/{LocalePicker.Pick(ctx)}/"));
+foreach (var locale in LocalePicker.Supported)
+{
+    app.MapGet($"/{locale}", () => Results.Redirect($"/{locale}/"));        // bare "/es" → "/es/"
+    app.MapFallbackToFile($"{locale}/{{*path}}", $"{locale}/index.html");   // "/es/files" → es SPA
+}
 
-// Per-locale SPA deep-link fallback: /es/files → es/index.html, etc.
-foreach (var loc in new[] { "en", "es", "fr" })
-    app.MapFallbackToFile($"{{*path}}", $"{loc}/index.html")
-       .Add(/* constrained to the /{loc}/ prefix */);
+// Catch-all: any path WITHOUT a locale prefix ("/", "/files", "/s/token") → same path under the
+// picked locale. The per-locale fallbacks above are more specific, so this never shadows them; an
+// unmatched /api route stays a 404.
+app.MapFallback((HttpContext ctx) =>
+{
+    var path = ctx.Request.Path.Value ?? "/";
+    if (path.StartsWith("/api", StringComparison.OrdinalIgnoreCase)) return Results.NotFound();
+    return Results.Redirect($"/{LocalePicker.Pick(ctx)}{path}{ctx.Request.QueryString}");
+});
 ```
 
 `LocalePicker.Pick` reads the `keepr_lang` cookie; **absent → `en`**. `Accept-Language` is
 deliberately **ignored** for the redirect (Q-30-3), so the default is always English until the user
-explicitly picks otherwise. A signed-in user whose `PreferredLanguage` differs from the build they
-landed on is bounced to the right one by a tiny client guard on bootstrap (it also sets the
-`keepr_lang` cookie so future root hits go straight there).
+explicitly picks otherwise. Redirecting **every** unprefixed path (not just `/`) is what keeps a
+bookmarked `/files`, a share link `/s/token`, or any link without the locale prefix working — and is
+what the Playwright e2e suite (which navigates to unprefixed paths like `/login`, `/claim/:token`)
+relies on. A signed-in user whose `PreferredLanguage` differs from the build they landed on is bounced
+to the right one by a tiny client guard on bootstrap (it also sets the `keepr_lang` cookie so future
+hits go straight there).
 
 ### 4.4 The language switcher
 

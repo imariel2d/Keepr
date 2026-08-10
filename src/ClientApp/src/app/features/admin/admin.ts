@@ -166,7 +166,7 @@ export class Admin {
     if (!this.isSelf(u)) {
       items.push({ label: $localize`:@@admin.role.title:Change role`, icon: 'shield', onSelect: () => this.openRole(u) });
     }
-    items.push({ label: $localize`:@@admin.quota.title:Set storage quota`, icon: 'sliders-horizontal', onSelect: () => this.openQuota(u) });
+    items.push({ label: $localize`:@@admin.quota.menu:Set quota`, icon: 'sliders-horizontal', onSelect: () => this.openQuota(u) });
     if (!u.pending) {
       items.push({ label: $localize`:@@admin.reset.title:Reset password`, icon: 'key-round', onSelect: () => this.openReset(u) });
     }
