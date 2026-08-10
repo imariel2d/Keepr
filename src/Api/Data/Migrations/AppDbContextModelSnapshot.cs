@@ -496,6 +496,10 @@ namespace Keepr.Api.Data.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("text");
 
+                    b.Property<string>("PreferredLanguage")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
                     b.Property<long>("QuotaBytes")
                         .HasColumnType("bigint");
 

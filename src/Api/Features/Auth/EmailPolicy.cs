@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Reflection;
+using Keepr.Api.Http;
 
 namespace Keepr.Api.Features.Auth;
 
@@ -25,28 +26,30 @@ public static class EmailPolicy
     /// </summary>
     private static readonly FrozenSet<string> Disposable = LoadDisposableDomains();
 
-    public const string MalformedMessage = "Enter a valid email address.";
-    public const string DisposableMessage =
-        "That email provider isn't supported. Use a permanent address.";
+    // Stable error codes (not prose) — the client owns the localized copy (#30 P2). Kept as named
+    // members so tests read by intent rather than by literal string.
+    public const string MalformedCode = ErrorCodes.EmailMalformed;
+    public const string DisposableCode = ErrorCodes.EmailDisposable;
 
     /// <summary>
     /// Validates an address that has already been trimmed and lowercased by the caller.
-    /// Returns null when the address is acceptable, otherwise the user-facing reason.
+    /// Returns null when the address is acceptable, otherwise a stable error <b>code</b> the client
+    /// renders in the user's language.
     /// </summary>
     public static string? Validate(string email)
     {
-        if (string.IsNullOrWhiteSpace(email) || email.Length > MaxTotal) return MalformedMessage;
+        if (string.IsNullOrWhiteSpace(email) || email.Length > MaxTotal) return MalformedCode;
 
         // Exactly one @, and something on both sides of it.
         var at = email.IndexOf('@');
         if (at <= 0 || at != email.LastIndexOf('@') || at == email.Length - 1)
-            return MalformedMessage;
+            return MalformedCode;
 
         var local = email[..at];
         var domain = email[(at + 1)..];
 
-        return !IsValidLocal(local) || !IsValidDomain(domain) ? MalformedMessage
-            : Disposable.Contains(domain) ? DisposableMessage
+        return !IsValidLocal(local) || !IsValidDomain(domain) ? MalformedCode
+            : Disposable.Contains(domain) ? DisposableCode
             : null;
     }
 

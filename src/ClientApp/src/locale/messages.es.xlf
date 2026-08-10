@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- es catalog for #30. Machine-translated; every target is marked
+     state="needs-review-translation" pending a human pass (Q-30-4). Keep in step with the source
+     (messages.xlf) via `npm run extract-i18n` — the i18n-translations skill. -->
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" target-language="es" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="shell.skip_to_content" datatype="html">
+        <source>Skip to content</source>
+        <target state="needs-review-translation">Saltar al contenido</target>
+      </trans-unit>
+      <trans-unit id="shell.open_menu" datatype="html">
+        <source>Open navigation menu</source>
+        <target state="needs-review-translation">Abrir el menú de navegación</target>
+      </trans-unit>
+      <trans-unit id="shell.search" datatype="html">
+        <source>Search files and folders</source>
+        <target state="needs-review-translation">Buscar archivos y carpetas</target>
+      </trans-unit>
+      <trans-unit id="shell.clear_search" datatype="html">
+        <source>Clear search</source>
+        <target state="needs-review-translation">Borrar búsqueda</target>
+      </trans-unit>
+      <trans-unit id="shell.your_profile" datatype="html">
+        <source>Your profile</source>
+        <target state="needs-review-translation">Tu perfil</target>
+      </trans-unit>
+      <trans-unit id="shell.log_out" datatype="html">
+        <source>Log out</source>
+        <target state="needs-review-translation">Cerrar sesión</target>
+      </trans-unit>
+      <trans-unit id="shell.nav" datatype="html">
+        <source>Navigation</source>
+        <target state="needs-review-translation">Navegación</target>
+      </trans-unit>
+      <trans-unit id="nav.my_files" datatype="html">
+        <source>My Files</source>
+        <target state="needs-review-translation">Mis archivos</target>
+      </trans-unit>
+      <trans-unit id="nav.trash" datatype="html">
+        <source>Trash</source>
+        <target state="needs-review-translation">Papelera</target>
+      </trans-unit>
+      <trans-unit id="nav.admin" datatype="html">
+        <source>Admin</source>
+        <target state="needs-review-translation">Administración</target>
+      </trans-unit>
+      <trans-unit id="nav.accounts" datatype="html">
+        <source>Accounts</source>
+        <target state="needs-review-translation">Cuentas</target>
+      </trans-unit>
+      <trans-unit id="nav.email" datatype="html">
+        <source>Email</source>
+        <target state="needs-review-translation">Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="theme.to_light" datatype="html">
+        <source>Switch to light mode</source>
+        <target state="needs-review-translation">Cambiar al modo claro</target>
+      </trans-unit>
+      <trans-unit id="theme.to_dark" datatype="html">
+        <source>Switch to dark mode</source>
+        <target state="needs-review-translation">Cambiar al modo oscuro</target>
+      </trans-unit>
+      <trans-unit id="quota.used" datatype="html">
+        <source><x id="used" equiv-text="used"/> of <x id="total" equiv-text="total"/> used</source>
+        <target state="needs-review-translation"><x id="used" equiv-text="used"/> de <x id="total" equiv-text="total"/> usado</target>
+      </trans-unit>
+      <trans-unit id="quota.in_trash" datatype="html">
+        <source><x id="trashed" equiv-text="amount"/> in Trash</source>
+        <target state="needs-review-translation"><x id="trashed" equiv-text="amount"/> en la papelera</target>
+      </trans-unit>
+      <trans-unit id="password.min_chars" datatype="html">
+        <source>At least <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> characters</source>
+        <target state="needs-review-translation">Al menos <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> caracteres</target>
+      </trans-unit>
+      <trans-unit id="fields.email_malformed" datatype="html">
+        <source>Enter a valid email address.</source>
+        <target state="needs-review-translation">Introduce una dirección de correo electrónico válida.</target>
+      </trans-unit>
+      <trans-unit id="fields.email_disposable" datatype="html">
+        <source>That email provider isn&apos;t supported. Use a permanent address.</source>
+        <target state="needs-review-translation">Ese proveedor de correo no es compatible. Usa una dirección permanente.</target>
+      </trans-unit>
+      <trans-unit id="fields.password_too_short" datatype="html">
+        <source>Use at least <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> characters.</source>
+        <target state="needs-review-translation">Usa al menos <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> caracteres.</target>
+      </trans-unit>
+      <trans-unit id="fields.password_too_long" datatype="html">
+        <source>That password is too long. Keep it under 72 bytes (about 72 characters).</source>
+        <target state="needs-review-translation">Esa contraseña es demasiado larga. Manténla por debajo de 72 bytes (unos 72 caracteres).</target>
+      </trans-unit>
+      <trans-unit id="fields.password_contains_email" datatype="html">
+        <source>Don&apos;t use your email address in your password.</source>
+        <target state="needs-review-translation">No uses tu dirección de correo electrónico en la contraseña.</target>
+      </trans-unit>
+      <trans-unit id="fields.password_breached" datatype="html">
+        <source>This password has appeared in a data breach. Choose another.</source>
+        <target state="needs-review-translation">Esta contraseña ha aparecido en una filtración de datos. Elige otra.</target>
+      </trans-unit>
+      <trans-unit id="errors.invalid_credentials" datatype="html">
+        <source>Invalid credentials.</source>
+        <target state="needs-review-translation">Credenciales no válidas.</target>
+      </trans-unit>
+      <trans-unit id="errors.email_registered" datatype="html">
+        <source>Email already registered.</source>
+        <target state="needs-review-translation">Ese correo electrónico ya está registrado.</target>
+      </trans-unit>
+      <trans-unit id="errors.registration_closed" datatype="html">
+        <source>Registration is closed. Ask an admin to set up an account.</source>
+        <target state="needs-review-translation">El registro está cerrado. Pide a un administrador que cree una cuenta.</target>
+      </trans-unit>
+      <trans-unit id="errors.password_incorrect" datatype="html">
+        <source>Your current password is incorrect.</source>
+        <target state="needs-review-translation">Tu contraseña actual es incorrecta.</target>
+      </trans-unit>
+      <trans-unit id="errors.invalid_language" datatype="html">
+        <source>That isn&apos;t a supported language.</source>
+        <target state="needs-review-translation">Ese idioma no es compatible.</target>
+      </trans-unit>
+      <trans-unit id="errors.share_not_found" datatype="html">
+        <source>This share link doesn&apos;t exist.</source>
+        <target state="needs-review-translation">Este enlace para compartir no existe.</target>
+      </trans-unit>
+      <trans-unit id="errors.share_unavailable" datatype="html">
+        <source>This share link is no longer available.</source>
+        <target state="needs-review-translation">Este enlace para compartir ya no está disponible.</target>
+      </trans-unit>
+      <trans-unit id="errors.generic" datatype="html">
+        <source>Something went wrong. Please try again.</source>
+        <target state="needs-review-translation">Algo salió mal. Inténtalo de nuevo.</target>
+      </trans-unit>
+      <trans-unit id="admin.total_count" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ total() }}"/> total</source>
+        <target state="needs-review-translation"><x id="INTERPOLATION" equiv-text="{{ total() }}"/> en total</target>
+      </trans-unit>
+      <trans-unit id="admin.new_account" datatype="html">
+        <source> New account </source>
+        <target state="needs-review-translation">Nueva cuenta</target>
+      </trans-unit>
+      <trans-unit id="admin.loading" datatype="html">
+        <source>Loading accounts…</source>
+        <target state="needs-review-translation">Cargando cuentas…</target>
+      </trans-unit>
+      <trans-unit id="admin.col.email" datatype="html">
+        <source>Email</source>
+        <target state="needs-review-translation">Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="admin.col.role" datatype="html">
+        <source>Role</source>
+        <target state="needs-review-translation">Rol</target>
+      </trans-unit>
+      <trans-unit id="admin.col.storage" datatype="html">
+        <source>Storage</source>
+        <target state="needs-review-translation">Almacenamiento</target>
+      </trans-unit>
+      <trans-unit id="admin.col.sessions" datatype="html">
+        <source>Sessions</source>
+        <target state="needs-review-translation">Sesiones</target>
+      </trans-unit>
+      <trans-unit id="admin.col.joined" datatype="html">
+        <source>Joined</source>
+        <target state="needs-review-translation">Se unió</target>
+      </trans-unit>
+      <trans-unit id="admin.you" datatype="html">
+        <source>you</source>
+        <target state="needs-review-translation">tú</target>
+      </trans-unit>
+      <trans-unit id="admin.pending_title" datatype="html">
+        <source>Invited — not yet claimed</source>
+        <target state="needs-review-translation">Invitado — aún sin reclamar</target>
+      </trans-unit>
+      <trans-unit id="admin.pending" datatype="html">
+        <source>Pending</source>
+        <target state="needs-review-translation">Pendiente</target>
+      </trans-unit>
+      <trans-unit id="admin.storage_of" datatype="html">
+        <source>of</source>
+        <target state="needs-review-translation">de</target>
+      </trans-unit>
+      <trans-unit id="admin.resend" datatype="html">
+        <source>Resend</source>
+        <target state="needs-review-translation">Reenviar</target>
+      </trans-unit>
+      <trans-unit id="admin.showing" datatype="html">
+        <source>Showing <x id="INTERPOLATION" equiv-text="{{ rangeStart() }}"/>–<x id="INTERPOLATION_1" equiv-text="{{ rangeEnd() }}"/> of <x id="INTERPOLATION_2" equiv-text="{{ total() }}"/></source>
+        <target state="needs-review-translation">Mostrando <x id="INTERPOLATION" equiv-text="{{ rangeStart() }}"/>–<x id="INTERPOLATION_1" equiv-text="{{ rangeEnd() }}"/> de <x id="INTERPOLATION_2" equiv-text="{{ total() }}"/></target>
+      </trans-unit>
+      <trans-unit id="admin.prev" datatype="html">
+        <source>Prev</source>
+        <target state="needs-review-translation">Anterior</target>
+      </trans-unit>
+      <trans-unit id="admin.next" datatype="html">
+        <source>Next</source>
+        <target state="needs-review-translation">Siguiente</target>
+      </trans-unit>
+      <trans-unit id="admin.email_placeholder" datatype="html">
+        <source>person@example.com</source>
+        <target state="needs-review-translation">persona@ejemplo.com</target>
+      </trans-unit>
+      <trans-unit id="admin.role.user" datatype="html">
+        <source>User</source>
+        <target state="needs-review-translation">Usuario</target>
+      </trans-unit>
+      <trans-unit id="admin.role.admin" datatype="html">
+        <source>Admin</source>
+        <target state="needs-review-translation">Administrador</target>
+      </trans-unit>
+      <trans-unit id="admin.create.how" datatype="html">
+        <source>How they get in</source>
+        <target state="needs-review-translation">Cómo acceden</target>
+      </trans-unit>
+      <trans-unit id="admin.create.set_password" datatype="html">
+        <source>Set a password now</source>
+        <target state="needs-review-translation">Establecer una contraseña ahora</target>
+      </trans-unit>
+      <trans-unit id="admin.create.send_invite" datatype="html">
+        <source>Send an email invite</source>
+        <target state="needs-review-translation">Enviar una invitación por correo</target>
+      </trans-unit>
+      <trans-unit id="field.password" datatype="html">
+        <source>Password</source>
+        <target state="needs-review-translation">Contraseña</target>
+      </trans-unit>
+      <trans-unit id="field.password_min" datatype="html">
+        <source>At least <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> characters</source>
+        <target state="needs-review-translation">Al menos <x id="INTERPOLATION" equiv-text="{{ minPasswordLength }}"/> caracteres</target>
+      </trans-unit>
+      <trans-unit id="admin.create.warn" datatype="html">
+        <source><x id="START_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;14&quot; /&gt;"/><x id="CLOSE_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;14&quot; /&gt;"/> This email isn&apos;t verified. If email delivery is turned on later, the real owner of this address could claim this account. Prefer an email invite once a mailer is configured. </source>
+        <target state="needs-review-translation">Este correo electrónico no está verificado. Si la entrega de correo se activa más tarde, el verdadero propietario de esta dirección podría reclamar esta cuenta. Es preferible una invitación por correo una vez configurado un servicio de correo.</target>
+      </trans-unit>
+      <trans-unit id="admin.create.invite_hint" datatype="html">
+        <source> We&apos;ll email a link to set their own password. Needs a configured mail sender. </source>
+        <target state="needs-review-translation">Enviaremos por correo un enlace para que establezcan su propia contraseña. Requiere un remitente de correo configurado.</target>
+      </trans-unit>
+      <trans-unit id="admin.create.no_mail" datatype="html">
+        <source> No mail sender is configured — switch to “Set a password now”, or configure email first. </source>
+        <target state="needs-review-translation">No hay ningún remitente de correo configurado — cambia a "Establecer una contraseña ahora" o configura primero el correo.</target>
+      </trans-unit>
+      <trans-unit id="common.cancel" datatype="html">
+        <source>Cancel</source>
+        <target state="needs-review-translation">Cancelar</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.title" datatype="html">
+        <source>Reset password</source>
+        <target state="needs-review-translation">Restablecer contraseña</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.how" datatype="html">
+        <source>How to reset</source>
+        <target state="needs-review-translation">Cómo restablecer</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.set_now" datatype="html">
+        <source>Set a new password now</source>
+        <target state="needs-review-translation">Establecer una nueva contraseña ahora</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.email_link" datatype="html">
+        <source>Email a reset link</source>
+        <target state="needs-review-translation">Enviar un enlace de restablecimiento por correo</target>
+      </trans-unit>
+      <trans-unit id="field.new_password" datatype="html">
+        <source>New password</source>
+        <target state="needs-review-translation">Nueva contraseña</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.now_hint" datatype="html">
+        <source>Signs them out everywhere and asks them to change this password on next sign-in.</source>
+        <target state="needs-review-translation">Cierra su sesión en todas partes y les pide cambiar esta contraseña en el próximo inicio de sesión.</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.link_hint" datatype="html">
+        <source> We&apos;ll email a link to choose a new password. Needs a configured mail sender and a verified email. </source>
+        <target state="needs-review-translation">Enviaremos por correo un enlace para elegir una nueva contraseña. Requiere un remitente de correo configurado y un correo verificado.</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.no_mail" datatype="html">
+        <source> No mail sender is configured — switch to “Set a new password now”, or configure email first. </source>
+        <target state="needs-review-translation">No hay ningún remitente de correo configurado — cambia a "Establecer una nueva contraseña ahora" o configura primero el correo.</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.unverified" datatype="html">
+        <source> This account&apos;s email isn&apos;t verified — set a new password directly instead. </source>
+        <target state="needs-review-translation">El correo de esta cuenta no está verificado — establece una nueva contraseña directamente en su lugar.</target>
+      </trans-unit>
+      <trans-unit id="admin.role.title" datatype="html">
+        <source>Change role</source>
+        <target state="needs-review-translation">Cambiar rol</target>
+      </trans-unit>
+      <trans-unit id="admin.role.hint" datatype="html">
+        <source>A change takes effect on their next sign-in.</source>
+        <target state="needs-review-translation">El cambio surte efecto en su próximo inicio de sesión.</target>
+      </trans-unit>
+      <trans-unit id="common.save" datatype="html">
+        <source>Save</source>
+        <target state="needs-review-translation">Guardar</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.title" datatype="html">
+        <source>Set storage quota</source>
+        <target state="needs-review-translation">Establecer cuota de almacenamiento</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.sub" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ u.email }}"/> — currently using <x id="INTERPOLATION_1" equiv-text="{{ u.usedBytes | bytes }}"/>.</source>
+        <target state="needs-review-translation"><x id="INTERPOLATION" equiv-text="{{ u.email }}"/> — usando actualmente <x id="INTERPOLATION_1" equiv-text="{{ u.usedBytes | bytes }}"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.new" datatype="html">
+        <source>New quota (GB)</source>
+        <target state="needs-review-translation">Nueva cuota (GB)</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.hint" datatype="html">
+        <source>Setting it below current usage is allowed — it just blocks new uploads.</source>
+        <target state="needs-review-translation">Se permite establecerla por debajo del uso actual — solo bloquea nuevas subidas.</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.title" datatype="html">
+        <source>Remove account</source>
+        <target state="needs-review-translation">Eliminar cuenta</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.confirm" datatype="html">
+        <source>Remove <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?</source>
+        <target state="needs-review-translation">¿Eliminar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>?</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.warn" datatype="html">
+        <source><x id="START_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;15&quot; /&gt;"/><x id="CLOSE_TAG_COVE_ICON" ctype="x-cove_icon" equiv-text="&lt;cove-icon name=&quot;alert-triangle&quot; [size]=&quot;15&quot; /&gt;"/> This signs them out immediately and permanently deletes their account and all files — including trash. There is no recovery. </source>
+        <target state="needs-review-translation">Esto cierra su sesión de inmediato y elimina permanentemente su cuenta y todos los archivos, incluida la papelera. No hay recuperación posible.</target>
+      </trans-unit>
+      <trans-unit id="admin.remove.type_to_confirm" datatype="html">
+        <source>Type <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> to confirm</source>
+        <target state="needs-review-translation">Escribe <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ u.email }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> para confirmar</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.menu" datatype="html">
+        <source>Set quota</source>
+        <target state="needs-review-translation">Establecer cuota</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.created_no_email" datatype="html">
+        <source><x id="email" equiv-text="res.account.email"/> was created, but the invite email couldn&apos;t be sent. Use &quot;Resend&quot; on their row to try again.</source>
+        <target state="needs-review-translation">Se creó <x id="email" equiv-text="res.account.email"/>, pero no se pudo enviar el correo de invitación. Usa "Reenviar" en su fila para intentarlo de nuevo.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.invite_sent" datatype="html">
+        <source>Invite sent to <x id="email" equiv-text="res.account.email"/>.</source>
+        <target state="needs-review-translation">Invitación enviada a <x id="email" equiv-text="res.account.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.created" datatype="html">
+        <source>Account created for <x id="email" equiv-text="res.account.email"/>.</source>
+        <target state="needs-review-translation">Cuenta creada para <x id="email" equiv-text="res.account.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.role_changed" datatype="html">
+        <source><x id="email" equiv-text="u.email"/> is now <x id="role" equiv-text="this.roleLabel(updated.role)"/>.</source>
+        <target state="needs-review-translation"><x id="email" equiv-text="u.email"/> ahora es <x id="role" equiv-text="this.roleLabel(updated.role)"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.invite_resent" datatype="html">
+        <source>Invite re-sent to <x id="email" equiv-text="u.email"/>.</source>
+        <target state="needs-review-translation">Invitación reenviada a <x id="email" equiv-text="u.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.reset_link_sent" datatype="html">
+        <source>Reset link sent to <x id="email" equiv-text="u.email"/>.</source>
+        <target state="needs-review-translation">Enlace de restablecimiento enviado a <x id="email" equiv-text="u.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.reset_done" datatype="html">
+        <source>Password reset for <x id="email" equiv-text="u.email"/> — they&apos;ll be asked to change it on next sign-in.</source>
+        <target state="needs-review-translation">Contraseña restablecida para <x id="email" equiv-text="u.email"/> — se le pedirá cambiarla en el próximo inicio de sesión.</target>
+      </trans-unit>
+      <trans-unit id="admin.quota.invalid" datatype="html">
+        <source>Enter a storage size of 0 GB or more.</source>
+        <target state="needs-review-translation">Introduce un tamaño de almacenamiento de 0 GB o más.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.quota_updated" datatype="html">
+        <source>Quota updated for <x id="email" equiv-text="u.email"/>.</source>
+        <target state="needs-review-translation">Cuota actualizada para <x id="email" equiv-text="u.email"/>.</target>
+      </trans-unit>
+      <trans-unit id="admin.notice.removed" datatype="html">
+        <source><x id="email" equiv-text="u.email"/> has been removed.</source>
+        <target state="needs-review-translation"><x id="email" equiv-text="u.email"/> ha sido eliminado.</target>
+      </trans-unit>
+      <trans-unit id="admin.row_actions" datatype="html">
+        <source>Actions for <x id="email" equiv-text="u.email"/></source>
+        <target state="needs-review-translation">Acciones para <x id="email" equiv-text="u.email"/></target>
+      </trans-unit>
+      <trans-unit id="password.hide" datatype="html">
+        <source>Hide password</source>
+        <target state="needs-review-translation">Ocultar contraseña</target>
+      </trans-unit>
+      <trans-unit id="password.show" datatype="html">
+        <source>Show password</source>
+        <target state="needs-review-translation">Mostrar contraseña</target>
+      </trans-unit>
+      <trans-unit id="admin.create.send_invite_btn" datatype="html">
+        <source>Send invite</source>
+        <target state="needs-review-translation">Enviar invitación</target>
+      </trans-unit>
+      <trans-unit id="admin.create.create_btn" datatype="html">
+        <source>Create account</source>
+        <target state="needs-review-translation">Crear cuenta</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.send_link_btn" datatype="html">
+        <source>Send reset link</source>
+        <target state="needs-review-translation">Enviar enlace de restablecimiento</target>
+      </trans-unit>
+      <trans-unit id="admin.reset.reset_btn" datatype="html">
+        <source>Reset password</source>
+        <target state="needs-review-translation">Restablecer contraseña</target>
+      </trans-unit>
+      <trans-unit id="email.loading" datatype="html">
+        <source>Loading settings…</source>
+        <target state="needs-review-translation">Cargando la configuración…</target>
+      </trans-unit>
+      <trans-unit id="email.lede" datatype="html">
+        <source> Choose a provider and paste its API key to turn on outbound email — account invites, and later password resets. Changes take effect immediately, no redeploy. </source>
+        <target state="needs-review-translation">Elige un proveedor y pega su clave de API para activar el correo saliente: invitaciones de cuenta y, más adelante, restablecimientos de contraseña. Los cambios surten efecto de inmediato, sin redespliegue.</target>
+      </trans-unit>
+      <trans-unit id="email.provider" datatype="html">
+        <source>Provider</source>
+        <target state="needs-review-translation">Proveedor</target>
+      </trans-unit>
+      <trans-unit id="email.from_address" datatype="html">
+        <source>From address</source>
+        <target state="needs-review-translation">Dirección de remitente</target>
+      </trans-unit>
+      <trans-unit id="email.from_address_ph" datatype="html">
+        <source>no-reply@yourdomain.com</source>
+        <target state="needs-review-translation">no-reply@tudominio.com</target>
+      </trans-unit>
+      <trans-unit id="email.from_name" datatype="html">
+        <source>From name</source>
+        <target state="needs-review-translation">Nombre de remitente</target>
+      </trans-unit>
+      <trans-unit id="email.api_key" datatype="html">
+        <source>API key</source>
+        <target state="needs-review-translation">Clave de API</target>
+      </trans-unit>
+      <trans-unit id="email.api_key_ph" datatype="html">
+        <source>Paste the provider API key</source>
+        <target state="needs-review-translation">Pega la clave de API del proveedor</target>
+      </trans-unit>
+      <trans-unit id="email.key_hint" datatype="html">
+        <source>The key is stored encrypted and never shown again.</source>
+        <target state="needs-review-translation">La clave se almacena cifrada y no se vuelve a mostrar.</target>
+      </trans-unit>
+      <trans-unit id="email.configured" datatype="html">
+        <source>Configured</source>
+        <target state="needs-review-translation">Configurada</target>
+      </trans-unit>
+      <trans-unit id="email.replace" datatype="html">
+        <source>Replace</source>
+        <target state="needs-review-translation">Reemplazar</target>
+      </trans-unit>
+      <trans-unit id="email.mailgun_domain" datatype="html">
+        <source>Mailgun sending domain</source>
+        <target state="needs-review-translation">Dominio de envío de Mailgun</target>
+      </trans-unit>
+      <trans-unit id="email.mailgun_region" datatype="html">
+        <source>Mailgun region</source>
+        <target state="needs-review-translation">Región de Mailgun</target>
+      </trans-unit>
+      <trans-unit id="email.off_hint" datatype="html">
+        <source> Outbound email is off. Account invites and other email features are unavailable until a provider is set. </source>
+        <target state="needs-review-translation">El correo saliente está desactivado. Las invitaciones de cuenta y otras funciones de correo no están disponibles hasta que se configure un proveedor.</target>
+      </trans-unit>
+      <trans-unit id="email.public_url" datatype="html">
+        <source>Public base URL</source>
+        <target state="needs-review-translation">URL base pública</target>
+      </trans-unit>
+      <trans-unit id="email.public_url_hint" datatype="html">
+        <source>Origin used for links in emails (the claim link).</source>
+        <target state="needs-review-translation">Origen usado para los enlaces en los correos (el enlace de reclamación).</target>
+      </trans-unit>
+      <trans-unit id="email.invite_expiry" datatype="html">
+        <source>Invite expiry (days)</source>
+        <target state="needs-review-translation">Caducidad de la invitación (días)</target>
+      </trans-unit>
+      <trans-unit id="email.save_first" datatype="html">
+        <source>Save first to test.</source>
+        <target state="needs-review-translation">Guarda primero para probar.</target>
+      </trans-unit>
+      <trans-unit id="email.last_test" datatype="html">
+        <source>Last test <x id="INTERPOLATION" equiv-text="{{ formatDate(lastTestAt) }}"/> — <x id="INTERPOLATION_1" equiv-text="{{ testResult() }}"/></source>
+        <target state="needs-review-translation">Última prueba <x id="INTERPOLATION" equiv-text="{{ formatDate(lastTestAt) }}"/> — <x id="INTERPOLATION_1" equiv-text="{{ testResult() }}"/></target>
+      </trans-unit>
+      <trans-unit id="email.provider.none" datatype="html">
+        <source>None (off)</source>
+        <target state="needs-review-translation">Ninguno (desactivado)</target>
+      </trans-unit>
+      <trans-unit id="email.status.off" datatype="html">
+        <source>Off</source>
+        <target state="needs-review-translation">Desactivado</target>
+      </trans-unit>
+      <trans-unit id="email.status.active_aria" datatype="html">
+        <source>Active provider: <x id="provider" equiv-text="active.label"/></source>
+        <target state="needs-review-translation">Proveedor activo: <x id="provider" equiv-text="active.label"/></target>
+      </trans-unit>
+      <trans-unit id="email.status.off_aria" datatype="html">
+        <source>Outbound email is off</source>
+        <target state="needs-review-translation">El correo saliente está desactivado</target>
+      </trans-unit>
+      <trans-unit id="email.hide_key" datatype="html">
+        <source>Hide key</source>
+        <target state="needs-review-translation">Ocultar clave</target>
+      </trans-unit>
+      <trans-unit id="email.show_key" datatype="html">
+        <source>Show key</source>
+        <target state="needs-review-translation">Mostrar clave</target>
+      </trans-unit>
+      <trans-unit id="email.testing" datatype="html">
+        <source>Sending…</source>
+        <target state="needs-review-translation">Enviando…</target>
+      </trans-unit>
+      <trans-unit id="email.send_test" datatype="html">
+        <source>Send test email</source>
+        <target state="needs-review-translation">Enviar correo de prueba</target>
+      </trans-unit>
+      <trans-unit id="common.saving" datatype="html">
+        <source>Saving…</source>
+        <target state="needs-review-translation">Guardando…</target>
+      </trans-unit>
+      <trans-unit id="email.test_succeeded" datatype="html">
+        <source>succeeded</source>
+        <target state="needs-review-translation">correcta</target>
+      </trans-unit>
+      <trans-unit id="email.test_failed" datatype="html">
+        <source>failed</source>
+        <target state="needs-review-translation">fallida</target>
+      </trans-unit>
+      <trans-unit id="email.saved" datatype="html">
+        <source>Email settings saved.</source>
+        <target state="needs-review-translation">Configuración de correo guardada.</target>
+      </trans-unit>
+      <trans-unit id="email.test_sent" datatype="html">
+        <source>Test email sent — check your inbox.</source>
+        <target state="needs-review-translation">Correo de prueba enviado — revisa tu bandeja de entrada.</target>
+      </trans-unit>
+      <trans-unit id="common.checking_link" datatype="html">
+        <source>Checking your link…</source>
+        <target state="needs-review-translation">Comprobando tu enlace…</target>
+      </trans-unit>
+      <trans-unit id="common.link_not_valid" datatype="html">
+        <source>Link not valid</source>
+        <target state="needs-review-translation">Enlace no válido</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.invalid.sub" datatype="html">
+        <source>This confirmation link has expired or was already used. Start the change again from your profile.</source>
+        <target state="needs-review-translation">Este enlace de confirmación ha caducado o ya se usó. Vuelve a iniciar el cambio desde tu perfil.</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.back" datatype="html">
+        <source>Back to Keepr</source>
+        <target state="needs-review-translation">Volver a Keepr</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.done.title" datatype="html">
+        <source>Email confirmed</source>
+        <target state="needs-review-translation">Correo electrónico confirmado</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.done.sub" datatype="html">
+        <source>Your email is now <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ newEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Use it to sign in from now on.</source>
+        <target state="needs-review-translation">Tu correo electrónico ahora es <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ newEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Úsalo para iniciar sesión a partir de ahora.</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.continue" datatype="html">
+        <source> Continue to Keepr </source>
+        <target state="needs-review-translation">Continuar a Keepr</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.title" datatype="html">
+        <source>Confirm your new email</source>
+        <target state="needs-review-translation">Confirma tu nuevo correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.sub" datatype="html">
+        <source>Confirm <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ newEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> to start using it to sign in to Keepr.</source>
+        <target state="needs-review-translation">Confirma <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ newEmail() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> para empezar a usarlo para iniciar sesión en Keepr.</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.not_now" datatype="html">
+        <source>Not now</source>
+        <target state="needs-review-translation">Ahora no</target>
+      </trans-unit>
+      <trans-unit id="common.please_wait" datatype="html">
+        <source>Please wait…</source>
+        <target state="needs-review-translation">Espera…</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.confirm" datatype="html">
+        <source>Confirm this email</source>
+        <target state="needs-review-translation">Confirmar este correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.err.in_use" datatype="html">
+        <source>That address is now in use. Start the change again from your profile.</source>
+        <target state="needs-review-translation">Esa dirección ya está en uso. Vuelve a iniciar el cambio desde tu perfil.</target>
+      </trans-unit>
+      <trans-unit id="confirm_email.err.generic" datatype="html">
+        <source>Could not confirm your new email. Try the link again.</source>
+        <target state="needs-review-translation">No se pudo confirmar tu nuevo correo electrónico. Prueba el enlace de nuevo.</target>
+      </trans-unit>
+      <trans-unit id="files.search.results" datatype="html">
+        <source>Results for “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”</source>
+        <target state="needs-review-translation">Resultados de “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”</target>
+      </trans-unit>
+      <trans-unit id="files.result_count" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 result} other {<x id="INTERPOLATION"/> results}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 resultado} other {<x id="INTERPOLATION"/> resultados}}</target>
+      </trans-unit>
+      <trans-unit id="files.new_folder" datatype="html">
+        <source>New folder</source>
+        <target state="needs-review-translation">Nueva carpeta</target>
+      </trans-unit>
+      <trans-unit id="files.upload" datatype="html">
+        <source>Upload</source>
+        <target state="needs-review-translation">Subir</target>
+      </trans-unit>
+      <trans-unit id="common.dismiss" datatype="html">
+        <source>Dismiss</source>
+        <target state="needs-review-translation">Descartar</target>
+      </trans-unit>
+      <trans-unit id="files.drop_to_upload" datatype="html">
+        <source>Drop to upload to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ contents()?.folder?.name ?? myFilesLabel }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="needs-review-translation">Suelta para subir a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ contents()?.folder?.name ?? myFilesLabel }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="files.selected_count" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 item selected} other {<x id="INTERPOLATION"/> items selected}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 elemento seleccionado} other {<x id="INTERPOLATION"/> elementos seleccionados}}</target>
+      </trans-unit>
+      <trans-unit id="files.download_count" datatype="html">
+        <source> Download <x id="ICU" equiv-text="{selectedFiles().length, plural, =1 {1 file} other {{{selectedFiles().length}} files}}" xid="2159106180826349718"/> </source>
+        <target state="needs-review-translation">Descargar <x id="ICU" equiv-text="{selectedFiles().length, plural, =1 {1 file} other {{{selectedFiles().length}} files}}" xid="2159106180826349718"/></target>
+      </trans-unit>
+      <trans-unit id="8407137440564843816" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 file} other {<x id="INTERPOLATION"/> files}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 archivo} other {<x id="INTERPOLATION"/> archivos}}</target>
+      </trans-unit>
+      <trans-unit id="files.move_to" datatype="html">
+        <source> Move to… </source>
+        <target state="needs-review-translation">Mover a…</target>
+      </trans-unit>
+      <trans-unit id="files.delete" datatype="html">
+        <source> Delete </source>
+        <target state="needs-review-translation">Eliminar</target>
+      </trans-unit>
+      <trans-unit id="files.select_all" datatype="html">
+        <source>Select all</source>
+        <target state="needs-review-translation">Seleccionar todo</target>
+      </trans-unit>
+      <trans-unit id="files.clear" datatype="html">
+        <source>Clear</source>
+        <target state="needs-review-translation">Borrar</target>
+      </trans-unit>
+      <trans-unit id="files.searching" datatype="html">
+        <source>Searching…</source>
+        <target state="needs-review-translation">Buscando…</target>
+      </trans-unit>
+      <trans-unit id="common.loading" datatype="html">
+        <source>Loading…</source>
+        <target state="needs-review-translation">Cargando…</target>
+      </trans-unit>
+      <trans-unit id="files.no_match" datatype="html">
+        <source>No files or folders match “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”.</source>
+        <target state="needs-review-translation">Ningún archivo o carpeta coincide con “<x id="INTERPOLATION" equiv-text="{{ searchQuery() }}"/>”.</target>
+      </trans-unit>
+      <trans-unit id="files.empty_folder" datatype="html">
+        <source>This folder is empty — drop files anywhere here, or create a subfolder.</source>
+        <target state="needs-review-translation">Esta carpeta está vacía: suelta archivos aquí o crea una subcarpeta.</target>
+      </trans-unit>
+      <trans-unit id="files.section.folders" datatype="html">
+        <source>Folders</source>
+        <target state="needs-review-translation">Carpetas</target>
+      </trans-unit>
+      <trans-unit id="files.section.files" datatype="html">
+        <source>Files</source>
+        <target state="needs-review-translation">Archivos</target>
+      </trans-unit>
+      <trans-unit id="files.folder_name_placeholder" datatype="html">
+        <source>Folder name</source>
+        <target state="needs-review-translation">Nombre de la carpeta</target>
+      </trans-unit>
+      <trans-unit id="files.create" datatype="html">
+        <source>Create</source>
+        <target state="needs-review-translation">Crear</target>
+      </trans-unit>
+      <trans-unit id="files.new_name_placeholder" datatype="html">
+        <source>New name</source>
+        <target state="needs-review-translation">Nombre nuevo</target>
+      </trans-unit>
+      <trans-unit id="files.rename" datatype="html">
+        <source>Rename</source>
+        <target state="needs-review-translation">Renombrar</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_folder" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and everything inside it will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</source>
+        <target state="needs-review-translation"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> y todo su contenido se moverán a la papelera. Puedes restaurarlo durante 10 días; sigue ocupando almacenamiento hasta entonces.</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_file" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</source>
+        <target state="needs-review-translation"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ one.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> se moverá a la papelera. Puedes restaurarlo durante 10 días; sigue ocupando almacenamiento hasta entonces.</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.body_many" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="ICU" equiv-text="{confirmTargets().length, plural, other {{{confirmTargets().length}} items}}" xid="8823056860313630858"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be moved to the Trash. You can restore them for 10 days; they keep using storage until then.</source>
+        <target state="needs-review-translation"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="ICU" equiv-text="{confirmTargets().length, plural, other {{{confirmTargets().length}} items}}" xid="8823056860313630858"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> se moverán a la papelera. Puedes restaurarlos durante 10 días; siguen ocupando almacenamiento hasta entonces.</target>
+      </trans-unit>
+      <trans-unit id="8906145221320610391" datatype="html">
+        <source>{VAR_PLURAL, plural, other {<x id="INTERPOLATION"/> items}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, other {<x id="INTERPOLATION"/> elementos}}</target>
+      </trans-unit>
+      <trans-unit id="files.move_to_trash" datatype="html">
+        <source>Move to Trash</source>
+        <target state="needs-review-translation">Mover a la papelera</target>
+      </trans-unit>
+      <trans-unit id="files.new_folder_default" datatype="html">
+        <source>New folder</source>
+        <target state="needs-review-translation">Nueva carpeta</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.title_one" datatype="html">
+        <source>Delete <x id="name" equiv-text="targets[0].name"/>?</source>
+        <target state="needs-review-translation">¿Eliminar <x id="name" equiv-text="targets[0].name"/>?</target>
+      </trans-unit>
+      <trans-unit id="files.confirm.title_many" datatype="html">
+        <source>Delete <x id="count" equiv-text="targets.length"/> items?</source>
+        <target state="needs-review-translation">¿Eliminar <x id="count" equiv-text="targets.length"/> elementos?</target>
+      </trans-unit>
+      <trans-unit id="files.rename_title" datatype="html">
+        <source>Rename <x id="name" equiv-text="this.renameTarget()?.name ?? &apos;&apos;"/></source>
+        <target state="needs-review-translation">Renombrar <x id="name" equiv-text="this.renameTarget()?.name ?? &apos;&apos;"/></target>
+      </trans-unit>
+      <trans-unit id="files.flash.folder_exists" datatype="html">
+        <source>A folder named &quot;<x id="name" equiv-text="name"/>&quot; already existed — created &quot;<x id="created" equiv-text="created.name"/>&quot;.</source>
+        <target state="needs-review-translation">Ya existía una carpeta llamada "<x id="name" equiv-text="name"/>" — se creó "<x id="created" equiv-text="created.name"/>".</target>
+      </trans-unit>
+      <trans-unit id="files.flash.name_taken" datatype="html">
+        <source>&quot;<x id="name" equiv-text="name"/>&quot; was taken — saved as &quot;<x id="stored" equiv-text="stored"/>&quot;.</source>
+        <target state="needs-review-translation">"<x id="name" equiv-text="name"/>" ya estaba en uso — se guardó como "<x id="stored" equiv-text="stored"/>".</target>
+      </trans-unit>
+      <trans-unit id="files.download.some_failed" datatype="html">
+        <source>Could not get a download link for <x id="failed" equiv-text="failed"/> of <x id="total" equiv-text="files.length"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, files.length)"/>.</source>
+        <target state="needs-review-translation">No se pudo obtener un enlace de descarga para <x id="failed" equiv-text="failed"/> de <x id="total" equiv-text="files.length"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, files.length)"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.move_all" datatype="html">
+        <source>Could not move <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">No se pudo mover <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.move_some" datatype="html">
+        <source>Could not move <x id="failed" equiv-text="count"/> of <x id="total" equiv-text="total"/> items: <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">No se pudieron mover <x id="failed" equiv-text="count"/> de <x id="total" equiv-text="total"/> elementos: <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.delete_all" datatype="html">
+        <source>Could not delete <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">No se pudo eliminar <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="files.fail.delete_some" datatype="html">
+        <source>Could not delete <x id="failed" equiv-text="count"/> of <x id="total" equiv-text="total"/> items: <x id="names" equiv-text="names"/>.</source>
+        <target state="needs-review-translation">No se pudieron eliminar <x id="failed" equiv-text="count"/> de <x id="total" equiv-text="total"/> elementos: <x id="names" equiv-text="names"/>.</target>
+      </trans-unit>
+      <trans-unit id="noun.file.one" datatype="html">
+        <source>file</source>
+        <target state="needs-review-translation">archivo</target>
+      </trans-unit>
+      <trans-unit id="noun.file.other" datatype="html">
+        <source>files</source>
+        <target state="needs-review-translation">archivos</target>
+      </trans-unit>
+      <trans-unit id="noun.item.one" datatype="html">
+        <source>item</source>
+        <target state="needs-review-translation">elemento</target>
+      </trans-unit>
+      <trans-unit id="noun.item.other" datatype="html">
+        <source>items</source>
+        <target state="needs-review-translation">elementos</target>
+      </trans-unit>
+      <trans-unit id="files.flash.moved_renamed" datatype="html">
+        <source>Moved — renamed to &quot;<x id="stored" equiv-text="stored"/>&quot; to avoid a clash.</source>
+        <target state="needs-review-translation">Movido — renombrado a "<x id="stored" equiv-text="stored"/>" para evitar un conflicto.</target>
+      </trans-unit>
+      <trans-unit id="files.menu.open" datatype="html">
+        <source>Open</source>
+        <target state="needs-review-translation">Abrir</target>
+      </trans-unit>
+      <trans-unit id="files.menu.download" datatype="html">
+        <source>Download</source>
+        <target state="needs-review-translation">Descargar</target>
+      </trans-unit>
+      <trans-unit id="files.menu.share" datatype="html">
+        <source>Share…</source>
+        <target state="needs-review-translation">Compartir…</target>
+      </trans-unit>
+      <trans-unit id="files.menu.download_n" datatype="html">
+        <source>Download <x id="count" equiv-text="fileCount"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, fileCount)"/></source>
+        <target state="needs-review-translation">Descargar <x id="count" equiv-text="fileCount"/> <x id="noun" equiv-text="this.noun(&apos;file&apos;, fileCount)"/></target>
+      </trans-unit>
+      <trans-unit id="files.menu.move_n" datatype="html">
+        <source>Move <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/> to…</source>
+        <target state="needs-review-translation">Mover <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/> a…</target>
+      </trans-unit>
+      <trans-unit id="files.menu.delete_n" datatype="html">
+        <source>Delete <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/></source>
+        <target state="needs-review-translation">Eliminar <x id="count" equiv-text="total"/> <x id="noun" equiv-text="this.noun(&apos;item&apos;, total)"/></target>
+      </trans-unit>
+      <trans-unit id="move.no_subfolders" datatype="html">
+        <source>No subfolders here.</source>
+        <target state="needs-review-translation">No hay subcarpetas aquí.</target>
+      </trans-unit>
+      <trans-unit id="move.moving_to" datatype="html">
+        <source>Moving to <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ destinationName() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="needs-review-translation">Moviendo a <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ destinationName() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="move.already_here" datatype="html">
+        <source> — already here</source>
+        <target state="needs-review-translation"> — ya está aquí</target>
+      </trans-unit>
+      <trans-unit id="move.move_here" datatype="html">
+        <source>Move here</source>
+        <target state="needs-review-translation">Mover aquí</target>
+      </trans-unit>
+      <trans-unit id="move.self_disabled" datatype="html">
+        <source>A folder cannot be moved into itself</source>
+        <target state="needs-review-translation">Una carpeta no se puede mover dentro de sí misma</target>
+      </trans-unit>
+      <trans-unit id="move.title_one" datatype="html">
+        <source>Move <x id="name" equiv-text="this.items[0].name"/></source>
+        <target state="needs-review-translation">Mover <x id="name" equiv-text="this.items[0].name"/></target>
+      </trans-unit>
+      <trans-unit id="move.title_many" datatype="html">
+        <source>Move <x id="count" equiv-text="this.items.length"/> items</source>
+        <target state="needs-review-translation">Mover <x id="count" equiv-text="this.items.length"/> elementos</target>
+      </trans-unit>
+      <trans-unit id="preview.position" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ index() + 1 }}"/> of <x id="INTERPOLATION_1" equiv-text="{{ items.length }}"/></source>
+        <target state="needs-review-translation"><x id="INTERPOLATION" equiv-text="{{ index() + 1 }}"/> de <x id="INTERPOLATION_1" equiv-text="{{ items.length }}"/></target>
+      </trans-unit>
+      <trans-unit id="preview.close" datatype="html">
+        <source>Close preview</source>
+        <target state="needs-review-translation">Cerrar la vista previa</target>
+      </trans-unit>
+      <trans-unit id="preview.prev" datatype="html">
+        <source>Previous file</source>
+        <target state="needs-review-translation">Archivo anterior</target>
+      </trans-unit>
+      <trans-unit id="preview.next" datatype="html">
+        <source>Next file</source>
+        <target state="needs-review-translation">Archivo siguiente</target>
+      </trans-unit>
+      <trans-unit id="preview.loading" datatype="html">
+        <source>Loading preview…</source>
+        <target state="needs-review-translation">Cargando la vista previa…</target>
+      </trans-unit>
+      <trans-unit id="preview.try_again" datatype="html">
+        <source>Try again</source>
+        <target state="needs-review-translation">Reintentar</target>
+      </trans-unit>
+      <trans-unit id="preview.err.load" datatype="html">
+        <source>Could not load a preview for this file.</source>
+        <target state="needs-review-translation">No se pudo cargar una vista previa de este archivo.</target>
+      </trans-unit>
+      <trans-unit id="preview.err.download" datatype="html">
+        <source>Could not start the download.</source>
+        <target state="needs-review-translation">No se pudo iniciar la descarga.</target>
+      </trans-unit>
+      <trans-unit id="preview.err.expired" datatype="html">
+        <source>That preview link expired. Try again.</source>
+        <target state="needs-review-translation">Ese enlace de vista previa caducó. Reintenta.</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.1day" datatype="html">
+        <source>1 day</source>
+        <target state="needs-review-translation">1 día</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.7days" datatype="html">
+        <source>7 days</source>
+        <target state="needs-review-translation">7 días</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.30days" datatype="html">
+        <source>30 days</source>
+        <target state="needs-review-translation">30 días</target>
+      </trans-unit>
+      <trans-unit id="share.expiry.never" datatype="html">
+        <source>Never</source>
+        <target state="needs-review-translation">Nunca</target>
+      </trans-unit>
+      <trans-unit id="share.expires_in" datatype="html">
+        <source>Link expires in</source>
+        <target state="needs-review-translation">El enlace caduca en</target>
+      </trans-unit>
+      <trans-unit id="share.create_link" datatype="html">
+        <source> Create link </source>
+        <target state="needs-review-translation">Crear enlace</target>
+      </trans-unit>
+      <trans-unit id="share.loading_links" datatype="html">
+        <source>Loading links…</source>
+        <target state="needs-review-translation">Cargando enlaces…</target>
+      </trans-unit>
+      <trans-unit id="share.not_shared" datatype="html">
+        <source>This file isn&apos;t shared yet.</source>
+        <target state="needs-review-translation">Este archivo aún no se ha compartido.</target>
+      </trans-unit>
+      <trans-unit id="share.expires_on" datatype="html">
+        <source>Expires <x id="INTERPOLATION" equiv-text="{{ formatDate(link.expiresAt) }}"/></source>
+        <target state="needs-review-translation">Caduca el <x id="INTERPOLATION" equiv-text="{{ formatDate(link.expiresAt) }}"/></target>
+      </trans-unit>
+      <trans-unit id="share.never_expires" datatype="html">
+        <source>Never expires</source>
+        <target state="needs-review-translation">Nunca caduca</target>
+      </trans-unit>
+      <trans-unit id="share.change_expiry" datatype="html">
+        <source>Change expiry</source>
+        <target state="needs-review-translation">Cambiar caducidad</target>
+      </trans-unit>
+      <trans-unit id="share.change_expiry_option" datatype="html">
+        <source>Change expiry…</source>
+        <target state="needs-review-translation">Cambiar caducidad…</target>
+      </trans-unit>
+      <trans-unit id="share.copied" datatype="html">
+        <source>Copied</source>
+        <target state="needs-review-translation">Copiado</target>
+      </trans-unit>
+      <trans-unit id="share.link_actions" datatype="html">
+        <source>Link actions</source>
+        <target state="needs-review-translation">Acciones del enlace</target>
+      </trans-unit>
+      <trans-unit id="share.stop_sharing" datatype="html">
+        <source> Stop sharing </source>
+        <target state="needs-review-translation">Dejar de compartir</target>
+      </trans-unit>
+      <trans-unit id="share.done" datatype="html">
+        <source>Done</source>
+        <target state="needs-review-translation">Listo</target>
+      </trans-unit>
+      <trans-unit id="share.err.load" datatype="html">
+        <source>Could not load this file’s links.</source>
+        <target state="needs-review-translation">No se pudieron cargar los enlaces de este archivo.</target>
+      </trans-unit>
+      <trans-unit id="share.err.create" datatype="html">
+        <source>Could not create the link.</source>
+        <target state="needs-review-translation">No se pudo crear el enlace.</target>
+      </trans-unit>
+      <trans-unit id="share.err.expiry" datatype="html">
+        <source>Could not change the expiry.</source>
+        <target state="needs-review-translation">No se pudo cambiar la caducidad.</target>
+      </trans-unit>
+      <trans-unit id="share.err.revoke" datatype="html">
+        <source>Could not revoke the link.</source>
+        <target state="needs-review-translation">No se pudo revocar el enlace.</target>
+      </trans-unit>
+      <trans-unit id="share.err.stop" datatype="html">
+        <source>Could not stop sharing this file.</source>
+        <target state="needs-review-translation">No se pudo dejar de compartir este archivo.</target>
+      </trans-unit>
+      <trans-unit id="share.menu.copy" datatype="html">
+        <source>Copy link</source>
+        <target state="needs-review-translation">Copiar enlace</target>
+      </trans-unit>
+      <trans-unit id="share.menu.revoke" datatype="html">
+        <source>Revoke</source>
+        <target state="needs-review-translation">Revocar</target>
+      </trans-unit>
+      <trans-unit id="share.err.copy" datatype="html">
+        <source>Copying isn’t available here — select and copy the link manually.</source>
+        <target state="needs-review-translation">Copiar no está disponible aquí — selecciona y copia el enlace manualmente.</target>
+      </trans-unit>
+      <trans-unit id="share.title" datatype="html">
+        <source>Share <x id="name" equiv-text="this.fileName"/></source>
+        <target state="needs-review-translation">Compartir <x id="name" equiv-text="this.fileName"/></target>
+      </trans-unit>
+      <trans-unit id="share.status.active" datatype="html">
+        <source>Active</source>
+        <target state="needs-review-translation">Activo</target>
+      </trans-unit>
+      <trans-unit id="share.status.expired" datatype="html">
+        <source>Expired</source>
+        <target state="needs-review-translation">Caducado</target>
+      </trans-unit>
+      <trans-unit id="share.status.revoked" datatype="html">
+        <source>Revoked</source>
+        <target state="needs-review-translation">Revocado</target>
+      </trans-unit>
+      <trans-unit id="lang.label" datatype="html">
+        <source>Language</source>
+        <target state="needs-review-translation">Idioma</target>
+      </trans-unit>
+      <trans-unit id="claim.loading" datatype="html">
+        <source>Checking your invitation…</source>
+        <target state="needs-review-translation">Comprobando tu invitación…</target>
+      </trans-unit>
+      <trans-unit id="claim.invalid.title" datatype="html">
+        <source>Invitation not valid</source>
+        <target state="needs-review-translation">Invitación no válida</target>
+      </trans-unit>
+      <trans-unit id="claim.invalid.sub" datatype="html">
+        <source>This invitation has expired or was already used. Ask an admin to send a new one.</source>
+        <target state="needs-review-translation">Esta invitación ha caducado o ya se usó. Pide a un administrador que envíe una nueva.</target>
+      </trans-unit>
+      <trans-unit id="claim.go_to_sign_in" datatype="html">
+        <source> Go to sign in </source>
+        <target state="needs-review-translation">Ir a iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="claim.title" datatype="html">
+        <source>Set your password</source>
+        <target state="needs-review-translation">Establece tu contraseña</target>
+      </trans-unit>
+      <trans-unit id="claim.sub" datatype="html">
+        <source>Finish setting up <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</source>
+        <target state="needs-review-translation">Termina de configurar <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</target>
+      </trans-unit>
+      <trans-unit id="field.confirm_password" datatype="html">
+        <source>Confirm password</source>
+        <target state="needs-review-translation">Confirmar contraseña</target>
+      </trans-unit>
+      <trans-unit id="common.passwords_no_match" datatype="html">
+        <source>Passwords don&apos;t match.</source>
+        <target state="needs-review-translation">Las contraseñas no coinciden.</target>
+      </trans-unit>
+      <trans-unit id="claim.submit" datatype="html">
+        <source>Set password &amp; sign in</source>
+        <target state="needs-review-translation">Establecer contraseña e iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="login.title" datatype="html">
+        <source>Welcome back</source>
+        <target state="needs-review-translation">Bienvenido de nuevo</target>
+      </trans-unit>
+      <trans-unit id="login.subtitle" datatype="html">
+        <source>Sign in to your Keepr account.</source>
+        <target state="needs-review-translation">Inicia sesión en tu cuenta de Keepr.</target>
+      </trans-unit>
+      <trans-unit id="login.email.label" datatype="html">
+        <source>Email</source>
+        <target state="needs-review-translation">Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="login.email.placeholder" datatype="html">
+        <source>you@example.com</source>
+        <target state="needs-review-translation">tu@ejemplo.com</target>
+      </trans-unit>
+      <trans-unit id="login.password.label" datatype="html">
+        <source>Password</source>
+        <target state="needs-review-translation">Contraseña</target>
+      </trans-unit>
+      <trans-unit id="login.forgot.link" datatype="html">
+        <source>Forgot password?</source>
+        <target state="needs-review-translation">¿Olvidaste tu contraseña?</target>
+      </trans-unit>
+      <trans-unit id="login.forgot.admin" datatype="html">
+        <source>Forgot your password? Contact your admin to reset it.</source>
+        <target state="needs-review-translation">¿Olvidaste tu contraseña? Contacta a tu administrador para restablecerla.</target>
+      </trans-unit>
+      <trans-unit id="login.no_account" datatype="html">
+        <source> Need an account? Ask a Keepr admin to set one up for you. </source>
+        <target state="needs-review-translation"> ¿Necesitas una cuenta? Pide a un administrador de Keepr que te cree una. </target>
+      </trans-unit>
+      <trans-unit id="login.submit" datatype="html">
+        <source>Sign in</source>
+        <target state="needs-review-translation">Iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="forgot.loading" datatype="html">
+        <source>One moment…</source>
+        <target state="needs-review-translation">Un momento…</target>
+      </trans-unit>
+      <trans-unit id="forgot.title" datatype="html">
+        <source>Forgot your password?</source>
+        <target state="needs-review-translation">¿Olvidaste tu contraseña?</target>
+      </trans-unit>
+      <trans-unit id="forgot.noservice.sub" datatype="html">
+        <source>Resetting by email isn&apos;t available on this site. Contact your admin to reset your password.</source>
+        <target state="needs-review-translation">El restablecimiento por correo electrónico no está disponible en este sitio. Contacta a tu administrador para restablecer tu contraseña.</target>
+      </trans-unit>
+      <trans-unit id="common.back_to_sign_in" datatype="html">
+        <source> Back to sign in </source>
+        <target state="needs-review-translation">Volver a iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="forgot.sent.title" datatype="html">
+        <source>Check your email</source>
+        <target state="needs-review-translation">Revisa tu correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="forgot.sent.sub" datatype="html">
+        <source> If an account with that email can be reset by email, we&apos;ve sent a link. Check your inbox (and spam) — the link expires soon. </source>
+        <target state="needs-review-translation">Si una cuenta con ese correo electrónico se puede restablecer por correo, hemos enviado un enlace. Revisa tu bandeja de entrada (y el spam); el enlace caduca pronto.</target>
+      </trans-unit>
+      <trans-unit id="forgot.form.sub" datatype="html">
+        <source>Enter your email and we&apos;ll send a link to reset it.</source>
+        <target state="needs-review-translation">Introduce tu correo electrónico y te enviaremos un enlace para restablecerla.</target>
+      </trans-unit>
+      <trans-unit id="field.email" datatype="html">
+        <source>Email</source>
+        <target state="needs-review-translation">Correo electrónico</target>
+      </trans-unit>
+      <trans-unit id="forgot.sending" datatype="html">
+        <source>Sending…</source>
+        <target state="needs-review-translation">Enviando…</target>
+      </trans-unit>
+      <trans-unit id="forgot.send" datatype="html">
+        <source>Send reset link</source>
+        <target state="needs-review-translation">Enviar enlace de restablecimiento</target>
+      </trans-unit>
+      <trans-unit id="reset.invalid.sub" datatype="html">
+        <source>This reset link has expired or was already used. Request a new one to continue.</source>
+        <target state="needs-review-translation">Este enlace de restablecimiento ha caducado o ya se usó. Solicita uno nuevo para continuar.</target>
+      </trans-unit>
+      <trans-unit id="reset.invalid.action" datatype="html">
+        <source> Request a new link </source>
+        <target state="needs-review-translation">Solicitar un enlace nuevo</target>
+      </trans-unit>
+      <trans-unit id="reset.title" datatype="html">
+        <source>Reset your password</source>
+        <target state="needs-review-translation">Restablece tu contraseña</target>
+      </trans-unit>
+      <trans-unit id="reset.sub" datatype="html">
+        <source>Choose a new password for <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</source>
+        <target state="needs-review-translation">Elige una nueva contraseña para <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ email() }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>.</target>
+      </trans-unit>
+      <trans-unit id="reset.submit" datatype="html">
+        <source>Reset password &amp; sign in</source>
+        <target state="needs-review-translation">Restablecer contraseña e iniciar sesión</target>
+      </trans-unit>
+      <trans-unit id="profile.language.title" datatype="html">
+        <source>Language</source>
+        <target state="needs-review-translation">Idioma</target>
+      </trans-unit>
+      <trans-unit id="profile.language.sub" datatype="html">
+        <source>The language Keepr is shown in. Changing it reloads the app.</source>
+        <target state="needs-review-translation">El idioma en que se muestra Keepr. Cambiarlo recarga la aplicación.</target>
+      </trans-unit>
+      <trans-unit id="profile.name.saved" datatype="html">
+        <source>Profile saved.</source>
+        <target state="needs-review-translation">Perfil guardado.</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.not_found_title" datatype="html">
+        <source>Link not found</source>
+        <target state="needs-review-translation">Enlace no encontrado</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.unavailable_title" datatype="html">
+        <source>Link unavailable</source>
+        <target state="needs-review-translation">Enlace no disponible</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.error_title" datatype="html">
+        <source>Something went wrong</source>
+        <target state="needs-review-translation">Algo salió mal</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.error_body" datatype="html">
+        <source>We couldn&apos;t load this file. Please try again later.</source>
+        <target state="needs-review-translation">No pudimos cargar este archivo. Inténtalo de nuevo más tarde.</target>
+      </trans-unit>
+      <trans-unit id="share_viewer.download_err" datatype="html">
+        <source>Could not start the download. The link may have just expired.</source>
+        <target state="needs-review-translation">No se pudo iniciar la descarga. Puede que el enlace acabe de caducar.</target>
+      </trans-unit>
+      <trans-unit id="trash.title" datatype="html">
+        <source>Trash</source>
+        <target state="needs-review-translation">Papelera</target>
+      </trans-unit>
+      <trans-unit id="trash.sub" datatype="html">
+        <source> Items stay here for 10 days, then are deleted permanently. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>They still use your storage until then.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <target state="needs-review-translation">Los elementos permanecen aquí 10 días y luego se eliminan permanentemente. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Siguen ocupando tu almacenamiento hasta entonces.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="trash.empty" datatype="html">
+        <source> Empty Trash </source>
+        <target state="needs-review-translation">Vaciar la papelera</target>
+      </trans-unit>
+      <trans-unit id="trash.empty_state" datatype="html">
+        <source>Trash is empty.</source>
+        <target state="needs-review-translation">La papelera está vacía.</target>
+      </trans-unit>
+      <trans-unit id="4901790529703340453" datatype="html">
+        <source>{VAR_PLURAL, plural, =1 {1 item} other {<x id="INTERPOLATION"/> items}}</source>
+        <target state="needs-review-translation">{VAR_PLURAL, plural, =1 {1 elemento} other {<x id="INTERPOLATION"/> elementos}}</target>
+      </trans-unit>
+      <trans-unit id="trash.summary" datatype="html">
+        <source><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> · <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> recoverable</source>
+        <target state="needs-review-translation"><x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> · <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> recuperable</target>
+      </trans-unit>
+      <trans-unit id="trash.kind_folder" datatype="html">
+        <source>Folder</source>
+        <target state="needs-review-translation">Carpeta</target>
+      </trans-unit>
+      <trans-unit id="trash.deleted_on" datatype="html">
+        <source>deleted <x id="INTERPOLATION" equiv-text="{{ formatDate(item.deletedAt) }}"/></source>
+        <target state="needs-review-translation">eliminado el <x id="INTERPOLATION" equiv-text="{{ formatDate(item.deletedAt) }}"/></target>
+      </trans-unit>
+      <trans-unit id="trash.restore" datatype="html">
+        <source> Restore </source>
+        <target state="needs-review-translation">Restaurar</target>
+      </trans-unit>
+      <trans-unit id="trash.delete_forever" datatype="html">
+        <source> Delete forever </source>
+        <target state="needs-review-translation">Eliminar permanentemente</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_folder" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> and everything inside it will be permanently deleted and the storage freed immediately.</source>
+        <target state="needs-review-translation">Esto no se puede deshacer. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> y todo su contenido se eliminarán permanentemente y el almacenamiento se liberará de inmediato.</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.body_file" datatype="html">
+        <source>This cannot be undone. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> will be permanently deleted and the storage freed immediately.</source>
+        <target state="needs-review-translation">Esto no se puede deshacer. <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="INTERPOLATION" equiv-text="{{ purgeTarget()?.name }}"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> se eliminará permanentemente y el almacenamiento se liberará de inmediato.</target>
+      </trans-unit>
+      <trans-unit id="trash.empty.title" datatype="html">
+        <source>Empty the Trash?</source>
+        <target state="needs-review-translation">¿Vaciar la papelera?</target>
+      </trans-unit>
+      <trans-unit id="trash.empty.body" datatype="html">
+        <source>All <x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> will be permanently deleted and <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> of storage freed. This cannot be undone.</source>
+        <target state="needs-review-translation">Se eliminarán permanentemente <x id="ICU" equiv-text="{items().length, plural, =1 {1 item} other {{{items().length}} items}}" xid="2813282682155607496"/> y se liberarán <x id="INTERPOLATION_1" equiv-text="{{ totalBytes() | bytes }}"/> de almacenamiento. Esto no se puede deshacer.</target>
+      </trans-unit>
+      <trans-unit id="trash.restored" datatype="html">
+        <source>Restored &quot;<x id="name" equiv-text="res.name"/>&quot;.</source>
+        <target state="needs-review-translation">Restaurado "<x id="name" equiv-text="res.name"/>".</target>
+      </trans-unit>
+      <trans-unit id="trash.restored_as" datatype="html">
+        <source>Restored as &quot;<x id="newName" equiv-text="res.name"/>&quot; — &quot;<x id="oldName" equiv-text="item.name"/>&quot; was taken.</source>
+        <target state="needs-review-translation">Restaurado como "<x id="newName" equiv-text="res.name"/>" — "<x id="oldName" equiv-text="item.name"/>" ya estaba en uso.</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_today" datatype="html">
+        <source>Deletes today</source>
+        <target state="needs-review-translation">Se elimina hoy</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_tomorrow" datatype="html">
+        <source>Deletes tomorrow</source>
+        <target state="needs-review-translation">Se elimina mañana</target>
+      </trans-unit>
+      <trans-unit id="trash.deletes_in_days" datatype="html">
+        <source>Deletes in <x id="days" equiv-text="days"/> days</source>
+        <target state="needs-review-translation">Se elimina en <x id="days" equiv-text="days"/> días</target>
+      </trans-unit>
+      <trans-unit id="trash.purge.title" datatype="html">
+        <source>Delete <x id="name" equiv-text="name"/> forever?</source>
+        <target state="needs-review-translation">¿Eliminar <x id="name" equiv-text="name"/> permanentemente?</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

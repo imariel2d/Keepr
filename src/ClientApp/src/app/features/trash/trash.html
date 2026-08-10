@@ -1,14 +1,14 @@
 <header class="head">
   <div>
-    <h1 class="title">Trash</h1>
-    <p class="sub">
+    <h1 class="title" i18n="@@trash.title">Trash</h1>
+    <p class="sub" i18n="@@trash.sub">
       Items stay here for 10 days, then are deleted permanently.
       <strong>They still use your storage until then.</strong>
     </p>
   </div>
 
   @if (items().length) {
-    <cove-button variant="danger" icon="trash-2" [disabled]="busy()" (click)="emptyOpen.set(true)">
+    <cove-button variant="danger" icon="trash-2" [disabled]="busy()" (click)="emptyOpen.set(true)" i18n="@@trash.empty">
       Empty Trash
     </cove-button>
   }
@@ -18,7 +18,7 @@
   <div class="banner banner--info">
     <cove-icon name="info" [size]="16" />
     <span>{{ n }}</span>
-    <button type="button" class="banner-x" (click)="notice.set(null)" aria-label="Dismiss">×</button>
+    <button type="button" class="banner-x" (click)="notice.set(null)" aria-label="Dismiss" i18n-aria-label="@@common.dismiss">×</button>
   </div>
 }
 
@@ -26,22 +26,19 @@
   <div class="banner banner--error">
     <cove-icon name="alert-circle" [size]="16" />
     <span>{{ e }}</span>
-    <button type="button" class="banner-x" (click)="error.set(null)" aria-label="Dismiss">×</button>
+    <button type="button" class="banner-x" (click)="error.set(null)" aria-label="Dismiss" i18n-aria-label="@@common.dismiss">×</button>
   </div>
 }
 
 @if (loading()) {
-  <p class="muted">Loading…</p>
+  <p class="muted" i18n="@@common.loading">Loading…</p>
 } @else if (items().length === 0) {
   <div class="empty">
     <cove-icon name="trash-2" [size]="34" color="var(--text-tertiary)" />
-    <p>Trash is empty.</p>
+    <p i18n="@@trash.empty_state">Trash is empty.</p>
   </div>
 } @else {
-  <p class="summary">
-    {{ items().length }} item{{ items().length === 1 ? '' : 's' }} ·
-    {{ totalBytes() | bytes }} recoverable
-  </p>
+  <p class="summary" i18n="@@trash.summary">{items().length, plural, =1 {1 item} other {{{items().length}} items}} · {{ totalBytes() | bytes }} recoverable</p>
 
   <ul class="list">
     @for (item of items(); track item.id) {
@@ -53,8 +50,9 @@
         <div class="rmeta">
           <span class="rname">{{ item.name }}</span>
           <span class="rsub">
-            @if (item.kind === 'folder') { Folder · } {{ item.sizeBytes | bytes }} ·
-            deleted {{ formatDate(item.deletedAt) }}
+            @if (item.kind === 'folder') { <span i18n="@@trash.kind_folder">Folder</span> · }
+            {{ item.sizeBytes | bytes }} ·
+            <span i18n="@@trash.deleted_on">deleted {{ formatDate(item.deletedAt) }}</span>
           </span>
         </div>
 
@@ -64,10 +62,10 @@
         </cove-badge>
 
         <div class="ractions">
-          <cove-button variant="ghost" size="sm" icon="rotate-ccw" [disabled]="busy()" (click)="restore(item)">
+          <cove-button variant="ghost" size="sm" icon="rotate-ccw" [disabled]="busy()" (click)="restore(item)" i18n="@@trash.restore">
             Restore
           </cove-button>
-          <cove-button variant="ghost" size="sm" icon="x" [disabled]="busy()" (click)="purgeTarget.set(item)">
+          <cove-button variant="ghost" size="sm" icon="x" [disabled]="busy()" (click)="purgeTarget.set(item)" i18n="@@trash.delete_forever">
             Delete forever
           </cove-button>
         </div>
@@ -79,27 +77,26 @@
 <!-- Permanent deletion is the one irreversible action in the app; both paths confirm. -->
 <cove-modal
   [open]="purgeTarget() !== null"
-  [title]="'Delete ' + (purgeTarget()?.name ?? '') + ' forever?'"
+  [title]="purgeTitle()"
   [width]="460"
   (close)="purgeTarget.set(null)">
   <p class="confirm-body">
-    This cannot be undone. <strong>{{ purgeTarget()?.name }}</strong>
-    @if (purgeTarget()?.kind === 'folder') { and everything inside it }
-    will be permanently deleted and the storage freed immediately.
+    @if (purgeTarget()?.kind === 'folder') {
+      <ng-container i18n="@@trash.purge.body_folder">This cannot be undone. <strong>{{ purgeTarget()?.name }}</strong> and everything inside it will be permanently deleted and the storage freed immediately.</ng-container>
+    } @else {
+      <ng-container i18n="@@trash.purge.body_file">This cannot be undone. <strong>{{ purgeTarget()?.name }}</strong> will be permanently deleted and the storage freed immediately.</ng-container>
+    }
   </p>
   <div class="foot">
-    <cove-button variant="ghost" (click)="purgeTarget.set(null)">Cancel</cove-button>
-    <cove-button variant="danger" (click)="confirmPurge()">Delete forever</cove-button>
+    <cove-button variant="ghost" (click)="purgeTarget.set(null)" i18n="@@common.cancel">Cancel</cove-button>
+    <cove-button variant="danger" (click)="confirmPurge()" i18n="@@trash.delete_forever">Delete forever</cove-button>
   </div>
 </cove-modal>
 
-<cove-modal [open]="emptyOpen()" title="Empty the Trash?" [width]="460" (close)="emptyOpen.set(false)">
-  <p class="confirm-body">
-    All {{ items().length }} item{{ items().length === 1 ? '' : 's' }} will be permanently deleted
-    and {{ totalBytes() | bytes }} of storage freed. This cannot be undone.
-  </p>
+<cove-modal [open]="emptyOpen()" title="Empty the Trash?" i18n-title="@@trash.empty.title" [width]="460" (close)="emptyOpen.set(false)">
+  <p class="confirm-body" i18n="@@trash.empty.body">All {items().length, plural, =1 {1 item} other {{{items().length}} items}} will be permanently deleted and {{ totalBytes() | bytes }} of storage freed. This cannot be undone.</p>
   <div class="foot">
-    <cove-button variant="ghost" (click)="emptyOpen.set(false)">Cancel</cove-button>
-    <cove-button variant="danger" (click)="confirmEmpty()">Empty Trash</cove-button>
+    <cove-button variant="ghost" (click)="emptyOpen.set(false)" i18n="@@common.cancel">Cancel</cove-button>
+    <cove-button variant="danger" (click)="confirmEmpty()" i18n="@@trash.empty">Empty Trash</cove-button>
   </div>
 </cove-modal>

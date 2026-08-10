@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { EmailSettingsService } from '../../core/email-settings.service';
 import { EmailProvider, EmailSettingsResponse, UpdateEmailSettingsRequest } from '../../core/models';
 import { formatDate } from '../../core/file-type';
-import { problemDetail, problemStatus, validationErrors } from '../../core/problem-details';
+import { errorMessage, fieldErrors as toFieldMessages } from '../../core/problem-details';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { IconComponent } from '../../cove/lib/icon/icon.component';
 import { InputComponent } from '../../cove/lib/input/input.component';
@@ -11,7 +11,8 @@ import { InputComponent } from '../../cove/lib/input/input.component';
 /** Providers the admin can pick, with their labels. 'none' turns hosted email off (an env SMTP
  *  fallback, if configured, still applies — see the design §2.2). */
 const PROVIDERS: { value: EmailProvider; label: string }[] = [
-  { value: 'none', label: 'None (off)' },
+  // Provider names are brand proper nouns and stay verbatim; only "None (off)" is localized.
+  { value: 'none', label: $localize`:@@email.provider.none:None (off)` },
   { value: 'resend', label: 'Resend' },
   { value: 'brevo', label: 'Brevo' },
   { value: 'mailgun', label: 'Mailgun' },
@@ -123,8 +124,8 @@ export class EmailSettings {
     this.loadError.set(null);
     try {
       this.apply(await this.api.get());
-    } catch {
-      this.loadError.set('Could not load email settings.');
+    } catch (e) {
+      this.loadError.set(errorMessage(e));
     } finally {
       this.loading.set(false);
     }
@@ -149,6 +150,38 @@ export class EmailSettings {
 
   protected errorsFor(field: string): string[] {
     return this.fieldErrors()[field] ?? [];
+  }
+
+  // ---- localized dynamic labels ------------------------------------------------
+
+  /** Header chip text: the active provider's (brand) name, or a localized "Off". */
+  protected statusText(active: { on: boolean; label: string }): string {
+    return active.on ? active.label : $localize`:@@email.status.off:Off`;
+  }
+
+  protected statusAria(active: { on: boolean; label: string }): string {
+    return active.on
+      ? $localize`:@@email.status.active_aria:Active provider: ${active.label}:provider:`
+      : $localize`:@@email.status.off_aria:Outbound email is off`;
+  }
+
+  protected revealKeyLabel(): string {
+    return this.showApiKey() ? $localize`:@@email.hide_key:Hide key` : $localize`:@@email.show_key:Show key`;
+  }
+
+  protected testButtonLabel(): string {
+    return this.testing() ? $localize`:@@email.testing:Sending…` : $localize`:@@email.send_test:Send test email`;
+  }
+
+  protected saveButtonLabel(): string {
+    return this.saving() ? $localize`:@@common.saving:Saving…` : $localize`:@@common.save:Save`;
+  }
+
+  /** Localized outcome for the last-test line: succeeded, the server's error text, or "failed". */
+  protected testResult(): string {
+    const s = this.snapshot();
+    if (s?.lastTestOk) return $localize`:@@email.test_succeeded:succeeded`;
+    return s?.lastTestError || $localize`:@@email.test_failed:failed`;
   }
 
   /** Changing the provider clears any typed key: a key is provider-specific and can't carry over. */
@@ -186,13 +219,13 @@ export class EmailSettings {
 
     try {
       this.apply(await this.api.update(req));
-      this.notice.set('Email settings saved.');
+      this.notice.set($localize`:@@email.saved:Email settings saved.`);
     } catch (e) {
-      const fieldErrors = validationErrors(e);
+      const fieldErrors = toFieldMessages(e);
       if (Object.keys(fieldErrors).length > 0) {
         this.fieldErrors.set(fieldErrors);
       } else {
-        this.formError.set(problemDetail(e, 'Could not save the settings.'));
+        this.formError.set(errorMessage(e));
       }
     } finally {
       this.saving.set(false);
@@ -208,14 +241,10 @@ export class EmailSettings {
       const result = await this.api.sendTest();
       // Refresh so the persisted last-test status (time + ok/error) shows.
       this.apply(await this.api.get());
-      this.notice.set(result.ok ? 'Test email sent — check your inbox.' : null);
+      this.notice.set(result.ok ? $localize`:@@email.test_sent:Test email sent — check your inbox.` : null);
     } catch (e) {
-      // 409 = email not configured; anything else = an unexpected failure.
-      if (problemStatus(e) === 409) {
-        this.formError.set(problemDetail(e, 'Email is not configured.'));
-      } else {
-        this.formError.set(problemDetail(e, 'Could not send the test email.'));
-      }
+      // 409 = email not configured; anything else = an unexpected failure. Both carry a server code.
+      this.formError.set(errorMessage(e));
     } finally {
       this.testing.set(false);
     }

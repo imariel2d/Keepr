@@ -2,6 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ShareService } from '../../core/share.service';
+import { errorMessage } from '../../core/problem-details';
 import { saveFile } from '../../core/save-file';
 import { BytesPipe } from '../../core/bytes.pipe';
 import { PreviewKind, SharePublicResponse } from '../../core/models';
@@ -58,13 +59,12 @@ export class ShareViewer implements OnInit {
       if (meta.previewKind) await this.loadPreview(meta.previewKind);
     } catch (e) {
       const status = (e as { status?: number })?.status;
-      const detail = (e as { error?: { detail?: string } })?.error?.detail;
       if (status === 404) {
         this.state.set('notfound');
-        this.message.set(detail ?? "This share link doesn't exist.");
+        this.message.set(errorMessage(e));
       } else if (status === 410) {
         this.state.set('gone');
-        this.message.set(detail ?? 'This share link is no longer available.');
+        this.message.set(errorMessage(e));
       } else {
         this.state.set('error');
       }
@@ -88,7 +88,7 @@ export class ShareViewer implements OnInit {
     try {
       saveFile(await this.share.downloadUrl(this.token));
     } catch {
-      this.downloadError.set('Could not start the download. The link may have just expired.');
+      this.downloadError.set($localize`:@@share_viewer.download_err:Could not start the download. The link may have just expired.`);
     }
   }
 

@@ -2,12 +2,12 @@
   @if (searchMode()) {
     <!-- Search replaces the breadcrumb trail: results are global, so there is no path to show. -->
     <div class="trail search-head" aria-live="polite">
-      <h1 class="search-heading">Results for “{{ searchQuery() }}”</h1>
+      <h1 class="search-heading" i18n="@@files.search.results">Results for “{{ searchQuery() }}”</h1>
       @if (searchBusy()) {
         <!-- Decorative: the skeleton's sr-only status is the single "Searching" announcement. -->
         <cove-spinner [size]="16" aria-hidden="true" />
       } @else {
-        <span class="search-count">{{ itemCount() }} {{ plural(itemCount(), 'result') }}</span>
+        <span class="search-count" i18n="@@files.result_count">{itemCount(), plural, =1 {1 result} other {{{itemCount()}} results}}</span>
       }
     </div>
   } @else {
@@ -22,7 +22,7 @@
       (dragleave)="onFolderDragLeave('crumb:root')"
       (drop)="onCrumbDrop($event, null)">
       <cove-icon name="hard-drive" [size]="15" />
-      <span>My Files</span>
+      <span i18n="@@nav.my_files">My Files</span>
     </button>
 
     @for (c of breadcrumbs(); track c.id; let last = $last) {
@@ -42,8 +42,8 @@
   </nav>
 
   <div class="head-actions">
-    <cove-button variant="ghost" icon="folder-plus" (click)="openCreate()">New folder</cove-button>
-    <cove-button variant="primary" icon="upload-cloud" (click)="onBrowse()">Upload</cove-button>
+    <cove-button variant="ghost" icon="folder-plus" (click)="openCreate()" i18n="@@files.new_folder">New folder</cove-button>
+    <cove-button variant="primary" icon="upload-cloud" (click)="onBrowse()" i18n="@@files.upload">Upload</cove-button>
   </div>
   }
 </header>
@@ -52,7 +52,7 @@
   <div class="banner banner--info">
     <cove-icon name="info" [size]="16" />
     <span>{{ n }}</span>
-    <button type="button" class="banner-x" (click)="notice.set(null)" aria-label="Dismiss">×</button>
+    <button type="button" class="banner-x" (click)="notice.set(null)" aria-label="Dismiss" i18n-aria-label="@@common.dismiss">×</button>
   </div>
 }
 
@@ -60,7 +60,7 @@
   <div class="banner banner--error">
     <cove-icon name="alert-circle" [size]="16" />
     <span>{{ e }}</span>
-    <button type="button" class="banner-x" (click)="error.set(null)" aria-label="Dismiss">×</button>
+    <button type="button" class="banner-x" (click)="error.set(null)" aria-label="Dismiss" i18n-aria-label="@@common.dismiss">×</button>
   </div>
 }
 
@@ -72,7 +72,7 @@
   <div class="dropveil" aria-hidden="true">
     <div class="dropveil-card">
       <cove-icon name="upload-cloud" [size]="32" color="var(--accent)" />
-      <p>Drop to upload to <strong>{{ contents()?.folder?.name ?? 'My Files' }}</strong></p>
+      <p i18n="@@files.drop_to_upload">Drop to upload to <strong>{{ contents()?.folder?.name ?? myFilesLabel }}</strong></p>
     </div>
   </div>
 }
@@ -80,27 +80,25 @@
 @if (selectedCount()) {
   <div class="selbar">
     <cove-icon name="check-circle" [size]="16" color="var(--accent)" />
-    <span class="selcount">
-      {{ selectedCount() }} {{ plural(selectedCount(), 'item') }} selected
-    </span>
+    <span class="selcount" i18n="@@files.selected_count">{selectedCount(), plural, =1 {1 item selected} other {{{selectedCount()}} items selected}}</span>
 
     <!-- Folders have nothing to download, so this only appears once files are in the selection. -->
     @if (selectedFiles().length) {
-      <cove-button variant="ghost" size="sm" icon="download" (click)="downloadSelected()">
-        Download {{ selectedFiles().length }} {{ plural(selectedFiles().length, 'file') }}
+      <cove-button variant="ghost" size="sm" icon="download" (click)="downloadSelected()" i18n="@@files.download_count">
+        Download {selectedFiles().length, plural, =1 {1 file} other {{{selectedFiles().length}} files}}
       </cove-button>
     }
-    <cove-button variant="ghost" size="sm" icon="move" (click)="openMoveSelected()">
+    <cove-button variant="ghost" size="sm" icon="move" (click)="openMoveSelected()" i18n="@@files.move_to">
       Move to…
     </cove-button>
-    <cove-button variant="danger" size="sm" icon="trash-2" (click)="askDeleteSelected()">
+    <cove-button variant="danger" size="sm" icon="trash-2" (click)="askDeleteSelected()" i18n="@@files.delete">
       Delete
     </cove-button>
 
     @if (!allSelected()) {
-      <button type="button" class="sellink" (click)="selectAll()">Select all</button>
+      <button type="button" class="sellink" (click)="selectAll()" i18n="@@files.select_all">Select all</button>
     }
-    <button type="button" class="sellink" (click)="clearSelection()">Clear</button>
+    <button type="button" class="sellink" (click)="clearSelection()" i18n="@@files.clear">Clear</button>
   </div>
 }
 
@@ -109,7 +107,7 @@
        steady response instead of stale results sitting frozen. The grid is decorative; this
        status line is the single "Searching" announcement for assistive tech — it is present in
        every skeleton case, including the initial-search debounce when the header spinner isn't. -->
-  <span class="sr-only" role="status">Searching…</span>
+  <span class="sr-only" role="status" i18n="@@files.searching">Searching…</span>
   <div class="skeleton" aria-hidden="true">
     <cove-skeleton class="skeleton-title" width="70px" height="13px" />
     <div class="skeleton-grid">
@@ -138,23 +136,23 @@
   <!-- First load only: subsequent fetches keep the current grid on screen, dimmed (below). -->
   <div class="loading-state">
     <cove-spinner [size]="28" />
-    <span class="muted">Loading…</span>
+    <span class="muted" i18n="@@common.loading">Loading…</span>
   </div>
 } @else if (isEmpty()) {
   <div class="empty" aria-live="polite">
     @if (searchMode()) {
       <cove-icon name="search" [size]="34" color="var(--text-tertiary)" />
-      <p>No files or folders match “{{ searchQuery() }}”.</p>
+      <p i18n="@@files.no_match">No files or folders match “{{ searchQuery() }}”.</p>
     } @else {
       <cove-icon name="folder-open" [size]="34" color="var(--text-tertiary)" />
-      <p>This folder is empty — drop files anywhere here, or create a subfolder.</p>
+      <p i18n="@@files.empty_folder">This folder is empty — drop files anywhere here, or create a subfolder.</p>
     }
   </div>
 } @else {
   <!-- Dimmed while a new fetch is in flight, so results ease out and back rather than blinking. -->
   <div class="results" [class.results--busy]="loading()">
   @if (folders().length) {
-    <h2 class="section-title">Folders</h2>
+    <h2 class="section-title" i18n="@@files.section.folders">Folders</h2>
     <div class="grid">
       @for (f of folders(); track f.id) {
         <div
@@ -181,7 +179,7 @@
   }
 
   @if (files().length) {
-    <h2 class="section-title">Files</h2>
+    <h2 class="section-title" i18n="@@files.section.files">Files</h2>
     <div class="grid">
       @for (f of files(); track f.id) {
         <div
@@ -216,32 +214,34 @@
   (closed)="menuOpen.set(false)" />
 
 <!-- New folder -->
-<cove-modal [open]="createOpen()" title="New folder" [width]="420" (close)="createOpen.set(false)">
+<cove-modal [open]="createOpen()" title="New folder" i18n-title="@@files.new_folder" [width]="420" (close)="createOpen.set(false)">
   <cove-input
     placeholder="Folder name"
+    i18n-placeholder="@@files.folder_name_placeholder"
     [value]="createName()"
     (valueChange)="createName.set($event)"
     (enter)="submitCreate()" />
   <div class="foot">
-    <cove-button variant="ghost" (click)="createOpen.set(false)">Cancel</cove-button>
-    <cove-button variant="primary" (click)="submitCreate()">Create</cove-button>
+    <cove-button variant="ghost" (click)="createOpen.set(false)" i18n="@@common.cancel">Cancel</cove-button>
+    <cove-button variant="primary" (click)="submitCreate()" i18n="@@files.create">Create</cove-button>
   </div>
 </cove-modal>
 
 <!-- Rename -->
 <cove-modal
   [open]="renameOpen()"
-  [title]="'Rename ' + (renameTarget()?.name ?? '')"
+  [title]="renameTitle()"
   [width]="420"
   (close)="renameOpen.set(false)">
   <cove-input
     placeholder="New name"
+    i18n-placeholder="@@files.new_name_placeholder"
     [value]="renameValue()"
     (valueChange)="renameValue.set($event)"
     (enter)="submitRename()" />
   <div class="foot">
-    <cove-button variant="ghost" (click)="renameOpen.set(false)">Cancel</cove-button>
-    <cove-button variant="primary" (click)="submitRename()">Rename</cove-button>
+    <cove-button variant="ghost" (click)="renameOpen.set(false)" i18n="@@common.cancel">Cancel</cove-button>
+    <cove-button variant="primary" (click)="submitRename()" i18n="@@files.rename">Rename</cove-button>
   </div>
 </cove-modal>
 
@@ -254,18 +254,17 @@
   <p class="confirm-body">
     @if (confirmSingle(); as one) {
       @if (one.kind === 'folder') {
-        <strong>{{ one.name }}</strong> and everything inside it will be moved to the Trash.
+        <ng-container i18n="@@files.confirm.body_folder"><strong>{{ one.name }}</strong> and everything inside it will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</ng-container>
       } @else {
-        <strong>{{ one.name }}</strong> will be moved to the Trash.
+        <ng-container i18n="@@files.confirm.body_file"><strong>{{ one.name }}</strong> will be moved to the Trash. You can restore it for 10 days; it keeps using storage until then.</ng-container>
       }
     } @else {
-      <strong>{{ confirmTargets().length }} items</strong> will be moved to the Trash.
+      <ng-container i18n="@@files.confirm.body_many"><strong>{confirmTargets().length, plural, other {{{confirmTargets().length}} items}}</strong> will be moved to the Trash. You can restore them for 10 days; they keep using storage until then.</ng-container>
     }
-    You can restore {{ confirmSingle() ? 'it' : 'them' }} for 10 days; it keeps using storage until then.
   </p>
   <div class="foot">
-    <cove-button variant="ghost" (click)="confirmOpen.set(false)">Cancel</cove-button>
-    <cove-button variant="danger" (click)="confirmDelete()">Move to Trash</cove-button>
+    <cove-button variant="ghost" (click)="confirmOpen.set(false)" i18n="@@common.cancel">Cancel</cove-button>
+    <cove-button variant="danger" (click)="confirmDelete()" i18n="@@files.move_to_trash">Move to Trash</cove-button>
   </div>
 </cove-modal>
 

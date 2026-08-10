@@ -3,6 +3,7 @@ import { TrashService } from '../../core/trash.service';
 import { UsageStore } from '../../core/usage.store';
 import { BytesPipe } from '../../core/bytes.pipe';
 import { formatDate, typeMetaOf } from '../../core/file-type';
+import { errorMessage } from '../../core/problem-details';
 import { TrashItem } from '../../core/models';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { IconComponent } from '../../cove/lib/icon/icon.component';
@@ -42,7 +43,7 @@ export class Trash {
       this.items.set(await this.trash.list());
       this.error.set(null);
     } catch (e) {
-      this.error.set(this.messageOf(e, 'Could not load the Trash.'));
+      this.error.set(errorMessage(e));
     } finally {
       this.loading.set(false);
     }
@@ -56,12 +57,12 @@ export class Trash {
       // The name can change on the way back: something may have taken it while this was away.
       this.flash(
         res.name === item.name
-          ? `Restored "${res.name}".`
-          : `Restored as "${res.name}" — "${item.name}" was taken.`
+          ? $localize`:@@trash.restored:Restored "${res.name}:name:".`
+          : $localize`:@@trash.restored_as:Restored as "${res.name}:newName:" — "${item.name}:oldName:" was taken.`
       );
       await this.refresh();
     } catch (e) {
-      this.error.set(this.messageOf(e, 'Could not restore that item.'));
+      this.error.set(errorMessage(e));
     } finally {
       this.busy.set(false);
     }
@@ -76,7 +77,7 @@ export class Trash {
       await this.trash.purge(item.id);
       await this.refresh();
     } catch (e) {
-      this.error.set(this.messageOf(e, 'Could not delete that item.'));
+      this.error.set(errorMessage(e));
     } finally {
       this.busy.set(false);
     }
@@ -89,7 +90,7 @@ export class Trash {
       await this.trash.empty();
       await this.refresh();
     } catch (e) {
-      this.error.set(this.messageOf(e, 'Could not empty the Trash.'));
+      this.error.set(errorMessage(e));
     } finally {
       this.busy.set(false);
     }
@@ -103,8 +104,16 @@ export class Trash {
 
   protected purgeLabel(item: TrashItem): string {
     const days = this.daysLeft(item);
-    if (days === 0) return 'Deletes today';
-    return days === 1 ? 'Deletes tomorrow' : `Deletes in ${days} days`;
+    if (days === 0) return $localize`:@@trash.deletes_today:Deletes today`;
+    return days === 1
+      ? $localize`:@@trash.deletes_tomorrow:Deletes tomorrow`
+      : $localize`:@@trash.deletes_in_days:Deletes in ${days}:days: days`;
+  }
+
+  /** Title for the permanent-delete confirmation modal (interpolates the item name). */
+  protected purgeTitle(): string {
+    const name = this.purgeTarget()?.name ?? '';
+    return $localize`:@@trash.purge.title:Delete ${name}:name: forever?`;
   }
 
   protected iconOf(item: TrashItem): { icon: string; color: string } {
@@ -133,10 +142,5 @@ export class Trash {
   private flash(message: string): void {
     this.notice.set(message);
     setTimeout(() => this.notice.set(null), 6000);
-  }
-
-  private messageOf(e: unknown, fallback: string): string {
-    const detail = (e as { error?: { detail?: string } })?.error?.detail;
-    return typeof detail === 'string' && detail ? detail : fallback;
   }
 }

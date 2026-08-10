@@ -1,5 +1,6 @@
 using Keepr.Api.Data;
 using Keepr.Api.Features.Email;
+using Keepr.Api.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
@@ -90,7 +91,7 @@ public class PasswordResetController(
                 // (tens of ms to seconds) only on this branch would make an eligible request reliably
                 // slower than the others — a timing oracle for "this address has a verified, active
                 // account", even though the body is identical on every branch. See §5.1 / §14.4.
-                DispatchResetEmail(user.Email, raw);
+                DispatchResetEmail(user.Email, raw, user.PreferredLanguage);
             }
             catch (Exception ex)
             {
@@ -108,7 +109,7 @@ public class PasswordResetController(
     /// sender) and lifetime — never the request's <c>CancellationToken</c>, which ends when the 202
     /// returns. Fire-and-forget: a failed send is non-fatal (the user can request another link), so it
     /// is only logged. Keeping the send off the request path is what makes the 202 timing uniform.</summary>
-    private void DispatchResetEmail(string toEmail, string rawToken)
+    private void DispatchResetEmail(string toEmail, string rawToken, string? locale)
     {
         _ = Task.Run(async () =>
         {
@@ -116,7 +117,7 @@ public class PasswordResetController(
             {
                 using var scope = scopeFactory.CreateScope();
                 var svc = scope.ServiceProvider.GetRequiredService<PasswordResetService>();
-                await svc.SendAsync(toEmail, rawToken, CancellationToken.None);
+                await svc.SendAsync(toEmail, rawToken, CancellationToken.None, locale);
             }
             catch (Exception ex)
             {
@@ -133,7 +134,8 @@ public class PasswordResetController(
     {
         var row = await resets.ResolveAsync(token, ct);
         if (row is null)
-            return Problem("This reset link is no longer valid.", statusCode: StatusCodes.Status410Gone);
+            return this.CodedProblem(StatusCodes.Status410Gone, ErrorCodes.ResetLinkInvalid,
+                "This reset link is no longer valid.");
 
         return new ResetPreview(row.User.Email);
     }
@@ -151,7 +153,8 @@ public class PasswordResetController(
     {
         var row = await resets.ResolveAsync(token, ct);
         if (row is null)
-            return Problem("This reset link is no longer valid.", statusCode: StatusCodes.Status410Gone);
+            return this.CodedProblem(StatusCodes.Status410Gone, ErrorCodes.ResetLinkInvalid,
+                "This reset link is no longer valid.");
 
         var user = row.User;
 
@@ -181,7 +184,8 @@ public class PasswordResetController(
             .Where(t => t.Id == row.Id && t.UsedAt == null)
             .ExecuteUpdateAsync(s => s.SetProperty(x => x.UsedAt, clock.GetUtcNow()), ct);
         if (won == 0)
-            return Problem("This reset link is no longer valid.", statusCode: StatusCodes.Status410Gone);
+            return this.CodedProblem(StatusCodes.Status410Gone, ErrorCodes.ResetLinkInvalid,
+                "This reset link is no longer valid.");
 
         user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.Password);
         user.MustChangePassword = false;

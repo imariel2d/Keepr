@@ -17,10 +17,10 @@ interface ExpiryOption {
 const NEVER = 'never';
 
 const EXPIRY_OPTIONS: ExpiryOption[] = [
-  { label: '1 day', days: 1 },
-  { label: '7 days', days: 7 },
-  { label: '30 days', days: 30 },
-  { label: 'Never', days: null },
+  { label: $localize`:@@share.expiry.1day:1 day`, days: 1 },
+  { label: $localize`:@@share.expiry.7days:7 days`, days: 7 },
+  { label: $localize`:@@share.expiry.30days:30 days`, days: 30 },
+  { label: $localize`:@@share.expiry.never:Never`, days: null },
 ];
 
 /**
@@ -34,19 +34,19 @@ const EXPIRY_OPTIONS: ExpiryOption[] = [
   selector: 'app-share-dialog',
   imports: [ModalComponent, ButtonComponent, IconButtonComponent, ContextMenuComponent],
   template: `
-    <cove-modal [open]="open" [title]="'Share ' + fileName" [width]="560" (close)="close.emit()">
+    <cove-modal [open]="open" [title]="title()" [width]="560" (close)="close.emit()">
       <div class="share-body">
         <!-- Create -->
         <div class="create">
           <label>
-            Link expires in
+            <span i18n="@@share.expires_in">Link expires in</span>
             <select [value]="days() ?? NEVER" (change)="onDaysChange($event)">
               @for (o of options; track o.label) {
                 <option [value]="o.days ?? NEVER">{{ o.label }}</option>
               }
             </select>
           </label>
-          <cove-button variant="primary" icon="link" [disabled]="busy()" (click)="create()">
+          <cove-button variant="primary" icon="link" [disabled]="busy()" (click)="create()" i18n="@@share.create_link">
             Create link
           </cove-button>
         </div>
@@ -54,30 +54,30 @@ const EXPIRY_OPTIONS: ExpiryOption[] = [
         <!-- Existing links (revoked ones are hidden) -->
         <div class="links">
           @if (loading()) {
-            <p class="muted">Loading links…</p>
+            <p class="muted" i18n="@@share.loading_links">Loading links…</p>
           } @else if (visibleLinks().length === 0) {
-            <p class="muted">This file isn't shared yet.</p>
+            <p class="muted" i18n="@@share.not_shared">This file isn't shared yet.</p>
           } @else {
             @for (link of visibleLinks(); track link.linkId) {
               <div class="link" [class.dead]="status(link) !== 'Active'">
                 <div class="link-info">
-                  <span class="badge" [attr.data-state]="status(link)">{{ status(link) }}</span>
+                  <span class="badge" [attr.data-state]="status(link)">{{ statusLabel(link) }}</span>
                   <span class="dates">
-                    @if (link.expiresAt) { Expires {{ formatDate(link.expiresAt) }} }
-                    @else { Never expires }
+                    @if (link.expiresAt) { <ng-container i18n="@@share.expires_on">Expires {{ formatDate(link.expiresAt) }}</ng-container> }
+                    @else { <ng-container i18n="@@share.never_expires">Never expires</ng-container> }
                   </span>
                 </div>
                 <div class="link-actions">
-                  <select [value]="''" (change)="extend(link, $event)" title="Change expiry">
-                    <option value="" disabled>Change expiry…</option>
+                  <select [value]="''" (change)="extend(link, $event)" title="Change expiry" i18n-title="@@share.change_expiry">
+                    <option value="" disabled i18n="@@share.change_expiry_option">Change expiry…</option>
                     @for (o of options; track o.label) {
                       <option [value]="o.days ?? NEVER">{{ o.label }}</option>
                     }
                   </select>
                   @if (copiedId() === link.linkId) {
-                    <span class="copied">Copied</span>
+                    <span class="copied" i18n="@@share.copied">Copied</span>
                   }
-                  <cove-icon-button icon="more-vertical" label="Link actions" [size]="32"
+                  <cove-icon-button icon="more-vertical" label="Link actions" i18n-label="@@share.link_actions" [size]="32"
                                     (click)="openLinkMenu(link, $event)" />
                 </div>
               </div>
@@ -92,11 +92,11 @@ const EXPIRY_OPTIONS: ExpiryOption[] = [
 
       <div class="foot">
         @if (hasActive()) {
-          <cove-button variant="danger" icon="link-2-off" [disabled]="busy()" (click)="stopAll()">
+          <cove-button variant="danger" icon="link-2-off" [disabled]="busy()" (click)="stopAll()" i18n="@@share.stop_sharing">
             Stop sharing
           </cove-button>
         }
-        <cove-button variant="ghost" (click)="close.emit()">Done</cove-button>
+        <cove-button variant="ghost" (click)="close.emit()" i18n="@@share.done">Done</cove-button>
       </div>
     </cove-modal>
 
@@ -159,7 +159,7 @@ export class ShareDialog implements OnChanges {
     try {
       this.links.set(await this.api.list(this.fileId));
     } catch {
-      this.error.set('Could not load this file’s links.');
+      this.error.set($localize`:@@share.err.load:Could not load this file’s links.`);
     } finally {
       this.loading.set(false);
     }
@@ -180,7 +180,7 @@ export class ShareDialog implements OnChanges {
       // they want it (auto-copying on create was removed per product decision).
       this.changed.emit();
     } catch {
-      this.error.set('Could not create the link.');
+      this.error.set($localize`:@@share.err.create:Could not create the link.`);
     } finally {
       this.busy.set(false);
     }
@@ -200,7 +200,7 @@ export class ShareDialog implements OnChanges {
       this.links.set(await this.api.list(this.fileId));
       this.changed.emit();
     } catch {
-      this.error.set('Could not change the expiry.');
+      this.error.set($localize`:@@share.err.expiry:Could not change the expiry.`);
     } finally {
       this.busy.set(false);
     }
@@ -214,7 +214,7 @@ export class ShareDialog implements OnChanges {
       this.links.set(await this.api.list(this.fileId));
       this.changed.emit();
     } catch {
-      this.error.set('Could not revoke the link.');
+      this.error.set($localize`:@@share.err.revoke:Could not revoke the link.`);
     } finally {
       this.busy.set(false);
     }
@@ -229,7 +229,7 @@ export class ShareDialog implements OnChanges {
       this.links.set(await this.api.list(this.fileId));
       this.changed.emit();
     } catch {
-      this.error.set('Could not stop sharing this file.');
+      this.error.set($localize`:@@share.err.stop:Could not stop sharing this file.`);
     } finally {
       this.busy.set(false);
     }
@@ -244,9 +244,9 @@ export class ShareDialog implements OnChanges {
     event.stopPropagation();
     const items: ContextMenuItem[] = [];
     if (this.status(link) === 'Active') {
-      items.push({ label: 'Copy link', icon: 'copy', onSelect: () => void this.copy(link) });
+      items.push({ label: $localize`:@@share.menu.copy:Copy link`, icon: 'copy', onSelect: () => void this.copy(link) });
     }
-    items.push({ label: 'Revoke', icon: 'link-2-off', danger: true, onSelect: () => void this.revoke(link) });
+    items.push({ label: $localize`:@@share.menu.revoke:Revoke`, icon: 'link-2-off', danger: true, onSelect: () => void this.revoke(link) });
     this.menuItems.set(items);
     const { x, y } = menuAnchor(event);
     this.menuX.set(x);
@@ -262,14 +262,27 @@ export class ShareDialog implements OnChanges {
       setTimeout(() => this.copiedId() === linkId && this.copiedId.set(null), 1500);
     } catch {
       // Clipboard blocked (e.g. an insecure context); surface it rather than fail silently.
-      this.error.set('Copying isn’t available here — select and copy the link manually.');
+      this.error.set($localize`:@@share.err.copy:Copying isn’t available here — select and copy the link manually.`);
     }
   }
 
+  protected title(): string {
+    return $localize`:@@share.title:Share ${this.fileName}:name:`;
+  }
+
+  /** The internal status enum drives CSS + logic; this is its localized display label. */
   protected status(link: ShareLinkResponse): 'Active' | 'Expired' | 'Revoked' {
     if (link.revoked) return 'Revoked';
     if (link.expiresAt === null) return 'Active'; // never expires
     return new Date(link.expiresAt).getTime() <= Date.now() ? 'Expired' : 'Active';
+  }
+
+  protected statusLabel(link: ShareLinkResponse): string {
+    switch (this.status(link)) {
+      case 'Active': return $localize`:@@share.status.active:Active`;
+      case 'Expired': return $localize`:@@share.status.expired:Expired`;
+      default: return $localize`:@@share.status.revoked:Revoked`;
+    }
   }
 
   protected hasActive(): boolean {

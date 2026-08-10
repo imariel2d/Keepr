@@ -97,7 +97,7 @@ export class PreviewOverlay {
         this.pdfUrl.set(this.sanitizer.bypassSecurityTrustResourceUrl(url));
       }
     } catch {
-      this.error.set('Could not load a preview for this file.');
+      this.error.set($localize`:@@preview.err.load:Could not load a preview for this file.`);
     } finally {
       this.loading.set(false);
     }
@@ -119,7 +119,7 @@ export class PreviewOverlay {
     try {
       saveFile(await this.media.downloadUrl(item.id));
     } catch {
-      this.error.set('Could not start the download.');
+      this.error.set($localize`:@@preview.err.download:Could not start the download.`);
     }
   }
 
@@ -127,7 +127,7 @@ export class PreviewOverlay {
     // Most likely an expired signature; make sure a retry doesn't reuse it.
     const item = this.current();
     if (item) this.media.invalidateUrls(item.id);
-    this.error.set('That preview link expired. Try again.');
+    this.error.set($localize`:@@preview.err.expired:That preview link expired. Try again.`);
   }
 
   @HostListener('document:keydown', ['$event'])

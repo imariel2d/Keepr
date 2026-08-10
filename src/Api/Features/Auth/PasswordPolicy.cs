@@ -1,4 +1,5 @@
 using System.Text;
+using Keepr.Api.Http;
 
 namespace Keepr.Api.Features.Auth;
 
@@ -24,16 +25,16 @@ public static class PasswordPolicy
     /// </summary>
     public const int MaxBytes = 72;
 
-    public static string TooShortMessage => $"Use at least {MinLength} characters.";
-    public const string TooLongMessage =
-        "That password is too long. Keep it under 72 bytes (about 72 characters).";
-    public const string ContainsEmailMessage = "Don't use your email address in your password.";
-    public const string BreachedMessage =
-        "This password has appeared in a data breach. Choose another.";
+    // Stable error codes (not prose) — the client owns the localized copy (#30 P2), including the
+    // "at least {MinLength} characters" interpolation. Named members so tests read by intent.
+    public const string TooShortCode = ErrorCodes.PasswordTooShort;
+    public const string TooLongCode = ErrorCodes.PasswordTooLong;
+    public const string ContainsEmailCode = ErrorCodes.PasswordContainsEmail;
+    public const string BreachedCode = ErrorCodes.PasswordBreached;
 
     /// <summary>
     /// The rules that need no network. Returns every failure rather than the first, so the form
-    /// can show the whole picture in one round-trip.
+    /// can show the whole picture in one round-trip. Each failure is a stable error <b>code</b>.
     /// </summary>
     public static List<string> Validate(string? password, string email)
     {
@@ -41,20 +42,20 @@ public static class PasswordPolicy
 
         if (string.IsNullOrEmpty(password))
         {
-            errors.Add(TooShortMessage);
+            errors.Add(TooShortCode);
             return errors;
         }
 
         // Length in text elements, so an emoji or an accented character counts once to the user
         // even though it costs several bytes against MaxBytes below.
         if (new System.Globalization.StringInfo(password).LengthInTextElements < MinLength)
-            errors.Add(TooShortMessage);
+            errors.Add(TooShortCode);
 
         if (Encoding.UTF8.GetByteCount(password) > MaxBytes)
-            errors.Add(TooLongMessage);
+            errors.Add(TooLongCode);
 
         if (ContainsEmail(password, email))
-            errors.Add(ContainsEmailMessage);
+            errors.Add(ContainsEmailCode);
 
         return errors;
     }

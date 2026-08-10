@@ -10,6 +10,7 @@ import { UploadService } from '../../core/upload.service';
 import { UsageStore } from '../../core/usage.store';
 import { BytesPipe } from '../../core/bytes.pipe';
 import { formatDate, fileTypeOf } from '../../core/file-type';
+import { errorMessage } from '../../core/problem-details';
 import { DragPayload, FolderContents, FolderItem, MediaListItem } from '../../core/models';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { IconComponent } from '../../cove/lib/icon/icon.component';
@@ -145,7 +146,9 @@ export class Files {
   protected readonly menuItems = signal<ContextMenuItem[]>([]);
 
   protected readonly createOpen = signal(false);
-  protected readonly createName = signal('New folder');
+  /** Pre-filled default name for a new folder (a real folder name, localized like the rest of the UI). */
+  private readonly newFolderDefault = $localize`:@@files.new_folder_default:New folder`;
+  protected readonly createName = signal(this.newFolderDefault);
 
   protected readonly renameOpen = signal(false);
   protected readonly renameTarget = signal<DragPayload | null>(null);
@@ -197,8 +200,17 @@ export class Files {
 
   protected readonly confirmTitle = computed(() => {
     const targets = this.confirmTargets();
-    return targets.length === 1 ? `Delete ${targets[0].name}?` : `Delete ${targets.length} items?`;
+    return targets.length === 1
+      ? $localize`:@@files.confirm.title_one:Delete ${targets[0].name}:name:?`
+      : $localize`:@@files.confirm.title_many:Delete ${targets.length}:count: items?`;
   });
+
+  /** Title for the rename modal (interpolates the item's current name). */
+  protected readonly renameTitle = computed(() =>
+    $localize`:@@files.rename_title:Rename ${this.renameTarget()?.name ?? ''}:name:`);
+
+  /** The localized "My Files" root label, reused in the breadcrumb, drop veil, and search paths. */
+  protected readonly myFilesLabel = $localize`:@@nav.my_files:My Files`;
 
   /** Selected files only — folders have nothing to download. */
   protected readonly selectedFiles = computed(() => {
@@ -320,7 +332,7 @@ export class Files {
       }
     } catch (e) {
       if (!isLatest()) return;
-      this.error.set(this.messageOf(e, q ? 'Search failed.' : 'Could not load this folder.'));
+      this.error.set(errorMessage(e));
       this.contents.set(null);
     } finally {
       // Guarded so a superseded fetch can't clear the spinner while the newer one is still running.
@@ -331,13 +343,13 @@ export class Files {
 
   /** The display path for a search hit: the client owns the "My Files" root label. */
   protected locationLabel(item: { location?: string[] }): string {
-    return ['My Files', ...(item.location ?? [])].join(' / ');
+    return [this.myFilesLabel, ...(item.location ?? [])].join(' / ');
   }
 
   // ---- create / rename ----------------------------------------------------
 
   protected openCreate(): void {
-    this.createName.set('New folder');
+    this.createName.set(this.newFolderDefault);
     this.createOpen.set(true);
   }
 
@@ -348,10 +360,10 @@ export class Files {
     try {
       const created = await this.folderApi.create(name, this.folderId());
       // The server auto-suffixes a colliding name rather than failing, so report what it chose.
-      if (created.name !== name) this.flash(`A folder named "${name}" already existed — created "${created.name}".`);
+      if (created.name !== name) this.flash($localize`:@@files.flash.folder_exists:A folder named "${name}:name:" already existed — created "${created.name}:created:".`);
       await this.refresh();
     } catch (e) {
-      this.error.set(this.messageOf(e, 'Could not create the folder.'));
+      this.error.set(errorMessage(e));
     }
   }
 
@@ -371,10 +383,10 @@ export class Files {
         target.kind === 'folder'
           ? (await this.folderApi.rename(target.id, name)).name
           : (await this.media.rename(target.id, name)).originalName;
-      if (stored !== name) this.flash(`"${name}" was taken — saved as "${stored}".`);
+      if (stored !== name) this.flash($localize`:@@files.flash.name_taken:"${name}:name:" was taken — saved as "${stored}:stored:".`);
       await this.refresh();
     } catch (e) {
-      this.error.set(this.messageOf(e, 'Could not rename.'));
+      this.error.set(errorMessage(e));
     }
   }
 
@@ -439,7 +451,7 @@ export class Files {
     }
     if (failed) {
       this.error.set(
-        `Could not get a download link for ${failed} of ${files.length} ${this.plural(files.length, 'file')}.`
+        $localize`:@@files.download.some_failed:Could not get a download link for ${failed}:failed: of ${files.length}:total: ${this.noun('file', files.length)}:noun:.`
       );
     }
   }
@@ -462,18 +474,28 @@ export class Files {
     return failed;
   }
 
-  private reportFailures(failed: DragPayload[], total: number, verb: string): void {
+  private reportFailures(failed: DragPayload[], total: number, op: 'move' | 'delete'): void {
     if (!failed.length) return;
     const names = failed.map((f) => `"${f.name}"`).join(', ');
-    this.error.set(
-      failed.length === total
-        ? `Could not ${verb} ${names}.`
-        : `Could not ${verb} ${failed.length} of ${total} items: ${names}.`
-    );
+    const all = failed.length === total;
+    const count = failed.length;
+    if (op === 'move') {
+      this.error.set(all
+        ? $localize`:@@files.fail.move_all:Could not move ${names}:names:.`
+        : $localize`:@@files.fail.move_some:Could not move ${count}:failed: of ${total}:total: items: ${names}:names:.`);
+    } else {
+      this.error.set(all
+        ? $localize`:@@files.fail.delete_all:Could not delete ${names}:names:.`
+        : $localize`:@@files.fail.delete_some:Could not delete ${count}:failed: of ${total}:total: items: ${names}:names:.`);
+    }
   }
 
-  protected plural(n: number, word: string): string {
-    return n === 1 ? word : `${word}s`;
+  /** Localized singular/plural noun for composed labels (the count is interpolated separately). */
+  protected noun(word: 'file' | 'item', n: number): string {
+    if (word === 'file') {
+      return n === 1 ? $localize`:@@noun.file.one:file` : $localize`:@@noun.file.other:files`;
+    }
+    return n === 1 ? $localize`:@@noun.item.one:item` : $localize`:@@noun.item.other:items`;
   }
 
   /** Shared by the picker and drag-and-drop. */
@@ -483,11 +505,11 @@ export class Files {
         item.kind === 'folder'
           ? (await this.folderApi.move(item.id, destination)).name
           : (await this.media.move(item.id, destination)).originalName;
-      if (stored !== item.name) this.flash(`Moved — renamed to "${stored}" to avoid a clash.`);
+      if (stored !== item.name) this.flash($localize`:@@files.flash.moved_renamed:Moved — renamed to "${stored}:stored:" to avoid a clash.`);
       await this.refresh();
     } catch (e) {
       // 409 here is the "into its own subfolder" case; the server message says so plainly.
-      this.error.set(this.messageOf(e, 'Could not move that item.'));
+      this.error.set(errorMessage(e));
     }
   }
 
@@ -525,7 +547,7 @@ export class Files {
       // instead of opening a tab that renders the file.
       saveFile(await this.media.downloadUrl(item.id));
     } catch (e) {
-      this.error.set(this.messageOf(e, 'Could not get a download link.'));
+      this.error.set(errorMessage(e));
     }
   }
 
@@ -569,11 +591,11 @@ export class Files {
       return;
     }
     this.showMenu(event, [
-      { label: 'Open', icon: 'folder-open', onSelect: () => this.openFolder(f) },
-      { label: 'Rename', icon: 'edit-2', onSelect: () => this.openRename(payload) },
-      { label: 'Move to…', icon: 'move', onSelect: () => this.openMove(payload) },
+      { label: $localize`:@@files.menu.open:Open`, icon: 'folder-open', onSelect: () => this.openFolder(f) },
+      { label: $localize`:@@files.rename:Rename`, icon: 'edit-2', onSelect: () => this.openRename(payload) },
+      { label: $localize`:@@files.move_to:Move to…`, icon: 'move', onSelect: () => this.openMove(payload) },
       { divider: true },
-      { label: 'Delete', icon: 'trash-2', danger: true, onSelect: () => this.askDelete(payload) },
+      { label: $localize`:@@files.delete:Delete`, icon: 'trash-2', danger: true, onSelect: () => this.askDelete(payload) },
     ]);
   }
 
@@ -589,12 +611,12 @@ export class Files {
       return;
     }
     this.showMenu(event, [
-      { label: 'Download', icon: 'download', onSelect: () => void this.download(f) },
-      { label: 'Share…', icon: 'link', onSelect: () => this.openShare(payload) },
-      { label: 'Rename', icon: 'edit-2', onSelect: () => this.openRename(payload) },
-      { label: 'Move to…', icon: 'move', onSelect: () => this.openMove(payload) },
+      { label: $localize`:@@files.menu.download:Download`, icon: 'download', onSelect: () => void this.download(f) },
+      { label: $localize`:@@files.menu.share:Share…`, icon: 'link', onSelect: () => this.openShare(payload) },
+      { label: $localize`:@@files.rename:Rename`, icon: 'edit-2', onSelect: () => this.openRename(payload) },
+      { label: $localize`:@@files.move_to:Move to…`, icon: 'move', onSelect: () => this.openMove(payload) },
       { divider: true },
-      { label: 'Delete', icon: 'trash-2', danger: true, onSelect: () => this.askDelete(payload) },
+      { label: $localize`:@@files.delete:Delete`, icon: 'trash-2', danger: true, onSelect: () => this.askDelete(payload) },
     ]);
   }
 
@@ -614,16 +636,16 @@ export class Files {
 
     if (fileCount) {
       items.push({
-        label: `Download ${fileCount} ${this.plural(fileCount, 'file')}`,
+        label: $localize`:@@files.menu.download_n:Download ${fileCount}:count: ${this.noun('file', fileCount)}:noun:`,
         icon: 'download',
         onSelect: () => void this.downloadSelected(),
       });
     }
     items.push(
-      { label: `Move ${total} items to…`, icon: 'move', onSelect: () => this.openMoveSelected() },
+      { label: $localize`:@@files.menu.move_n:Move ${total}:count: ${this.noun('item', total)}:noun: to…`, icon: 'move', onSelect: () => this.openMoveSelected() },
       { divider: true },
       {
-        label: `Delete ${total} items`,
+        label: $localize`:@@files.menu.delete_n:Delete ${total}:count: ${this.noun('item', total)}:noun:`,
         icon: 'trash-2',
         danger: true,
         onSelect: () => this.askDeleteSelected(),
@@ -874,11 +896,5 @@ export class Files {
   private flash(message: string): void {
     this.notice.set(message);
     setTimeout(() => this.notice.set(null), 6000);
-  }
-
-  /** Errors are problem+json; `detail` carries a message written for end users. */
-  private messageOf(e: unknown, fallback: string): string {
-    const detail = (e as { error?: { detail?: string } })?.error?.detail;
-    return typeof detail === 'string' && detail ? detail : fallback;
   }
 }

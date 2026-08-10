@@ -50,12 +50,12 @@ public class PasswordResetService(
     /// <summary>Renders and sends the reset email via the currently-configured provider. Throws on
     /// transport failure — self-service callers treat that as non-fatal (the neutral 202 already went
     /// out); the admin-initiated path surfaces it (§5.1/§6.2).</summary>
-    public async Task SendAsync(string toEmail, string rawToken, CancellationToken ct)
+    public async Task SendAsync(string toEmail, string rawToken, CancellationToken ct, string? locale = null)
     {
         var s = await settings.GetAsync(ct);
         var minutes = emailOptions.Value.ResetExpiryMinutes; // startup-validated (Program.cs)
         var resetUrl = $"{ResolveBaseUrl(s.PublicBaseUrl)}/reset-password/{rawToken}";
-        var content = EmailTemplates.PasswordReset(resetUrl, minutes);
+        var content = EmailTemplates.PasswordReset(resetUrl, minutes, locale);
         var email = await senders.CreateAsync(ct);
         await email.SendAsync(
             new EmailMessage(toEmail, string.Empty, content.Subject, content.HtmlBody, content.TextBody),

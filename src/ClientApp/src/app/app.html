@@ -1,4 +1,4 @@
-<a class="skip-link" href="#main-content">Skip to content</a>
+<a class="skip-link" href="#main-content" i18n="@@shell.skip_to_content">Skip to content</a>
 
 <header class="topbar">
   <div class="brand">
@@ -7,6 +7,7 @@
         class="menu-btn"
         icon="menu"
         label="Open navigation menu"
+        i18n-label="@@shell.open_menu"
         [ariaExpanded]="drawerOpen()"
         ariaControls="nav-drawer"
         (click)="toggleDrawer()" />
@@ -18,17 +19,18 @@
   @if (auth.isAuthenticated()) {
     <form class="search" role="search" (submit)="$event.preventDefault(); submitSearch()">
       <cove-icon class="search-icon" name="search" [size]="18" aria-hidden="true" />
-      <label class="sr-only" for="topbar-search">Search files and folders</label>
+      <label class="sr-only" for="topbar-search" i18n="@@shell.search">Search files and folders</label>
       <input
         id="topbar-search"
         type="search"
         class="search-input"
         placeholder="Search files and folders"
+        i18n-placeholder="@@shell.search"
         autocomplete="off"
         [value]="searchTerm()"
         (input)="onSearchInput($any($event.target).value)" />
       @if (searchTerm()) {
-        <button type="button" class="search-clear" aria-label="Clear search" (click)="clearSearch()">
+        <button type="button" class="search-clear" aria-label="Clear search" i18n-aria-label="@@shell.clear_search" (click)="clearSearch()">
           <cove-icon name="x" [size]="16" aria-hidden="true" />
         </button>
       }
@@ -38,12 +40,12 @@
   <div class="actions">
     <cove-icon-button
       [icon]="theme.theme() === 'dark' ? 'sun' : 'moon'"
-      [label]="theme.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+      [label]="themeToggleLabel()"
       (click)="theme.toggle()" />
 
     @if (auth.isAuthenticated()) {
-      <cove-icon-button icon="circle-user" label="Your profile" (click)="goToProfile()" />
-      <cove-button variant="ghost" size="sm" icon="log-out" (click)="logout()">Log out</cove-button>
+      <cove-icon-button icon="circle-user" label="Your profile" i18n-label="@@shell.your_profile" (click)="goToProfile()" />
+      <cove-button variant="ghost" size="sm" icon="log-out" (click)="logout()" i18n="@@shell.log_out">Log out</cove-button>
     }
   </div>
 </header>
@@ -71,7 +73,7 @@
   @if (drawerOpen()) {
     <div class="drawer-scrim" (click)="closeDrawer()"></div>
     <div #drawer id="nav-drawer" class="drawer" role="dialog" aria-modal="true"
-         aria-label="Navigation" tabindex="-1">
+         aria-label="Navigation" i18n-aria-label="@@shell.nav" tabindex="-1">
       <cove-sidebar
         brand="Keepr"
         brandMark="cove-mark.svg"
