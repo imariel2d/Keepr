@@ -29,10 +29,14 @@
 > id-complete against the source) — the production build emits `browser/{en,es,fr}/` with the right
 > base hrefs and per-locale copy; the Dockerfile carries all three unchanged.
 >
-> **Not built yet:** the Phase-2 field-validation codes (§5.3 — password/email/register validation
-> messages still English), the client bootstrap auto-redirect for a signed-in user whose account
-> preference differs from the current build (the server cookie redirect covers the same-browser case),
-> and emails (§10 P3).
+> **Phase 2 done:** the credential validators (`EmailPolicy`, `PasswordPolicy`) now emit stable
+> **codes** in the field `errors` map instead of English prose; the client's `fieldErrors()` localizes
+> each known code per field (unknown values pass through, so framework/email-settings validators are
+> unaffected). Six new field codes in `ErrorCodes` + `fields.*` catalog entries.
+>
+> **Not built yet:** the client bootstrap auto-redirect for a signed-in user whose account preference
+> differs from the current build (the server cookie redirect covers the same-browser case), and
+> emails (§10 P3).
 >
 > Two load-bearing decisions the user made up front (see §2):
 >

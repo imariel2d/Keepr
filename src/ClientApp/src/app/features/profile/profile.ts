@@ -6,7 +6,7 @@ import { EmailChangeService } from '../../core/email-change.service';
 import { LocaleService } from '../../core/locale.service';
 import { Locale } from '../../core/locale';
 import { MIN_PASSWORD_LENGTH } from '../../core/password-policy';
-import { errorMessage, problemDetail, validationErrors } from '../../core/problem-details';
+import { errorMessage, fieldErrors as toFieldMessages, problemDetail } from '../../core/problem-details';
 import { LanguageSwitcher } from '../i18n/language-switcher';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { InputComponent } from '../../cove/lib/input/input.component';
@@ -164,7 +164,7 @@ export class Profile {
         this.passwordNotice.set('Password changed. Your other sessions were signed out.');
       }
     } catch (e) {
-      const fieldErrors = validationErrors(e);
+      const fieldErrors = toFieldMessages(e);
       if (Object.keys(fieldErrors).length > 0) {
         this.passwordFieldErrors.set(fieldErrors);
       } else {
@@ -200,7 +200,7 @@ export class Profile {
           `Confirm the link we sent to ${result.pendingEmail} to finish the change.`);
       }
     } catch (e) {
-      const fieldErrors = validationErrors(e);
+      const fieldErrors = toFieldMessages(e);
       if (Object.keys(fieldErrors).length > 0) {
         this.emailFieldErrors.set(fieldErrors);
       } else {

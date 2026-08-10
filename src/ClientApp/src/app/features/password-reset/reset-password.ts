@@ -4,7 +4,7 @@ import { AuthService } from '../../core/auth.service';
 import { PasswordResetService } from '../../core/password-reset.service';
 import { ProfileStore } from '../../core/profile.store';
 import { MIN_PASSWORD_LENGTH } from '../../core/password-policy';
-import { errorMessage, problemStatus, validationErrors } from '../../core/problem-details';
+import { errorMessage, fieldErrors as toFieldMessages, problemStatus } from '../../core/problem-details';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { InputComponent } from '../../cove/lib/input/input.component';
 import { IconComponent } from '../../cove/lib/icon/icon.component';
@@ -95,7 +95,7 @@ export class ResetPassword {
         this.invalid.set(true);
         return;
       }
-      const fieldErrors = validationErrors(e);
+      const fieldErrors = toFieldMessages(e);
       if (Object.keys(fieldErrors).length > 0) {
         this.fieldErrors.set(fieldErrors);
       } else {

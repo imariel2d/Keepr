@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { EmailSettingsService } from '../../core/email-settings.service';
 import { EmailProvider, EmailSettingsResponse, UpdateEmailSettingsRequest } from '../../core/models';
 import { formatDate } from '../../core/file-type';
-import { errorMessage, validationErrors } from '../../core/problem-details';
+import { errorMessage, fieldErrors as toFieldMessages } from '../../core/problem-details';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { IconComponent } from '../../cove/lib/icon/icon.component';
 import { InputComponent } from '../../cove/lib/input/input.component';
@@ -221,7 +221,7 @@ export class EmailSettings {
       this.apply(await this.api.update(req));
       this.notice.set($localize`:@@email.saved:Email settings saved.`);
     } catch (e) {
-      const fieldErrors = validationErrors(e);
+      const fieldErrors = toFieldMessages(e);
       if (Object.keys(fieldErrors).length > 0) {
         this.fieldErrors.set(fieldErrors);
       } else {

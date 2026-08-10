@@ -78,4 +78,14 @@ public static class ErrorCodes
 
     // ---- Quota --------------------------------------------------------------
     public const string QuotaExceeded = "quota_exceeded";
+
+    // ---- Field validation (#30 P2) — the value of a per-field `errors` entry -
+    // These live in the ValidationProblemDetails `errors` map (keyed by field), not the top-level
+    // `code`. The client localizes them per field the same way (fieldErrors in problem-details.ts).
+    public const string EmailMalformed = "email_malformed";
+    public const string EmailDisposable = "email_disposable";
+    public const string PasswordTooShort = "password_too_short";
+    public const string PasswordTooLong = "password_too_long";
+    public const string PasswordContainsEmail = "password_contains_email";
+    public const string PasswordBreached = "password_breached";
 }

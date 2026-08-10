@@ -45,7 +45,7 @@ public class CredentialValidator(IBreachedPasswordCheck breachCheck)
         // Only worth a network round-trip once the password is otherwise acceptable — a password
         // already too short is going to be rejected either way.
         if (passwordErrors.Count == 0 && await breachCheck.IsBreachedAsync(password!, ct))
-            passwordErrors.Add(PasswordPolicy.BreachedMessage);
+            passwordErrors.Add(PasswordPolicy.BreachedCode);
 
         return passwordErrors;
     }

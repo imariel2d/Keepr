@@ -2,6 +2,8 @@
 // feature screen parses the same server contract the same way, and a shape change lands in one
 // place. See docs/feature-36-account-provisioning.md §12.
 
+import { MIN_PASSWORD_LENGTH } from './password-policy';
+
 /** The user-facing `detail` string, or a fallback when the error carries none. */
 export function problemDetail(e: unknown, fallback: string): string {
   const detail = (e as { error?: { detail?: string } })?.error?.detail;
@@ -24,6 +26,38 @@ export function problemCode(e: unknown): string | undefined {
 export function validationErrors(e: unknown): Record<string, string[]> {
   const errors = (e as { error?: { errors?: Record<string, string[]> } })?.error?.errors;
   return errors && typeof errors === 'object' ? errors : {};
+}
+
+// Localized copy for the per-field validation codes the credential validators emit (#30 §5.3).
+// A field `errors` entry is a stable code (e.g. `password_too_short`); this maps it to translated
+// text. Values that aren't known codes (framework validators, the email-settings screen) pass
+// through unchanged, so `fieldErrors` is safe to use for every validation response.
+const FIELD_MESSAGES: Record<string, () => string> = {
+  email_malformed: () => $localize`:@@fields.email_malformed:Enter a valid email address.`,
+  email_disposable: () =>
+    $localize`:@@fields.email_disposable:That email provider isn't supported. Use a permanent address.`,
+  password_too_short: () =>
+    $localize`:@@fields.password_too_short:Use at least ${MIN_PASSWORD_LENGTH}:count: characters.`,
+  password_too_long: () =>
+    $localize`:@@fields.password_too_long:That password is too long. Keep it under 72 bytes (about 72 characters).`,
+  password_contains_email: () =>
+    $localize`:@@fields.password_contains_email:Don't use your email address in your password.`,
+  password_breached: () =>
+    $localize`:@@fields.password_breached:This password has appeared in a data breach. Choose another.`,
+};
+
+/**
+ * The per-field validation map with each known code translated to the user's language, and any
+ * unrecognized value passed through as-is. Prefer this over `validationErrors` anywhere the messages
+ * are shown to a user (#30 §5.3).
+ */
+export function fieldErrors(e: unknown): Record<string, string[]> {
+  const raw = validationErrors(e);
+  const out: Record<string, string[]> = {};
+  for (const [field, values] of Object.entries(raw)) {
+    out[field] = values.map((v) => FIELD_MESSAGES[v]?.() ?? v);
+  }
+  return out;
 }
 
 // Localized copy for the server's stable error `code`s (#30). Each entry is a `$localize` string,

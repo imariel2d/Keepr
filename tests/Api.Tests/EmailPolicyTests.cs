@@ -26,7 +26,7 @@ public class EmailPolicyTests
     [InlineData("user@com")]
     public void Rejects_a_domain_with_no_dot(string email)
     {
-        Assert.Equal(EmailPolicy.MalformedMessage, EmailPolicy.Validate(email));
+        Assert.Equal(EmailPolicy.MalformedCode, EmailPolicy.Validate(email));
     }
 
     [Theory]
@@ -49,7 +49,7 @@ public class EmailPolicyTests
     [InlineData("\"john doe\"@example.com")]     // quoted local part: same
     public void Rejects_malformed_addresses(string email)
     {
-        Assert.Equal(EmailPolicy.MalformedMessage, EmailPolicy.Validate(email));
+        Assert.Equal(EmailPolicy.MalformedCode, EmailPolicy.Validate(email));
     }
 
     [Fact]
@@ -65,7 +65,7 @@ public class EmailPolicyTests
     [InlineData("someone@YOPMAIL.COM")]          // matching is case-insensitive
     public void Rejects_disposable_providers(string email)
     {
-        Assert.Equal(EmailPolicy.DisposableMessage, EmailPolicy.Validate(email));
+        Assert.Equal(EmailPolicy.DisposableCode, EmailPolicy.Validate(email));
     }
 
     /// <summary>

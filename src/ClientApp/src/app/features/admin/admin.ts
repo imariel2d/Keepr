@@ -5,7 +5,7 @@ import { AdminUserListItem, Role } from '../../core/models';
 import { BytesPipe } from '../../core/bytes.pipe';
 import { formatDate } from '../../core/file-type';
 import { MIN_PASSWORD_LENGTH, lengthRequirement, meetsMinLength } from '../../core/password-policy';
-import { errorMessage, problemCode, problemStatus, validationErrors } from '../../core/problem-details';
+import { errorMessage, fieldErrors as toFieldMessages, problemCode, problemStatus } from '../../core/problem-details';
 import { menuAnchor } from '../../core/menu-anchor';
 import { ButtonComponent } from '../../cove/lib/button/button.component';
 import { IconComponent } from '../../cove/lib/icon/icon.component';
@@ -229,7 +229,7 @@ export class Admin {
       }
       await this.load();
     } catch (e) {
-      const fieldErrors = validationErrors(e);
+      const fieldErrors = toFieldMessages(e);
       if (Object.keys(fieldErrors).length > 0) {
         this.createFieldErrors.set(fieldErrors);
       } else {
@@ -344,7 +344,7 @@ export class Admin {
           : $localize`:@@admin.notice.reset_done:Password reset for ${u.email}:email: — they'll be asked to change it on next sign-in.`);
       await this.load();
     } catch (e) {
-      const fieldErrors = validationErrors(e);
+      const fieldErrors = toFieldMessages(e);
       if (Object.keys(fieldErrors).length > 0) {
         this.resetFieldErrors.set(fieldErrors);
         return;

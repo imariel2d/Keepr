@@ -22,7 +22,7 @@ public class PasswordPolicyTests
     [Fact]
     public void Rejects_the_reported_weak_password()
     {
-        Assert.Contains(PasswordPolicy.TooShortMessage, PasswordPolicy.Validate("welcome1", Email));
+        Assert.Contains(PasswordPolicy.TooShortCode, PasswordPolicy.Validate("welcome1", Email));
     }
 
     [Theory]
@@ -32,7 +32,7 @@ public class PasswordPolicyTests
     [InlineData("elevenchars")]   // 11 — one below the limit
     public void Rejects_passwords_below_the_minimum(string? password)
     {
-        Assert.Contains(PasswordPolicy.TooShortMessage, PasswordPolicy.Validate(password, Email));
+        Assert.Contains(PasswordPolicy.TooShortCode, PasswordPolicy.Validate(password, Email));
     }
 
     [Fact]
@@ -55,7 +55,7 @@ public class PasswordPolicyTests
     [Fact]
     public void Rejects_a_password_one_byte_over_the_limit()
     {
-        Assert.Contains(PasswordPolicy.TooLongMessage, PasswordPolicy.Validate(new string('a', 73), Email));
+        Assert.Contains(PasswordPolicy.TooLongCode, PasswordPolicy.Validate(new string('a', 73), Email));
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ public class PasswordPolicyTests
 
         Assert.Equal(19, new System.Globalization.StringInfo(password).LengthInTextElements);
         Assert.True(Encoding.UTF8.GetByteCount(password) > PasswordPolicy.MaxBytes);
-        Assert.Contains(PasswordPolicy.TooLongMessage, PasswordPolicy.Validate(password, Email));
+        Assert.Contains(PasswordPolicy.TooLongCode, PasswordPolicy.Validate(password, Email));
     }
 
     [Theory]
@@ -78,7 +78,7 @@ public class PasswordPolicyTests
     [InlineData("MYARIELPASSWORD")]       // case-insensitively
     public void Rejects_a_password_containing_the_email(string password)
     {
-        Assert.Contains(PasswordPolicy.ContainsEmailMessage, PasswordPolicy.Validate(password, Email));
+        Assert.Contains(PasswordPolicy.ContainsEmailCode, PasswordPolicy.Validate(password, Email));
     }
 
     /// <summary>
@@ -97,7 +97,7 @@ public class PasswordPolicyTests
         // Too short *and* contains the email.
         var errors = PasswordPolicy.Validate("ariel", Email);
 
-        Assert.Contains(PasswordPolicy.TooShortMessage, errors);
-        Assert.Contains(PasswordPolicy.ContainsEmailMessage, errors);
+        Assert.Contains(PasswordPolicy.TooShortCode, errors);
+        Assert.Contains(PasswordPolicy.ContainsEmailCode, errors);
     }
 }

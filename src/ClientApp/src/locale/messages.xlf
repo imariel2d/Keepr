@@ -153,60 +153,102 @@
           <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="fields.email_malformed" datatype="html">
+        <source>Enter a valid email address.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fields.email_disposable" datatype="html">
+        <source>That email provider isn&apos;t supported. Use a permanent address.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fields.password_too_short" datatype="html">
+        <source>Use at least <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> characters.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fields.password_too_long" datatype="html">
+        <source>That password is too long. Keep it under 72 bytes (about 72 characters).</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fields.password_contains_email" datatype="html">
+        <source>Don&apos;t use your email address in your password.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fields.password_breached" datatype="html">
+        <source>This password has appeared in a data breach. Choose another.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/problem-details.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="errors.invalid_credentials" datatype="html">
         <source>Invalid credentials.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.email_registered" datatype="html">
         <source>Email already registered.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.registration_closed" datatype="html">
         <source>Registration is closed. Ask an admin to set up an account.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.password_incorrect" datatype="html">
         <source>Your current password is incorrect.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.invalid_language" datatype="html">
         <source>That isn&apos;t a supported language.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.share_not_found" datatype="html">
         <source>This share link doesn&apos;t exist.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">76</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.share_unavailable" datatype="html">
         <source>This share link is no longer available.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="errors.generic" datatype="html">
         <source>Something went wrong. Please try again.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/core/problem-details.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="admin.total_count" datatype="html">

@@ -73,6 +73,30 @@
         <source>At least <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> characters</source>
         <target state="needs-review-translation">Al menos <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> caracteres</target>
       </trans-unit>
+      <trans-unit id="fields.email_malformed" datatype="html">
+        <source>Enter a valid email address.</source>
+        <target state="needs-review-translation">Introduce una dirección de correo electrónico válida.</target>
+      </trans-unit>
+      <trans-unit id="fields.email_disposable" datatype="html">
+        <source>That email provider isn&apos;t supported. Use a permanent address.</source>
+        <target state="needs-review-translation">Ese proveedor de correo no es compatible. Usa una dirección permanente.</target>
+      </trans-unit>
+      <trans-unit id="fields.password_too_short" datatype="html">
+        <source>Use at least <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> characters.</source>
+        <target state="needs-review-translation">Usa al menos <x id="count" equiv-text="MIN_PASSWORD_LENGTH"/> caracteres.</target>
+      </trans-unit>
+      <trans-unit id="fields.password_too_long" datatype="html">
+        <source>That password is too long. Keep it under 72 bytes (about 72 characters).</source>
+        <target state="needs-review-translation">Esa contraseña es demasiado larga. Manténla por debajo de 72 bytes (unos 72 caracteres).</target>
+      </trans-unit>
+      <trans-unit id="fields.password_contains_email" datatype="html">
+        <source>Don&apos;t use your email address in your password.</source>
+        <target state="needs-review-translation">No uses tu dirección de correo electrónico en la contraseña.</target>
+      </trans-unit>
+      <trans-unit id="fields.password_breached" datatype="html">
+        <source>This password has appeared in a data breach. Choose another.</source>
+        <target state="needs-review-translation">Esta contraseña ha aparecido en una filtración de datos. Elige otra.</target>
+      </trans-unit>
       <trans-unit id="errors.invalid_credentials" datatype="html">
         <source>Invalid credentials.</source>
         <target state="needs-review-translation">Credenciales no válidas.</target>
